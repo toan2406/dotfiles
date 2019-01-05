@@ -3,7 +3,7 @@ call plug#begin('~/.config/nvim/plugged')
 " UI
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'jacoborus/tender.vim'
-Plug 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine'
 
 " Navigation
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -40,7 +40,6 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
-Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-signify'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/gv.vim'
@@ -71,9 +70,11 @@ set relativenumber
 set lazyredraw
 set scrolloff=10
 let g:dracula_colorterm=0
-let g:indentLine_color_term=240
-let g:indentLine_bufNameExclude=['_.*', 'NERD_tree.*']
+" let g:indentLine_color_term=240
+" let g:indentLine_bufNameExclude=['_.*', 'NERD_tree.*']
 let g:fzf_history_dir='~/.local/share/fzf-history'
+let g:rustfmt_autosave=1
+let g:javascript_plugin_flow=1
 colorscheme tender
 
 let $MYVIMRC = '$HOME/.config/nvim/init.vim'
@@ -170,7 +171,7 @@ let g:ale_lint_on_enter = 0
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 let g:ale_linters = {
-\   'javascript': [ 'eslint' ]
+\   'javascript': [ 'eslint', 'flow' ]
 \ }
 nmap <silent> <leader>aj :ALENext<CR>
 nmap <silent> <leader>ak :ALEPrevious<CR>
