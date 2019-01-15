@@ -7,7 +7,8 @@ Plug 'jacoborus/tender.vim'
 
 " Navigation
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'easymotion/vim-easymotion'
+" Plug 'easymotion/vim-easymotion'
+Plug 'justinmk/vim-sneak'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mhinz/vim-startify'
 
@@ -75,6 +76,7 @@ let g:dracula_colorterm=0
 let g:fzf_history_dir='~/.local/share/fzf-history'
 let g:rustfmt_autosave=1
 let g:javascript_plugin_flow=1
+let g:sneak#label=1
 colorscheme tender
 
 let $MYVIMRC = '$HOME/.config/nvim/init.vim'
@@ -178,11 +180,18 @@ nmap <silent> <leader>ak :ALEPrevious<CR>
 
 
 " EasyMotion configs
-let g:EasyMotion_do_mapping = 0
-let g:EasyMotion_smartcase = 1
-nmap s <Plug>(easymotion-overwin-f2)
-map <leader>j <Plug>(easymotion-j)
-map <leader>k <Plug>(easymotion-k)
+" let g:EasyMotion_do_mapping = 0
+" let g:EasyMotion_smartcase = 1
+" nmap s <Plug>(easymotion-overwin-f2)
+" map <leader>L <Plug>(easymotion-bd-jk)
+" nmap <leader>L <Plug>(easymotion-overwin-line)
+
+
+" Vim sneak configs
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
 
 
 " Gutentags configs
