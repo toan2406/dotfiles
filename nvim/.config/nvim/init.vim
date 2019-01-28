@@ -3,11 +3,9 @@ call plug#begin('~/.config/nvim/plugged')
 " UI
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'jacoborus/tender.vim'
-" Plug 'Yggdroot/indentLine'
 
 " Navigation
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-" Plug 'easymotion/vim-easymotion'
 Plug 'justinmk/vim-sneak'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mhinz/vim-startify'
@@ -25,7 +23,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'w0rp/ale'
-Plug 'ap/vim-css-color'
 
 " Tags
 Plug 'ludovicchabant/vim-gutentags'
@@ -33,11 +30,8 @@ Plug 'majutsushi/tagbar'
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'wokalski/autocomplete-flow'
-" Plug 'Shougo/neosnippet'
-" Plug 'Shougo/neosnippet-snippets'
-" Plug 'SirVer/ultisnips'
 
+" Misc
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
@@ -48,6 +42,9 @@ Plug 'junegunn/gv.vim'
 " Other languages support
 Plug 'rust-lang/rust.vim'
 Plug 'neovimhaskell/haskell-vim'
+
+" LSP
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 
 call plug#end()
 
@@ -71,8 +68,6 @@ set relativenumber
 set lazyredraw
 set scrolloff=10
 let g:dracula_colorterm=0
-" let g:indentLine_color_term=240
-" let g:indentLine_bufNameExclude=['_.*', 'NERD_tree.*']
 let g:fzf_history_dir='~/.local/share/fzf-history'
 let g:rustfmt_autosave=1
 let g:javascript_plugin_flow=1
@@ -87,16 +82,21 @@ nnoremap <Space> :
 nnoremap \ ,
 
 
-" UltiSnips configs
-" let g:UltiSnipsSnippetsDir = '~/.config/nvim/UltiSnips'
-" let g:UltiSnipsExpandTrigger = '<nop>'
-" inoremap <expr> <CR> pumvisible() ? '<C-R>=UltiSnips#ExpandSnippetOrJump()<CR>' : '\<CR>'
-
-
 " Deoplete configs
 let g:deoplete#enable_at_startup = 1
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+
+" LSP
+" Require sourcegraph/javascript-typescript-langserver
+let g:LanguageClient_serverCommands = {
+\   'rust': [ '~/.cargo/bin/rustup', 'run', 'stable', 'rls' ],
+\   'javascript': [ '/usr/local/bin/javascript-typescript-stdio' ],
+\   'javascript.jsx': [ 'tcp://127.0.0.1:2089' ],
+\ }
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 
 
 " Statusline configs
@@ -177,14 +177,6 @@ let g:ale_linters = {
 \ }
 nmap <silent> <leader>aj :ALENext<CR>
 nmap <silent> <leader>ak :ALEPrevious<CR>
-
-
-" EasyMotion configs
-" let g:EasyMotion_do_mapping = 0
-" let g:EasyMotion_smartcase = 1
-" nmap s <Plug>(easymotion-overwin-f2)
-" map <leader>L <Plug>(easymotion-bd-jk)
-" nmap <leader>L <Plug>(easymotion-overwin-line)
 
 
 " Vim sneak configs
