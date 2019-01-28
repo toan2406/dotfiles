@@ -36,7 +36,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'mhinz/vim-signify'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/gv.vim'
 
 " Other languages support
@@ -44,7 +43,10 @@ Plug 'rust-lang/rust.vim'
 Plug 'neovimhaskell/haskell-vim'
 
 " LSP
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+Plug 'autozimu/LanguageClient-neovim', {
+\   'branch': 'next',
+\   'do': 'bash install.sh'
+\ }
 
 call plug#end()
 
@@ -90,13 +92,15 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " LSP
 " Require sourcegraph/javascript-typescript-langserver
+" Require rust-lang/rls
 let g:LanguageClient_serverCommands = {
 \   'rust': [ '~/.cargo/bin/rustup', 'run', 'stable', 'rls' ],
 \   'javascript': [ '/usr/local/bin/javascript-typescript-stdio' ],
 \   'javascript.jsx': [ 'tcp://127.0.0.1:2089' ],
 \ }
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
+nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
+nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
 
 
 " Statusline configs
