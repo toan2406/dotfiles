@@ -19,8 +19,6 @@ Plug 'maximbaz/lightline-ale'
 Plug 'tpope/vim-fugitive'
 
 " JS support
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'w0rp/ale'
 
@@ -56,12 +54,12 @@ set number
 set hlsearch
 set splitright
 set splitbelow
-set colorcolumn=80,120
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-set cursorline
+" set cursorline
+" set colorcolumn=80,120
 set clipboard+=unnamedplus
 set hidden
 set ignorecase
@@ -84,6 +82,11 @@ nnoremap <Space> :
 nnoremap \ ,
 
 
+if !exists('g:syntax_on')
+  syntax enable
+endif
+
+
 " Deoplete configs
 let g:deoplete#enable_at_startup = 1
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -94,9 +97,9 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Require sourcegraph/javascript-typescript-langserver
 " Require rust-lang/rls
 let g:LanguageClient_serverCommands = {
-\   'rust': [ '~/.cargo/bin/rustup', 'run', 'stable', 'rls' ],
-\   'javascript': [ '/usr/local/bin/javascript-typescript-stdio' ],
-\   'javascript.jsx': [ 'tcp://127.0.0.1:2089' ],
+\   'rust': [ 'rustup', 'run', 'stable', 'rls' ],
+\   'javascript': [ 'javascript-typescript-stdio' ],
+\   'javascript.jsx': [ 'javascript-typescript-stdio' ],
 \ }
 nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
 nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
@@ -210,10 +213,6 @@ let g:haskell_indent_guard = 2
 " Edit and source configs
 nnoremap <silent> <leader>ec :e $MYVIMRC<CR>
 nnoremap <silent> <leader>sc :source $MYVIMRC<CR>
-
-
-" Clear screen
-nnoremap <silent> <leader>l :nohlsearch<CR>
 
 
 " Tmux navigation
