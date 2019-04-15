@@ -19,6 +19,7 @@ Plug 'maximbaz/lightline-ale'
 Plug 'tpope/vim-fugitive'
 
 " JS support
+Plug 'moll/vim-node'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'w0rp/ale'
 
