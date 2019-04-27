@@ -36,6 +36,8 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'mhinz/vim-signify'
 Plug 'junegunn/gv.vim'
+Plug 'janko-m/vim-test'
+Plug 'benmills/vimux'
 
 " Other languages support
 Plug 'rust-lang/rust.vim'
@@ -60,7 +62,7 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 " set cursorline
-" set colorcolumn=80,120
+set colorcolumn=80,120
 set clipboard+=unnamedplus
 set hidden
 set ignorecase
@@ -209,6 +211,15 @@ augroup END
 let g:haskell_indent_if = 3
 let g:haskell_indent_let = 4
 let g:haskell_indent_guard = 2
+
+
+" Run test
+let g:test#strategy = 'vimux'
+let g:test#javascript#jest#executable = 'yarn test'
+let g:VimuxUseNearest = 0
+let g:VimuxOrientation = 'h'
+map <leader>vq :VimuxCloseRunner<CR>
+map <leader>vz :VimuxZoomRunner<CR>
 
 
 " Edit and source configs
