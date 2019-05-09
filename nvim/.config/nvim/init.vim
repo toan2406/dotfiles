@@ -45,8 +45,10 @@ Plug 'racer-rust/vim-racer'
 Plug 'neovimhaskell/haskell-vim'
 
 " LSP
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
+Plug 'autozimu/LanguageClient-neovim', {
+      \ 'branch': 'next',
+      \ 'do': 'bash install.sh',
+      \ }
 
 call plug#end()
 
@@ -96,27 +98,15 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 
-" LSP
-nnoremap <leader>ld :LspDefinition<CR>
-nnoremap <leader>lh :LspHover<CR>
-
-if executable('rls')
-  au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': { server_info -> [ 'rustup', 'run', 'stable', 'rls' ] },
-        \ 'workspace_config': { 'rust': { 'clippy_preference': 'on' } },
-        \ 'whitelist': [ 'rust' ],
-        \ })
-endif
-
-if executable('flow')
-  au User lsp_setup call lsp#register_server({
-        \ 'name': 'flow',
-        \ 'cmd': { server_info -> [ 'flow', 'lsp' ] },
-        \ 'root_uri': { server_info -> lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig')) },
-        \ 'whitelist': [ 'javascript', 'javascript.jsx' ],
-        \ })
-endif
+" LSP configs
+let g:LanguageClient_serverCommands = {
+      \ 'rust': [ 'rustup', 'run', 'stable', 'rls' ],
+      \ 'javascript': [ 'flow', 'lsp' ],
+      \ 'javascript.jsx': [ 'flow', 'lsp' ],
+      \ }
+nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
+nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
+nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
 
 
 " Statusline configs
