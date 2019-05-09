@@ -99,20 +99,20 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " LSP
 if executable('rls')
   au User lsp_setup call lsp#register_server({
-    \ 'name': 'rls',
-    \ 'cmd': { server_info -> [ 'rustup', 'run', 'stable', 'rls' ] },
-    \ 'workspace_config': { 'rust': { 'clippy_preference': 'on' } },
-    \ 'whitelist': [ 'rust' ],
-    \ })
+        \ 'name': 'rls',
+        \ 'cmd': { server_info -> [ 'rustup', 'run', 'stable', 'rls' ] },
+        \ 'workspace_config': { 'rust': { 'clippy_preference': 'on' } },
+        \ 'whitelist': [ 'rust' ],
+        \ })
 endif
 
 if executable('flow')
   au User lsp_setup call lsp#register_server({
-    \ 'name': 'flow',
-    \ 'cmd': { server_info -> [ 'flow', 'lsp' ] },
-    \ 'root_uri': { server_info -> lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig')) },
-    \ 'whitelist': [ 'javascript', 'javascript.jsx' ],
-    \ })
+        \ 'name': 'flow',
+        \ 'cmd': { server_info -> [ 'flow', 'lsp' ] },
+        \ 'root_uri': { server_info -> lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig')) },
+        \ 'whitelist': [ 'javascript', 'javascript.jsx' ],
+        \ })
 endif
 
 
@@ -120,33 +120,33 @@ endif
 let g:lightline = {}
 let g:lightline.colorscheme = 'tender'
 let g:lightline.component_function = {
-\   'gitbranch': 'fugitive#head',
-\   'gutentags': 'gutentags#statusline'
-\ }
+      \ 'gitbranch': 'fugitive#head',
+      \ 'gutentags': 'gutentags#statusline'
+      \ }
 let g:lightline.component_expand = {
-\   'linter_checking': 'lightline#ale#checking',
-\   'linter_warnings': 'lightline#ale#warnings',
-\   'linter_errors': 'lightline#ale#errors',
-\   'linter_ok': 'lightline#ale#ok'
-\ }
+      \ 'linter_checking': 'lightline#ale#checking',
+      \ 'linter_warnings': 'lightline#ale#warnings',
+      \ 'linter_errors': 'lightline#ale#errors',
+      \ 'linter_ok': 'lightline#ale#ok'
+      \ }
 let g:lightline.component_type = {
-\   'linter_checking': 'left',
-\   'linter_warnings': 'warning',
-\   'linter_errors': 'error',
-\   'linter_ok': 'left'
-\ }
+      \ 'linter_checking': 'left',
+      \ 'linter_warnings': 'warning',
+      \ 'linter_errors': 'error',
+      \ 'linter_ok': 'left'
+      \ }
 let g:lightline.active = {
-\   'left': [
-\     [ 'mode', 'paste' ],
-\     [ 'gitbranch', 'readonly', 'filename', 'modified' ]
-\   ],
-\   'right': [
-\     [ 'lineinfo' ],
-\     [ 'percent' ],
-\     [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
-\     [ 'gutentags' ]
-\   ]
-\ }
+      \ 'left': [
+      \   [ 'mode', 'paste' ],
+      \   [ 'gitbranch', 'readonly', 'filename', 'modified' ]
+      \ ],
+      \ 'right': [
+      \   [ 'lineinfo' ],
+      \   [ 'percent' ],
+      \   [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
+      \   [ 'gutentags' ]
+      \ ]
+      \ }
 
 
 " Toggle NERDTree
@@ -190,8 +190,8 @@ let g:ale_lint_on_enter = 0
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 let g:ale_linters = {
-\   'javascript': [ 'eslint', 'flow' ]
-\ }
+      \ 'javascript': [ 'eslint', 'flow' ]
+      \ }
 nmap <silent> <leader>aj :ALENext<CR>
 nmap <silent> <leader>ak :ALEPrevious<CR>
 
@@ -205,7 +205,7 @@ map T <Plug>Sneak_T
 
 " Gutentags configs
 " Require universal-ctags
-let g:gutentags_ctags_exclude = ['*.min.js', '*.min.css', 'build', 'vendor', '.git', 'node_modules', '*.vim/bundle/*']
+let g:gutentags_ctags_exclude = [ '*.min.js', '*.min.css', 'build', 'vendor', '.git', 'node_modules', '*.vim/bundle/*' ]
 let g:gutentags_define_advanced_commands = 1
 augroup MyGutentagsStatusLineRefresher
   autocmd!
