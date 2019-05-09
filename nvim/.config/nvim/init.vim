@@ -92,11 +92,14 @@ endif
 
 " Deoplete configs
 let g:deoplete#enable_at_startup = 1
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 
 " LSP
+nnoremap <leader>ld :LspDefinition<CR>
+nnoremap <leader>lh :LspHover<CR>
+
 if executable('rls')
   au User lsp_setup call lsp#register_server({
         \ 'name': 'rls',
