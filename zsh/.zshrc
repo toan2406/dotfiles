@@ -8,6 +8,7 @@ plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
   dotenv
+  z.lua
 )
 
 source $ZSH/oh-my-zsh.sh

@@ -41,13 +41,12 @@ Plug 'benmills/vimux'
 
 " Other languages support
 Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
 Plug 'neovimhaskell/haskell-vim'
 
 " LSP
-Plug 'autozimu/LanguageClient-neovim', {
-\   'branch': 'next',
-\   'do': 'bash install.sh'
-\ }
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
 
 call plug#end()
 
@@ -62,7 +61,7 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 " set cursorline
-set colorcolumn=80,120
+" set colorcolumn=80,120
 set clipboard+=unnamedplus
 set hidden
 set ignorecase
@@ -70,6 +69,7 @@ set smartcase
 set relativenumber
 set lazyredraw
 set scrolloff=10
+set completeopt-=preview
 let g:dracula_colorterm=0
 let g:fzf_history_dir='~/.local/share/fzf-history'
 let g:rustfmt_autosave=1
@@ -97,16 +97,23 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 
 " LSP
-" Require sourcegraph/javascript-typescript-langserver
-" Require rust-lang/rls
-let g:LanguageClient_serverCommands = {
-\   'rust': [ 'rustup', 'run', 'stable', 'rls' ],
-\   'javascript': [ 'javascript-typescript-stdio' ],
-\   'javascript.jsx': [ 'javascript-typescript-stdio' ],
-\ }
-nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
-nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
-nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
+if executable('rls')
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'rls',
+    \ 'cmd': { server_info -> [ 'rustup', 'run', 'stable', 'rls' ] },
+    \ 'workspace_config': { 'rust': { 'clippy_preference': 'on' } },
+    \ 'whitelist': [ 'rust' ],
+    \ })
+endif
+
+if executable('flow')
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'flow',
+    \ 'cmd': { server_info -> [ 'flow', 'lsp' ] },
+    \ 'root_uri': { server_info -> lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig')) },
+    \ 'whitelist': [ 'javascript', 'javascript.jsx' ],
+    \ })
+endif
 
 
 " Statusline configs
@@ -211,6 +218,11 @@ augroup END
 let g:haskell_indent_if = 3
 let g:haskell_indent_let = 4
 let g:haskell_indent_guard = 2
+
+
+" Rust racer
+au FileType rust nmap <leader>rx <Plug>(rust-def-vertical)
+au FileType rust nmap <leader>rd <Plug>(rust-doc)
 
 
 " Run test
