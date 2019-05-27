@@ -43,6 +43,7 @@ Plug 'benmills/vimux'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'neovimhaskell/haskell-vim'
+Plug 'reasonml-editor/vim-reason-plus'
 
 " LSP
 Plug 'autozimu/LanguageClient-neovim', {
@@ -103,6 +104,7 @@ let g:LanguageClient_serverCommands = {
       \ 'rust': [ 'rustup', 'run', 'stable', 'rls' ],
       \ 'javascript': [ 'flow', 'lsp' ],
       \ 'javascript.jsx': [ 'flow', 'lsp' ],
+      \ 'reason': [ 'reason-language-server.exe' ],
       \ }
 nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
 nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
@@ -230,6 +232,10 @@ map <leader>vz :VimuxZoomRunner<CR>
 " Edit and source configs
 nnoremap <silent> <leader>ec :e $MYVIMRC<CR>
 nnoremap <silent> <leader>sc :source $MYVIMRC<CR>
+
+
+" Yank full path of current buffer
+nnoremap <leader>cp :let @+=expand('%:p')<CR>
 
 
 " Tmux navigation
