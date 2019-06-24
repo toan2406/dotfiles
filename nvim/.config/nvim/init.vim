@@ -44,6 +44,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'reasonml-editor/vim-reason-plus'
+Plug 'vim-ruby/vim-ruby'
 
 " LSP
 Plug 'autozimu/LanguageClient-neovim', {
@@ -54,6 +55,7 @@ Plug 'autozimu/LanguageClient-neovim', {
 call plug#end()
 
 
+set nomodeline
 set ruler
 set number
 set hlsearch
@@ -236,6 +238,10 @@ nnoremap <silent> <leader>sc :source $MYVIMRC<CR>
 
 " Yank full path of current buffer
 nnoremap <leader>cp :let @+=expand('%:p')<CR>
+
+
+" Go file vertical
+nnoremap <leader>gf <C-w>vgf
 
 
 " Tmux navigation
