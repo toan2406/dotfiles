@@ -71,6 +71,8 @@ function gho() {
   open https://github.com/Thinkei/`basename $(pwd)`/pulls
 }
 
+alias ghopr='hub pr list -h $(git rev-parse --abbrev-ref HEAD) | head -n 1 | awk "{\$1=\$1};1" | cut -d " " -f 1 | hub pr show'
+
 
 # Run mobile emulator
 function emu() {
@@ -93,3 +95,5 @@ alias herostag='hero $@ --context solomon.ehrocks.com'
 alias heroprod='hero $@ --context david.ehrocks.com'
 
 export REACT_EDITOR=nvim
+
+export REVIEW_BASE=master
