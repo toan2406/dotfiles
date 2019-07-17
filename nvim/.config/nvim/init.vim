@@ -38,8 +38,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/gv.vim'
 Plug 'janko-m/vim-test'
 Plug 'benmills/vimux'
+Plug 'brooth/far.vim'
 
-" Other languages support
+" Languages support
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'neovimhaskell/haskell-vim'
@@ -73,6 +74,7 @@ set ignorecase
 set smartcase
 set relativenumber
 set lazyredraw
+set regexpengine=1
 set scrolloff=10
 set completeopt-=preview
 let g:dracula_colorterm=0
@@ -229,6 +231,10 @@ let g:VimuxUseNearest = 0
 let g:VimuxOrientation = 'h'
 map <leader>vq :VimuxCloseRunner<CR>
 map <leader>vz :VimuxZoomRunner<CR>
+
+
+" Find and replace
+let g:far#source = 'rg'
 
 
 " Edit and source configs
