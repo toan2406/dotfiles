@@ -25,7 +25,6 @@ Plug 'w0rp/ale'
 
 " Tags
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'majutsushi/tagbar'
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -39,6 +38,7 @@ Plug 'junegunn/gv.vim'
 Plug 'janko-m/vim-test'
 Plug 'benmills/vimux'
 Plug 'brooth/far.vim'
+Plug 'junegunn/vim-peekaboo'
 
 " Languages support
 Plug 'rust-lang/rust.vim'
@@ -158,10 +158,6 @@ function! OpenNerdTree()
   endif
 endfunction
 nnoremap <silent> <C-\> :call OpenNerdTree()<CR>
-
-
-" Toggle Tagbar
-nnoremap <silent> <C-[> :TagbarToggle<CR>
 
 
 " Commenter configs
