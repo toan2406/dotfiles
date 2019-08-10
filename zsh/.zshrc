@@ -85,7 +85,10 @@ alias mp="tree $HOME/Workspace -d -L 2"
 alias npmg="npm list -g --depth 0"
 alias herostag='hero $@ --context solomon.ehrocks.com'
 alias heroprod='hero $@ --context david.ehrocks.com'
+alias heroclistag='HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_STG herocli --server hero2.staging.ehrocks.com:443'
+alias herocliprod='HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_PROD herocli --server hero2.ehrocks.com:443'
 
+export EDITOR=nvim
 export REACT_EDITOR=nvim
 
 export REVIEW_BASE=master
