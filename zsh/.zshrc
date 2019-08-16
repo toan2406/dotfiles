@@ -27,6 +27,9 @@ source $HOME/.secrets
 
 # Load nvm
 export NVM_DIR="$HOME/.nvm"
+if [[ -e ~/.nvm/alias/default ]]; then
+  PATH="${PATH}:${HOME}/.nvm/versions/node/v$(cat ~/.nvm/alias/default)/bin"
+fi
 nvm() {
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
