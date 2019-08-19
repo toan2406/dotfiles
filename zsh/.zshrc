@@ -38,6 +38,9 @@ nvm() {
 
 
 # Load rbenv
+if [[ -s ~/.rbenv/shims/ruby ]]; then
+  PATH="${HOME}/.rbenv/shims:${PATH}"
+fi
 rbenv() {
   eval "$(command rbenv init -)"
   rbenv "$@"
