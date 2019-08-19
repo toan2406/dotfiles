@@ -106,3 +106,9 @@ export EDITOR=nvim
 export REACT_EDITOR=nvim
 
 export REVIEW_BASE=master
+
+
+# Have some fun
+if [[ -x /usr/local/bin/cowsay && -x /usr/local/bin/fortune && -x ~/.rbenv/shims/lolcat ]]; then
+  fortune | cowsay | lolcat
+fi
