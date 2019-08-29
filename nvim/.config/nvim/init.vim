@@ -39,7 +39,6 @@ Plug 'janko-m/vim-test'
 Plug 'benmills/vimux'
 Plug 'brooth/far.vim'
 Plug 'junegunn/vim-peekaboo'
-Plug 'mtth/scratch.vim'
 
 " Languages support
 Plug 'rust-lang/rust.vim'
@@ -84,6 +83,7 @@ let g:javascript_plugin_flow = 1
 colorscheme tender
 
 let $MYVIMRC = '$HOME/.config/nvim/init.vim'
+let $VIMSCRATCH = '$HOME/.config/nvim/scratch.vim'
 let mapleader = ','
 
 inoremap jj <Esc>
@@ -173,11 +173,7 @@ nnoremap <silent> <leader>w :Ag! <C-R><C-W><CR>
 
 
 " Scratch
-let g:scratch_no_mappings = 0
-let g:scratch_autohide = 0
-let g:scratch_insert_autohide = 0
-let g:scratch_persistence_file = '/tmp/scratch.vim'
-nnoremap <silent> <leader>s :Scratch<CR>
+nnoremap <silent> <leader>es :topleft 15 new $VIMSCRATCH<CR>
 
 
 " Prettier configs
