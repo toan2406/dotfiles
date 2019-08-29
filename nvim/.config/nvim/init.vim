@@ -39,6 +39,7 @@ Plug 'janko-m/vim-test'
 Plug 'benmills/vimux'
 Plug 'brooth/far.vim'
 Plug 'junegunn/vim-peekaboo'
+Plug 'mtth/scratch.vim'
 
 " Languages support
 Plug 'rust-lang/rust.vim'
@@ -77,11 +78,11 @@ set lazyredraw
 set regexpengine=1
 set scrolloff=10
 set completeopt-=preview
-let g:dracula_colorterm=0
-let g:fzf_history_dir='~/.local/share/fzf-history'
-let g:rustfmt_autosave=1
-let g:javascript_plugin_flow=1
-let g:sneak#label=1
+let g:dracula_colorterm = 0
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+let g:rustfmt_autosave = 1
+let g:javascript_plugin_flow = 1
+let g:sneak#label = 1
 colorscheme tender
 
 let $MYVIMRC = '$HOME/.config/nvim/init.vim'
@@ -170,6 +171,14 @@ nnoremap <leader>p :Files!<CR>
 nnoremap <leader>b :Buffers!<CR>
 nnoremap <leader>f :Ag!<CR>
 nnoremap <silent> <leader>w :Ag! <C-R><C-W><CR>
+
+
+" Scratch
+let g:scratch_no_mappings = 0
+let g:scratch_autohide = 0
+let g:scratch_insert_autohide = 0
+let g:scratch_persistence_file = '/tmp/scratch.vim'
+nnoremap <silent> <leader>s :Scratch<CR>
 
 
 " Prettier configs
@@ -266,16 +275,16 @@ inoremap <right> <nop>
 
 
 " Operator Mono Lig
-hi htmlArg gui=italic
-hi Comment gui=italic
-hi Type    gui=italic
-hi htmlArg cterm=italic
-hi Comment cterm=italic
-hi Type    cterm=italic
+hi htmlArg gui = italic
+hi Comment gui = italic
+hi Type    gui = italic
+hi htmlArg cterm = italic
+hi Comment cterm = italic
+hi Type    cterm = italic
 
 
 " Visual bg color for Tender
-hi Visual  ctermbg=240
+hi Visual  ctermbg = 240
 
 
 " Startify configs
