@@ -79,10 +79,8 @@ set regexpengine=1
 set scrolloff=10
 set completeopt-=preview
 let g:dracula_colorterm = 0
-let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:rustfmt_autosave = 1
 let g:javascript_plugin_flow = 1
-let g:sneak#label = 1
 colorscheme tender
 
 let $MYVIMRC = '$HOME/.config/nvim/init.vim'
@@ -167,6 +165,7 @@ let g:NERDSpaceDelims = 1
 
 
 " FZF configs
+let g:fzf_history_dir = '~/.local/share/fzf-history'
 nnoremap <leader>p :Files!<CR>
 nnoremap <leader>b :Buffers!<CR>
 nnoremap <leader>f :Ag!<CR>
@@ -201,6 +200,7 @@ nmap <silent> <leader>ak :ALEPrevious<CR>
 
 
 " Vim sneak configs
+let g:sneak#label = 1
 map f <Plug>Sneak_f
 map F <Plug>Sneak_F
 map t <Plug>Sneak_t
