@@ -173,7 +173,7 @@ nnoremap <silent> <leader>w :Ag! <C-R><C-W><CR>
 
 
 " Scratch
-nnoremap <silent> <leader>es :topleft 15 new $VIMSCRATCH<CR>
+nnoremap <silent> <leader>sb :topleft 15 new $VIMSCRATCH<CR>
 
 
 " Prettier configs
