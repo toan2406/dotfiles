@@ -95,6 +95,7 @@ export PATH=$HOME/.fastlane/bin:$PATH
 
 eval "$(hub alias -s)"
 
+alias venv="python3 -m venv"
 alias mp="tree $HOME/Workspace -d -L 2"
 alias npmg="npm list -g --depth 0"
 alias herostag='hero $@ --context solomon.ehrocks.com'
