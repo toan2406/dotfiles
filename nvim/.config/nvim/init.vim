@@ -108,6 +108,7 @@ let g:LanguageClient_serverCommands = {
       \ 'javascript': [ 'flow', 'lsp' ],
       \ 'javascript.jsx': [ 'flow', 'lsp' ],
       \ 'reason': [ 'reason-language-server.exe' ],
+      \ 'ruby': [ '~/.rbenv/shims/solargraph', 'stdio' ],
       \ }
 nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
 nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
