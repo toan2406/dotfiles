@@ -27,7 +27,7 @@ Plug 'w0rp/ale'
 Plug 'ludovicchabant/vim-gutentags'
 
 " Autocomplete
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 " Misc
 Plug 'jiangmiao/auto-pairs'
@@ -46,12 +46,6 @@ Plug 'racer-rust/vim-racer'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'vim-ruby/vim-ruby'
-
-" LSP
-Plug 'autozimu/LanguageClient-neovim', {
-      \ 'branch': 'next',
-      \ 'do': 'bash install.sh',
-      \ }
 
 call plug#end()
 
@@ -96,24 +90,12 @@ if !exists('g:syntax_on')
 endif
 
 
-" Deoplete configs
-let g:deoplete#enable_at_startup = 1
+" Coc configs
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-
-" LSP configs
-let g:LanguageClient_serverCommands = {
-      \ 'rust': [ 'rustup', 'run', 'stable', 'rls' ],
-      \ 'javascript': [ 'flow', 'lsp' ],
-      \ 'javascript.jsx': [ 'flow', 'lsp' ],
-      \ 'reason': [ 'reason-language-server.exe' ],
-      \ 'ruby': [ '~/.rbenv/shims/solargraph', 'stdio' ],
-      \ }
-nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
-nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
-nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
-nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+nnoremap <leader>ld :call CocAction('jumpDefinition')<CR>
+nnoremap <leader>lf :call CocAction('format')<CR>
+nnoremap <leader>lh :call CocAction('doHover')<CR>
 
 
 " Statusline configs
@@ -170,8 +152,16 @@ let g:NERDSpaceDelims = 1
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 nnoremap <leader>p :Files!<CR>
 nnoremap <leader>b :Buffers!<CR>
-nnoremap <leader>f :Ag!<CR>
-nnoremap <silent> <leader>w :Ag! <C-R><C-W><CR>
+nnoremap <leader>f :Rg!<CR>
+nnoremap <silent> <leader>w :Rg!<C-R><C-W><CR>
+command! -bang -nargs=* Rg
+      \ call fzf#vim#grep(
+      \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+      \   <bang>0 ? fzf#vim#with_preview('right:50%')
+      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+      \   <bang>0)
+command! -bang -nargs=? -complete=dir Files
+      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 
 " Scratch
