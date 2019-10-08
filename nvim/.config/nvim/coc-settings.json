@@ -1,0 +1,35 @@
+{
+  "languageserver": {
+    "reason": {
+      "command": "reason-language-server.exe",
+      "filetypes": [
+        "reason"
+      ]
+    },
+    "rust": {
+      "command": "rls",
+      "filetypes": [
+        "rust"
+      ],
+      "rootPatterns": [
+        "Cargo.toml"
+      ]
+    },
+    "flow": {
+      "command": "flow",
+      "args": [
+        "lsp"
+      ],
+      "filetypes": [
+        "javascript",
+        "javascriptreact"
+      ],
+      "initializationOptions": {},
+      "requireRootPattern": true,
+      "settings": {},
+      "rootPatterns": [
+        ".flowconfig"
+      ]
+    }
+  }
+}
