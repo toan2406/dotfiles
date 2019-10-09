@@ -75,10 +75,11 @@ set background=dark
 set termguicolors
 let g:rustfmt_autosave = 1
 let g:javascript_plugin_flow = 1
-colorscheme plain
+colorscheme tender
 
 hi! Search guifg=#ffffff guibg=NONE gui=underline,bold
 hi! IncSearch guifg=#ffffff guibg=NONE
+hi! Visual guibg=#585858
 
 let $MYVIMRC = '$HOME/.config/nvim/init.vim'
 let $VIMSCRATCH = '$HOME/.config/nvim/scratch.vim'
