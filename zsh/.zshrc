@@ -82,9 +82,9 @@ function ciob() {
 
 # Run mobile emulator
 function emu() {
-  if [ "$1" == "ios" ]; then
+  if [[ "$1" == "ios" ]]; then
     open -a Simulator.app
-  elif [ "$1" == "android" ]; then
+  elif [[ "$1" == "android" ]]; then
     $HOME/Library/Android/sdk/emulator/emulator -avd $2
   fi
 }
