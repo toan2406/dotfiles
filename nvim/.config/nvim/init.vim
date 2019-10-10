@@ -284,10 +284,11 @@ let g:startify_custom_header = [
       \ "       .'         .,.       ",
       \ ]
 
-function! Open()
-  let height = float2nr((&lines - 2) * 0.6) " lightline + status
-  let row = float2nr((&lines - height) / 2)
+
+function! NcmpcppFloatingWindow()
+  let height = float2nr((&lines - 2) * 0.6)
   let width = float2nr(&columns * 0.6)
+  let row = float2nr((&lines - height) / 2)
   let col = float2nr((&columns - width) / 2)
 
   let opts = {
@@ -301,8 +302,15 @@ function! Open()
   let buf = nvim_create_buf(v:false, v:true)
   let win = nvim_open_win(buf, v:true, opts)
 
-  "Set Floating Window Highlighting
-  " call setwinvar(win, '&winhl', 'Normal:Pmenu')
-  :edit term://ncmpcpp
+  call setwinvar(win, '&winhl', 'Normal:StatusLine')
+  setlocal
+        \ buftype=nofile
+        \ nobuflisted
+        \ bufhidden=hide
+        \ nonumber
+        \ norelativenumber
+        \ signcolumn=no
+
+  terminal ncmpcpp
   startinsert
 endfunction
