@@ -284,3 +284,25 @@ let g:startify_custom_header = [
       \ "       .'         .,.       ",
       \ ]
 
+function! Open()
+  let height = float2nr((&lines - 2) * 0.6) " lightline + status
+  let row = float2nr((&lines - height) / 2)
+  let width = float2nr(&columns * 0.6)
+  let col = float2nr((&columns - width) / 2)
+
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': row,
+        \ 'col': col,
+        \ 'width': width,
+        \ 'height': height
+        \ }
+
+  let buf = nvim_create_buf(v:false, v:true)
+  let win = nvim_open_win(buf, v:true, opts)
+
+  "Set Floating Window Highlighting
+  " call setwinvar(win, '&winhl', 'Normal:Pmenu')
+  :edit term://ncmpcpp
+  startinsert
+endfunction
