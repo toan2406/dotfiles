@@ -1,8 +1,8 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " UI
-Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'jacoborus/tender.vim'
+Plug 'andreypopp/vim-colors-plain'
 
 " Navigation
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -71,10 +71,15 @@ set lazyredraw
 set regexpengine=1
 set scrolloff=10
 set completeopt-=preview
-let g:dracula_colorterm = 0
+set background=dark
+set termguicolors
 let g:rustfmt_autosave = 1
 let g:javascript_plugin_flow = 1
 colorscheme tender
+
+hi! Search guifg=#ffffff guibg=NONE gui=underline,bold
+hi! IncSearch guifg=#ffffff guibg=NONE
+hi! Visual guibg=#585858
 
 let $MYVIMRC = '$HOME/.config/nvim/init.vim'
 let $VIMSCRATCH = '$HOME/.config/nvim/scratch.vim'
@@ -260,19 +265,6 @@ inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
-
-
-" Operator Mono Lig
-hi htmlArg gui = italic
-hi Comment gui = italic
-hi Type    gui = italic
-hi htmlArg cterm = italic
-hi Comment cterm = italic
-hi Type    cterm = italic
-
-
-" Visual bg color for Tender
-hi Visual  ctermbg = 240
 
 
 " Startify configs
