@@ -285,6 +285,9 @@ let g:startify_custom_header = [
       \ ]
 
 
+" Spotify in floating window
+command! Spotify :call NcmpcppFloatingWindow()
+
 function! NcmpcppFloatingWindow()
   let height = float2nr((&lines - 2) * 0.6)
   let width = float2nr(&columns * 0.6)
