@@ -15,7 +15,7 @@
   template = ~/.gitmessage
 
 [alias]
-  # list files which have changed since REVIEW_BASE
+  # List files which have changed since REVIEW_BASE
   # (REVIEW_BASE defaults to 'master' in my zshrc)
   files = !git diff --name-only $(git merge-base HEAD \"$REVIEW_BASE\")
 
@@ -33,3 +33,5 @@
   # git reviewone foo.js bar.js
   reviewone = !nvim -p +\"tabdo Gdiff $REVIEW_BASE\" +\"let g:gitgutter_diff_base = '$REVIEW_BASE'\"
 
+  # Show log of current branch
+  logbranch = !git log --graph --abbrev-commit --decorate --first-parent

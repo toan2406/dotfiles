@@ -8,4 +8,4 @@ bind stash A !?git stash apply %(stash)
 bind status S !?git stash save --keep-index %(prompt)
 
 set main-options = --exclude=refs/stash --all
-
+set line-graphics = utf-8
