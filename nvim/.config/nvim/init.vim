@@ -72,7 +72,7 @@ set regexpengine=1
 set scrolloff=10
 set completeopt-=preview
 set background=dark
-set termguicolors
+" set termguicolors
 let g:rustfmt_autosave = 1
 let g:javascript_plugin_flow = 1
 colorscheme tender
