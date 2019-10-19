@@ -1,6 +1,15 @@
 {
   "coc.preferences.hoverTarget": "echo",
   "languageserver": {
+    "solargraph": {
+      "command": "solargraph",
+      "args": [
+        "stdio"
+      ],
+      "filetypes": [
+        "ruby"
+      ]
+    },
     "reason": {
       "command": "reason-language-server.exe",
       "filetypes": [
