@@ -301,9 +301,7 @@ command! ReasonML :call ReasonMLFloatingWindow()
 function! ReasonMLFloatingWindow()
   :call OpenFloatingWindow()
 
-  terminal cd $HOME/.config/nvim/reasonml
-        \ && (watchman-make -p "Reason.re" -r "bsc Reason.re > Javascript.js" &) >/dev/null 2>&1
-        \ && nvim -u init.vim -O Reason.re Javascript.js
+  terminal cd $HOME/.config/nvim/reasonml && nvim -u init.vim -O Reason.re Javascript.js
   startinsert
   autocmd TermClose * ++once :q
 endfunction
