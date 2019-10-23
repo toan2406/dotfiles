@@ -346,8 +346,8 @@ function! ReasonMLFloatingWindow()
         \ t_Co=0
 
   terminal cd $HOME/.config/nvim/reasonml 
-        \ && (watchman-make -p 'Playground.re' -r "bsc Playground.re > Playground.js" &) > /dev/null 2>&1
-        \ && nvim -u $HOME/.config/nvim/reasonml/config.vim -O $HOME/.config/nvim/reasonml/Playground.re $HOME/.config/nvim/reasonml/Playground.js 
+        \ && (watchman-make -p 'Reason.re' -r "bsc Reason.re > Javascript.js" &) > /dev/null 2>&1
+        \ && nvim -u $HOME/.config/nvim/reasonml/init.vim -O $HOME/.config/nvim/reasonml/Reason.re $HOME/.config/nvim/reasonml/Javascript.js 
   startinsert
   autocmd TermClose * ++once :q
 endfunction
