@@ -61,7 +61,7 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 " set cursorline
-" set colorcolumn=80,120
+set colorcolumn=80
 set clipboard+=unnamedplus
 set hidden
 set ignorecase
@@ -72,6 +72,8 @@ set regexpengine=1
 set scrolloff=10
 set completeopt-=preview
 set background=dark
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
+set list
 " set termguicolors
 let g:rustfmt_autosave = 1
 let g:javascript_plugin_flow = 1
