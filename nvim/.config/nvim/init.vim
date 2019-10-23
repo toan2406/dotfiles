@@ -287,6 +287,7 @@ let g:startify_custom_header = [
 
 " Spotify in floating window
 command! Spotify :call NcmpcppFloatingWindow()
+command! ReasonML :call ReasonMLFloatingWindow()
 
 function! NcmpcppFloatingWindow()
   let height = float2nr((&lines - 2) * 0.6)
@@ -316,4 +317,37 @@ function! NcmpcppFloatingWindow()
 
   terminal ncmpcpp
   startinsert
+endfunction
+
+function! ReasonMLFloatingWindow()
+  let height = float2nr((&lines - 2) * 0.6)
+  let width = float2nr(&columns * 0.6)
+  let row = float2nr((&lines - height) / 2)
+  let col = float2nr((&columns - width) / 2)
+
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': row,
+        \ 'col': col,
+        \ 'width': width,
+        \ 'height': height
+        \ }
+
+  let buf = nvim_create_buf(v:false, v:true)
+  let win = nvim_open_win(buf, v:true, opts)
+
+  setlocal
+        \ buftype=nofile
+        \ nobuflisted
+        \ bufhidden=hide
+        \ nonumber
+        \ norelativenumber
+        \ signcolumn=no
+        \ t_Co=0
+
+  terminal cd $HOME/.config/nvim/reasonml 
+        \ && (watchman-make -p 'Playground.re' -r "bsc Playground.re > Playground.js" &) > /dev/null 2>&1
+        \ && nvim -u $HOME/.config/nvim/reasonml/config.vim -O $HOME/.config/nvim/reasonml/Playground.re $HOME/.config/nvim/reasonml/Playground.js 
+  startinsert
+  autocmd TermClose * ++once :q
 endfunction
