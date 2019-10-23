@@ -2,7 +2,7 @@ let obj = {"key":123123};
 type reco = {
   key: int
 }
-let reco = {key: 333};
+let reco = {key: 1};
 
 type movie = (int, string, string, string, string);
 

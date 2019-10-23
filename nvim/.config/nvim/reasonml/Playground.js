@@ -6,7 +6,7 @@ var obj = {
   key: 123123
 };
 
-var reco = /* record */[/* key */333];
+var reco = /* record */[/* key */1];
 
 var tu = /* tuple */[
   1,
