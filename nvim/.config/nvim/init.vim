@@ -286,9 +286,28 @@ let g:startify_custom_header = [
 
 
 " Spotify in floating window
-command! Spotify :call NcmpcppFloatingWindow()
+command! Spotify :call SpotifyFloatingWindow()
+function! SpotifyFloatingWindow()
+  :call OpenFloatingWindow()
 
-function! NcmpcppFloatingWindow()
+  terminal ncmpcpp
+  startinsert
+  autocmd TermClose * ++once :q
+endfunction
+
+
+" ReasonML in floating window
+command! ReasonML :call ReasonMLFloatingWindow()
+function! ReasonMLFloatingWindow()
+  :call OpenFloatingWindow()
+
+  terminal cd $HOME/.config/nvim/reasonml && nvim -u init.vim -O Reason.re Javascript.js
+  startinsert
+  autocmd TermClose * ++once :q
+endfunction
+
+
+function! OpenFloatingWindow()
   let height = float2nr((&lines - 2) * 0.6)
   let width = float2nr(&columns * 0.6)
   let row = float2nr((&lines - height) / 2)
@@ -313,7 +332,4 @@ function! NcmpcppFloatingWindow()
         \ nonumber
         \ norelativenumber
         \ signcolumn=no
-
-  terminal ncmpcpp
-  startinsert
 endfunction
