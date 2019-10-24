@@ -288,9 +288,9 @@ let g:startify_custom_header = [
 
 
 " Spotify in floating window
-command! Spotify :call SpotifyFloatingWindow()
-function! SpotifyFloatingWindow()
-  :call OpenFloatingWindow()
+command! Spotify :call SpotifyFloatingWin()
+function! SpotifyFloatingWin()
+  call OpenFloatingWin()
 
   terminal ncmpcpp
   startinsert
@@ -299,17 +299,17 @@ endfunction
 
 
 " ReasonML in floating window
-command! ReasonML :call ReasonMLFloatingWindow()
-function! ReasonMLFloatingWindow()
-  :call OpenFloatingWindow()
+command! RePlayground :call RePlaygroundFloatingWin()
+function! RePlaygroundFloatingWin()
+  call OpenFloatingWin()
 
-  terminal cd $HOME/.config/nvim/reasonml && nvim -u playground.vim -O Reason.re Javascript.js
+  call termopen("cd $HOME/.config/nvim/reasonml && nvim -u playground.vim -O Reason.re Javascript.js")
   startinsert
   autocmd TermClose * ++once :q
 endfunction
 
 
-function! OpenFloatingWindow()
+function! OpenFloatingWin()
   let height = float2nr((&lines - 2) * 0.6)
   let width = float2nr(&columns * 0.6)
   let row = float2nr((&lines - height) / 2)
@@ -326,7 +326,8 @@ function! OpenFloatingWindow()
   let buf = nvim_create_buf(v:false, v:true)
   let win = nvim_open_win(buf, v:true, opts)
 
-  call setwinvar(win, '&winhl', 'Normal:StatusLine')
+  hi FloatingWinNormal ctermbg=black
+  call setwinvar(win, '&winhl', 'Normal:FloatingWinNormal')
   setlocal
         \ buftype=nofile
         \ nobuflisted
