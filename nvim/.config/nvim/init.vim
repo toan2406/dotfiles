@@ -39,6 +39,7 @@ Plug 'janko-m/vim-test'
 Plug 'benmills/vimux'
 Plug 'brooth/far.vim'
 Plug 'junegunn/vim-peekaboo'
+Plug 'norcalli/nvim-colorizer.lua'
 
 " Languages support
 Plug 'rust-lang/rust.vim'
@@ -74,7 +75,7 @@ set completeopt-=preview
 set background=dark
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
 set list
-" set termguicolors
+set termguicolors
 let g:rustfmt_autosave = 1
 let g:javascript_plugin_flow = 1
 colorscheme tender
@@ -256,6 +257,10 @@ nnoremap <silent> <C-h> :TmuxNavigateLeft<CR>
 nnoremap <silent> <C-j> :TmuxNavigateDown<CR>
 nnoremap <silent> <C-k> :TmuxNavigateUp<CR>
 nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
+
+
+" Color highlighter
+lua require'colorizer'.setup()
 
 
 " Disable arrow keys
