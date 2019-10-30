@@ -331,7 +331,7 @@ function! OpenFloatingWin()
   let buf = nvim_create_buf(v:false, v:true)
   let win = nvim_open_win(buf, v:true, opts)
 
-  hi FloatingWinNormal ctermbg=black
+  hi FloatingWinNormal ctermbg=black guibg=#333333
   call setwinvar(win, '&winhl', 'Normal:FloatingWinNormal')
   setlocal
         \ buftype=nofile
