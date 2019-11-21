@@ -2,7 +2,7 @@
   ui = true
 [user]
   name = Toan Nguyen
-  email = toan2406@gmail.com
+  email = toan.nguyen@employmenthero.com
 [core]
   excludesfile = /Users/toannguyen/.gitignore_global
   ignorecase = false

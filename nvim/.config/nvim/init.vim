@@ -40,6 +40,7 @@ Plug 'benmills/vimux'
 Plug 'brooth/far.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'norcalli/nvim-colorizer.lua'
+Plug 'psliwka/vim-smoothie'
 
 " Languages support
 Plug 'rust-lang/rust.vim'
