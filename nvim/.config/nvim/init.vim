@@ -23,8 +23,10 @@ Plug 'moll/vim-node'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'w0rp/ale'
 
-" Autocomplete
+" LSP
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'neoclide/coc-json', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-tsserver', { 'do': 'yarn install --frozen-lockfile' }
 
 " Misc
 Plug 'jiangmiao/auto-pairs'
@@ -99,6 +101,7 @@ endif
 " Coc configs
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <silent><expr> <C-Space> coc#refresh()
 nnoremap <leader>ld :call CocAction('jumpDefinition')<CR>
 nnoremap <leader>lf :call CocAction('format')<CR>
 nnoremap <leader>lh :call CocAction('doHover')<CR>
