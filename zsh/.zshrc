@@ -52,10 +52,6 @@ rbenv() {
 export FZF_DEFAULT_COMMAND='ag --hidden --nocolor --ignore node_modules -g ""'
 
 
-# New ctags
-# alias ctags="`brew --prefix`/bin/ctags"
-
-
 # Android configs
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/tools
