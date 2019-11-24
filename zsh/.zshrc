@@ -86,6 +86,14 @@ function emu() {
 }
 
 
+# Find directory
+function fd() {
+  local dir
+  dir=$(find $HOME -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf +m --height 40% --reverse) &&
+    cd "$dir"
+}
+
+
 # Misc
 export PATH=$HOME/.fastlane/bin:$PATH
 
