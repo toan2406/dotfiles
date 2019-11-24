@@ -163,7 +163,7 @@ nnoremap <leader>f :Rg!<CR>
 nnoremap <silent> <leader>w :Rg!<C-R><C-W><CR>
 command! -bang -nargs=* Rg
       \ call fzf#vim#grep(
-      \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+      \   'rg --column --line-number --no-heading --color=always --smart-case --hidden '.shellescape(<q-args>), 1,
       \   <bang>0 ? fzf#vim#with_preview('right:50%')
       \           : fzf#vim#with_preview('right:50%:hidden', '?'),
       \   <bang>0)
