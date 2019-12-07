@@ -5,10 +5,10 @@ Plug 'jacoborus/tender.vim'
 Plug 'andreypopp/vim-colors-plain'
 
 " Navigation
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'justinmk/vim-sneak'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mhinz/vim-startify'
+Plug 'tpope/vim-vinegar'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -138,16 +138,9 @@ let g:lightline.active = {
       \ }
 
 
-" Toggle NERDTree
-let NERDTreeShowHidden = 1
-function! OpenNerdTree()
-  if &modifiable && strlen(expand('%')) > 0 && !&diff
-    NERDTreeFind
-  else
-    NERDTreeToggle
-  endif
-endfunction
-nnoremap <silent> <C-\> :call OpenNerdTree()<CR>
+" Netrw
+let g:netrw_liststyle = 3
+nnoremap <silent> <C-\> :Explore<CR>
 
 
 " Commenter configs
