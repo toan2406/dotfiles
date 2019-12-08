@@ -1,29 +1,21 @@
 {
   "coc.preferences.hoverTarget": "echo",
+  "javascript.suggestionActions.enabled": false,
+  "javascript.validate.enable": false,
   "languageserver": {
     "solargraph": {
       "command": "solargraph",
-      "args": [
-        "stdio"
-      ],
-      "filetypes": [
-        "ruby"
-      ]
+      "args": ["stdio"],
+      "filetypes": ["ruby"]
     },
     "reason": {
       "command": "reason-language-server.exe",
-      "filetypes": [
-        "reason"
-      ]
+      "filetypes": ["reason"]
     },
     "rust": {
       "command": "rls",
-      "filetypes": [
-        "rust"
-      ],
-      "rootPatterns": [
-        "Cargo.toml"
-      ]
+      "filetypes": ["rust"],
+      "rootPatterns": ["Cargo.toml"]
     }
   }
 }
