@@ -102,9 +102,10 @@ endif
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <silent><expr> <C-Space> coc#refresh()
-nnoremap <leader>ld :call CocAction('jumpDefinition')<CR>
+nnoremap <leader>lj :call CocAction('jumpDefinition')<CR>
 nnoremap <leader>lf :call CocAction('format')<CR>
 nnoremap <leader>lh :call CocAction('doHover')<CR>
+nnoremap <leader>ld :call CocAction('diagnosticPreview')<CR>
 
 
 " Statusline configs
@@ -183,12 +184,15 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 
 
 " Ale configs
+let g:ale_reason_ls_executable = '/usr/local/bin/reason-language-server.exe'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
+let g:ale_open_list = 0
 let g:ale_linters = {
-      \ 'javascript': [ 'eslint', 'flow' ]
+      \ 'javascript': [ 'eslint', 'flow' ],
+      \ 'reason': [ 'reason-language-server' ]
       \ }
 nmap <silent> <leader>aj :ALENext<CR>
 nmap <silent> <leader>ak :ALEPrevious<CR>
