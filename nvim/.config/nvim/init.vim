@@ -295,10 +295,8 @@ endfunction
 
 
 " nnn
-function! s:layout()
-  call OpenFloatingWin()
-endfunction
-let g:nnn#layout = 'call ' . string(function('<SID>layout')) . '()'
+let $NNN_USE_EDITOR = 1
+let g:nnn#layout = 'enew'
 let g:nnn#action = {
       \ '<c-t>': 'tab split',
       \ '<c-x>': 'split',
