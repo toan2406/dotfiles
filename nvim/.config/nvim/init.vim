@@ -5,10 +5,10 @@ Plug 'jacoborus/tender.vim'
 Plug 'andreypopp/vim-colors-plain'
 
 " Navigation
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'justinmk/vim-sneak'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mhinz/vim-startify'
+Plug 'mcchrish/nnn.vim'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -137,18 +137,6 @@ let g:lightline.active = {
       \   [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]
       \ ]
       \ }
-
-
-" Toggle NERDTree
-let NERDTreeShowHidden = 1
-function! OpenNerdTree()
-  if &modifiable && strlen(expand('%')) > 0 && !&diff
-    NERDTreeFind
-  else
-    NERDTreeToggle
-  endif
-endfunction
-nnoremap <silent> <C-\> :call OpenNerdTree()<CR>
 
 
 " Commenter configs
@@ -306,9 +294,24 @@ function! RePlaygroundFloatingWin()
 endfunction
 
 
+" nnn
+function! s:layout()
+  call OpenFloatingWin()
+endfunction
+let g:nnn#layout = 'call ' . string(function('<SID>layout')) . '()'
+let g:nnn#action = {
+      \ '<c-t>': 'tab split',
+      \ '<c-x>': 'split',
+      \ '<c-v>': 'vsplit'
+      \ }
+let g:nnn#command = 'nnn -d -H'
+let g:nnn#set_default_mappings = 0
+nnoremap <silent> <C-\> :NnnPicker '%:p:h'<CR>
+
+
 function! OpenFloatingWin()
-  let height = float2nr((&lines - 2) * 0.6)
-  let width = float2nr(&columns * 0.6)
+  let height = float2nr((&lines - 2) * 0.8)
+  let width = float2nr(&columns * 0.8)
   let row = float2nr((&lines - height) / 2)
   let col = float2nr((&columns - width) / 2)
 
@@ -333,3 +336,4 @@ function! OpenFloatingWin()
         \ norelativenumber
         \ signcolumn=no
 endfunction
+
