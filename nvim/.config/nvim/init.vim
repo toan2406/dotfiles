@@ -295,8 +295,8 @@ endfunction
 
 
 " nnn
-let $NNN_USE_EDITOR = 1
-let g:nnn#layout = 'enew'
+let $NNN_USE_EDITOR = 0
+let g:nnn#layout = 'tabnew'
 let g:nnn#action = {
       \ '<c-t>': 'tab split',
       \ '<c-x>': 'split',
