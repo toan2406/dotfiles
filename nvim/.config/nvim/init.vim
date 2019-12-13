@@ -294,7 +294,7 @@ function! RePlaygroundFloatingWin()
 endfunction
 
 
-" nnn
+" nnn v2.8.1
 let $NNN_USE_EDITOR = 0
 let g:nnn#layout = 'tabnew'
 let g:nnn#action = {
@@ -305,6 +305,10 @@ let g:nnn#action = {
 let g:nnn#command = 'nnn -d -H'
 let g:nnn#set_default_mappings = 0
 nnoremap <silent> <C-\> :NnnPicker '%:p:h'<CR>
+
+
+" Auto Pairs
+au Filetype reason let b:AutoPairs = {'(':')', '[':']', '{':'}', "'":"'", '"':'"'}
 
 
 function! OpenFloatingWin()
