@@ -109,7 +109,6 @@ alias herocliprod='HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_PROD herocli --server he
 
 export EDITOR=nvim
 export REACT_EDITOR=nvim
-
 export REVIEW_BASE=master
 
 
