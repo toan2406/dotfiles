@@ -9,7 +9,6 @@ Plug 'justinmk/vim-sneak'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mhinz/vim-startify'
 Plug 'mcchrish/nnn.vim'
-
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
@@ -18,15 +17,22 @@ Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'tpope/vim-fugitive'
 
+" LSP
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'neoclide/coc-json', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-tsserver', { 'do': 'yarn install --frozen-lockfile' }
+
 " JS support
 Plug 'moll/vim-node'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'w0rp/ale'
 
-" LSP
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'neoclide/coc-json', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'neoclide/coc-tsserver', { 'do': 'yarn install --frozen-lockfile' }
+" Languages support
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
+Plug 'neovimhaskell/haskell-vim'
+Plug 'reasonml-editor/vim-reason-plus'
+Plug 'vim-ruby/vim-ruby'
 
 " Misc
 Plug 'jiangmiao/auto-pairs'
@@ -41,61 +47,93 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'psliwka/vim-smoothie'
 
-" Languages support
-Plug 'rust-lang/rust.vim'
-Plug 'racer-rust/vim-racer'
-Plug 'neovimhaskell/haskell-vim'
-Plug 'reasonml-editor/vim-reason-plus'
-Plug 'vim-ruby/vim-ruby'
-
 call plug#end()
 
 
+set hidden
 set nomodeline
+set noswapfile
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
 set ruler
 set number
-set hlsearch
+set relativenumber
 set splitright
 set splitbelow
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-" set cursorline
 set colorcolumn=80
-set clipboard+=unnamedplus
-set hidden
-set ignorecase
-set smartcase
-set relativenumber
-set lazyredraw
-set regexpengine=1
-set scrolloff=10
-set completeopt-=preview
-set background=dark
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
 set list
+set scrolloff=10
+set regexpengine=1
+set completeopt-=preview
+set clipboard+=unnamedplus
+set lazyredraw
 set termguicolors
-let g:rustfmt_autosave = 1
-let g:javascript_plugin_flow = 1
-colorscheme tender
+set background=dark
 
-hi! Search guifg=#ffffff guibg=NONE gui=underline,bold
-hi! IncSearch guifg=#ffffff guibg=NONE
-hi! Visual guibg=#585858
 
 let $MYVIMRC = '$HOME/.config/nvim/init.vim'
 let $VIMSCRATCH = '$HOME/.config/nvim/scratch.vim'
 let mapleader = ','
+
 
 inoremap jj <Esc>
 nnoremap <Space> :
 nnoremap \ ,
 
 
+" Disable arrow keys
+noremap <up> <nop>
+noremap <down> <nop>
+noremap <left> <nop>
+noremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+
+
+" Key bindings
+nnoremap <silent> <leader>ec :e $MYVIMRC<CR>
+nnoremap <silent> <leader>sc :source $MYVIMRC<CR>
+nnoremap <silent> <leader>sb :topleft 15 new $VIMSCRATCH<CR>
+nnoremap <leader>cp :let @+=expand('%:p')<CR>
+nnoremap <leader>gf <C-w>vgf
+
+
+" UI
+colorscheme tender
+
 if !exists('g:syntax_on')
   syntax enable
 endif
+
+hi! Search guifg=#ffffff guibg=NONE gui=underline,bold
+hi! IncSearch guifg=#ffffff guibg=NONE
+hi! Visual guibg=#585858
+
+
+" nnn v2.8.1
+let $NNN_USE_EDITOR = 0
+let g:nnn#layout = 'tabnew'
+let g:nnn#action = {
+      \ '<c-t>': 'tab split',
+      \ '<c-x>': 'split',
+      \ '<c-v>': 'vsplit'
+      \ }
+let g:nnn#command = 'nnn -d -H'
+let g:nnn#set_default_mappings = 0
+nnoremap <silent> <C-\> :NnnPicker '%:p:h'<CR>
+
+
+" Auto Pairs
+au Filetype reason let b:AutoPairs = {'(':')', '[':']', '{':'}', "'":"'", '"':'"'}
 
 
 " Coc configs
@@ -160,10 +198,6 @@ command! -bang -nargs=? -complete=dir Files
       \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 
-" Scratch
-nnoremap <silent> <leader>sb :topleft 15 new $VIMSCRATCH<CR>
-
-
 " Prettier configs
 let g:prettier#config#trailing_comma = 'all'
 let g:prettier#config#bracket_spacing = 'true'
@@ -200,7 +234,8 @@ let g:haskell_indent_let = 4
 let g:haskell_indent_guard = 2
 
 
-" Rust racer
+" Rust
+let g:rustfmt_autosave = 1
 au FileType rust nmap <leader>rx <Plug>(rust-def-vertical)
 au FileType rust nmap <leader>rd <Plug>(rust-doc)
 
@@ -218,19 +253,6 @@ map <leader>vz :VimuxZoomRunner<CR>
 let g:far#source = 'rg'
 
 
-" Edit and source configs
-nnoremap <silent> <leader>ec :e $MYVIMRC<CR>
-nnoremap <silent> <leader>sc :source $MYVIMRC<CR>
-
-
-" Yank full path of current buffer
-nnoremap <leader>cp :let @+=expand('%:p')<CR>
-
-
-" Go file vertical
-nnoremap <leader>gf <C-w>vgf
-
-
 " Tmux navigation
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <C-h> :TmuxNavigateLeft<CR>
@@ -241,17 +263,6 @@ nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
 
 " Color highlighter
 lua require'colorizer'.setup()
-
-
-" Disable arrow keys
-noremap <up> <nop>
-noremap <down> <nop>
-noremap <left> <nop>
-noremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
 
 
 " Startify configs
@@ -292,23 +303,6 @@ function! RePlaygroundFloatingWin()
   startinsert
   autocmd TermClose * ++once :q
 endfunction
-
-
-" nnn v2.8.1
-let $NNN_USE_EDITOR = 0
-let g:nnn#layout = 'tabnew'
-let g:nnn#action = {
-      \ '<c-t>': 'tab split',
-      \ '<c-x>': 'split',
-      \ '<c-v>': 'vsplit'
-      \ }
-let g:nnn#command = 'nnn -d -H'
-let g:nnn#set_default_mappings = 0
-nnoremap <silent> <C-\> :NnnPicker '%:p:h'<CR>
-
-
-" Auto Pairs
-au Filetype reason let b:AutoPairs = {'(':')', '[':']', '{':'}', "'":"'", '"':'"'}
 
 
 function! OpenFloatingWin()
