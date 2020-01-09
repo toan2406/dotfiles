@@ -33,6 +33,7 @@ Plug 'racer-rust/vim-racer'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'vim-ruby/vim-ruby'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Misc
 Plug 'jiangmiao/auto-pairs'
