@@ -15,7 +15,6 @@ Plug 'junegunn/fzf.vim'
 " Statusline
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
-Plug 'tpope/vim-fugitive'
 
 " LSP
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -35,11 +34,16 @@ Plug 'reasonml-editor/vim-reason-plus'
 Plug 'vim-ruby/vim-ruby'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
+" Git
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'rbgrouleff/bclose.vim'
+Plug 'iberianpig/tig-explorer.vim'
+
 " Misc
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
-Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/gv.vim'
 Plug 'janko-m/vim-test'
 Plug 'benmills/vimux'
