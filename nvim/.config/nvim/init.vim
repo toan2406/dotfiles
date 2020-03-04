@@ -338,3 +338,7 @@ function! OpenFloatingWin()
         \ signcolumn=no
 endfunction
 
+
+" Misc
+let g:bclose_no_plugin_maps = 1
+
