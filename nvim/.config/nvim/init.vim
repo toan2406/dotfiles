@@ -7,7 +7,6 @@ Plug 'andreypopp/vim-colors-plain'
 " Navigation
 Plug 'justinmk/vim-sneak'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'mhinz/vim-startify'
 Plug 'mcchrish/nnn.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -341,4 +340,47 @@ endfunction
 
 " Misc
 let g:bclose_no_plugin_maps = 1
+
+
+" Start screen
+function! Start()
+  if argc() || line2byte('$') != -1 || v:progname !~? '^[-gmnq]\=vim\=x\=\%[\.exe]$' || &insertmode
+    return
+  endif
+
+  enew
+
+  setlocal
+        \ bufhidden=wipe
+        \ buftype=nofile
+        \ nobuflisted
+        \ nocursorcolumn
+        \ nocursorline
+        \ nolist
+        \ nonumber
+        \ noswapfile
+        \ norelativenumber
+        \ colorcolumn=""
+
+  let l:logo_height = len(g:startify_custom_header)
+  let l:logo_width = len(g:startify_custom_header[0])
+  let l:row = float2nr((&lines - l:logo_height) / 2)
+  let l:col = float2nr((&columns - l:logo_width) / 2)
+
+  call append('$', map(range(l:row), '""'))
+  for line in g:startify_custom_header
+    call append('$', repeat(" ", l:col) . l:line)
+  endfor
+
+  setlocal nomodifiable nomodified
+  setlocal statusline=%#Normal#
+  highlight EndOfBuffer ctermfg=bg ctermbg=bg guifg=bg guibg=bg
+
+  nnoremap <buffer><silent> e :enew<CR>
+  nnoremap <buffer><silent> i :enew <bar> startinsert<CR>
+  nnoremap <buffer><silent> o :enew <bar> startinsert<CR>
+  nnoremap <buffer><silent> a :enew <bar> startinsert<CR>
+endfunction
+
+autocmd VimEnter * call Start()
 
