@@ -10,7 +10,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'mcchrish/nnn.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-" Plug 'mhinz/vim-startify'
 
 " Statusline
 Plug 'itchyny/lightline.vim'
@@ -368,7 +367,7 @@ function! Start()
   let l:row = float2nr((&lines - l:logo_height) / 2)
   let l:col = float2nr((&columns - l:logo_width) / 2)
 
-  call append('^', map(range(l:row), '""'))
+  call append('$', map(range(l:row), '""'))
   for line in g:startify_custom_header
     call append('$', repeat(" ", l:col) . l:line)
   endfor
@@ -384,3 +383,4 @@ function! Start()
 endfunction
 
 autocmd VimEnter * call Start()
+
