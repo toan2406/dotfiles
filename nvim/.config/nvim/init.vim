@@ -364,7 +364,7 @@ function! Start()
 
   let l:logo_height = len(g:startify_custom_header)
   let l:logo_width = len(g:startify_custom_header[0])
-  let l:row = float2nr((&lines - l:logo_height) / 2)
+  let l:row = float2nr((&lines - l:logo_height - 4) / 2)
   let l:col = float2nr((&columns - l:logo_width) / 2)
 
   call append('$', map(range(l:row), '""'))
