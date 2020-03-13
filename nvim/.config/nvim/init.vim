@@ -353,7 +353,6 @@ function! Start()
   setlocal
         \ bufhidden=wipe
         \ buftype=nofile
-        \ nobuflisted
         \ nocursorcolumn
         \ nocursorline
         \ nolist
@@ -374,7 +373,6 @@ function! Start()
 
   setlocal nomodifiable nomodified
   setlocal statusline=%#Normal#
-  highlight EndOfBuffer ctermfg=bg ctermbg=bg guifg=bg guibg=bg
 
   nnoremap <buffer><silent> e :enew<CR>
   nnoremap <buffer><silent> i :enew <bar> startinsert<CR>

@@ -94,6 +94,13 @@ function fd() {
 }
 
 
+# Cheatsheet tool
+navi() {
+  eval "$(command navi --print)"
+}
+export NAVI_PATH="$HOME/.dotfiles/cheats"
+
+
 # Misc
 export PATH=$HOME/.fastlane/bin:$PATH
 
@@ -118,3 +125,4 @@ bindkey '^ ' autosuggest-accept
 # if [[ -x /usr/local/bin/cowsay && -x /usr/local/bin/fortune && -x ~/.rbenv/shims/lolcat ]]; then
 #   fortune | cowsay | lolcat
 # fi
+

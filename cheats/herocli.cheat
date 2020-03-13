@@ -1,0 +1,10 @@
+% herocli
+
+# Access to a staging app
+HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_STG herocli --server <server> app run-tty <app_name>
+
+# View status of a staging app
+HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_STG herocli --server <server> app status <app_name>
+
+$ server: echo 'hero2.staging.ehrocks.com:443'
+$ app_name: HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_STG herocli --server hero2.staging.ehrocks.com:443 app list --namespace staging | awk '{ if (NR > 2) print $1 }' --- --column 1 --header-lines 1 --delimiter '\s\s+'
