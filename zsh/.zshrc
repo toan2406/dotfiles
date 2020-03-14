@@ -95,10 +95,11 @@ function fd() {
 
 
 # Cheatsheet tool
+export DEFAULT_NAVI_PATH="$(navi home)/../libexec/cheats"
+export NAVI_PATH="$HOME/.dotfiles/cheats:$DEFAULT_NAVI_PATH"
 navi() {
   eval "$(command navi --print)"
 }
-export NAVI_PATH="$HOME/.dotfiles/cheats"
 
 
 # Misc
