@@ -72,7 +72,11 @@ function ci() {
 }
 
 function ciob() {
-  ci `basename $(pwd)`/tree/"${$(git rev-parse --abbrev-ref HEAD)//\//%2F}"
+  if [[ -z "$1" ]]; then
+    ci "$(basename $(pwd))/tree/$(git rev-parse --abbrev-ref HEAD)"
+  else
+    ci "$(basename $(pwd))/tree/$1"
+  fi
 }
 
 
