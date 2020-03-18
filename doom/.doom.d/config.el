@@ -53,3 +53,5 @@
 ;; they are implemented.
 
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
+
+(define-key! evil-insert-state-map "jj" 'evil-normal-state)
