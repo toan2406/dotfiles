@@ -1,0 +1,17 @@
+% doom emacs
+
+# Synchronizes your config with Doom Emacs
+~/.emacs.d/bin/doom sync
+
+# Updates Doom Emacs
+~/.emacs.d/bin/doom upgrade
+
+# Generate a snapshot of your shell environment that Doom loads at startup
+~/.emacs.d/bin/doom env
+
+# Diagnose common issues with your installation, system and environment
+~/.emacs.d/bin/doom doctor
+
+# Delete old, orphaned packages
+~/.emacs.d/bin/doom purge
+
