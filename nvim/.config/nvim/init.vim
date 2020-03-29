@@ -7,7 +7,6 @@ Plug 'andreypopp/vim-colors-plain'
 " Navigation
 Plug 'justinmk/vim-sneak'
 Plug 'christoomey/vim-tmux-navigator'
-" Plug 'mcchrish/nnn.vim'
 Plug 'vifm/vifm.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -125,17 +124,8 @@ hi! IncSearch guifg=#ffffff guibg=NONE
 hi! Visual guibg=#585858
 
 
-" nnn v2.8.1
-" let $NNN_USE_EDITOR = 0
-" let g:nnn#layout = 'tabnew'
-" let g:nnn#action = {
-"       \ '<c-t>': 'tab split',
-"       \ '<c-x>': 'split',
-"       \ '<c-v>': 'vsplit'
-"       \ }
-" let g:nnn#command = 'nnn -d -H'
-" let g:nnn#set_default_mappings = 0
-" nnoremap <silent> <C-\> :NnnPicker '%:p:h'<CR>
+" Vifm
+nnoremap <silent> <C-\> :Vifm<CR>
 
 
 " Auto Pairs
