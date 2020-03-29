@@ -138,7 +138,7 @@ nnoremap <silent> <C-\> :NnnPicker '%:p:h'<CR>
 
 
 " Auto Pairs
-au Filetype reason let b:AutoPairs = {'(':')', '[':']', '{':'}', "'":"'", '"':'"'}
+au Filetype reason let b:AutoPairs = {'(':')', '[':']', '{':'}', '"':'"'}
 
 
 " Coc configs
