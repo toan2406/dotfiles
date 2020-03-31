@@ -119,9 +119,11 @@ if !exists('g:syntax_on')
   syntax enable
 endif
 
-hi! Search guifg=#ffffff guibg=NONE gui=underline,bold
-hi! IncSearch guifg=#ffffff guibg=NONE
+hi! Search guifg=white guibg=NONE gui=underline,bold
+hi! IncSearch guifg=white guibg=NONE
 hi! Visual guibg=#585858
+hi! CocFloating guibg=#333333 guifg=white
+hi! Pmenu guibg=#333333 guifg=white
 
 
 " Vifm
