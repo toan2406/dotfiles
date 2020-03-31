@@ -127,7 +127,8 @@ hi! Pmenu guibg=#333333 guifg=white
 
 
 " Vifm
-nnoremap <silent> <C-\> :Vifm<CR>
+nnoremap <leader>vv :Vifm<CR>
+nnoremap <leader>vs :VsplitVifm<CR>
 
 
 " Auto Pairs
