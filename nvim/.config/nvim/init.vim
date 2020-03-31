@@ -41,6 +41,7 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'iberianpig/tig-explorer.vim'
 
 " Misc
+Plug 'tpope/vim-unimpaired'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
