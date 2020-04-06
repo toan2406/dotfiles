@@ -1,0 +1,7 @@
+% mosh
+
+# Connect to mosh server
+mosh --server=/usr/local/bin/mosh-server <username>@<domain>
+
+$ username: echo 'toannguyen'
+$ domain: echo -e 'toans-macbook-pro-2.local\ntoans-mac-mini.local'
