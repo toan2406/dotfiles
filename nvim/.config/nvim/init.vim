@@ -128,6 +128,8 @@ hi! Pmenu guibg=#333333 guifg=white
 
 
 " Vifm
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
 nnoremap <leader>vv :Vifm<CR>
 nnoremap <leader>vs :VsplitVifm<CR>
 
