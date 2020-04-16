@@ -7,7 +7,7 @@ Plug 'andreypopp/vim-colors-plain'
 " Navigation
 Plug 'justinmk/vim-sneak'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'vifm/vifm.vim'
+Plug 'toan2406/vifm.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
@@ -130,8 +130,7 @@ hi! Pmenu guibg=#333333 guifg=white
 " Vifm
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
-nnoremap <leader>vv :Vifm<CR>
-nnoremap <leader>vs :VsplitVifm<CR>
+nnoremap <silent> <C-\> :Vifm<CR>
 
 
 " Auto Pairs
