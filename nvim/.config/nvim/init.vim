@@ -19,6 +19,7 @@ Plug 'maximbaz/lightline-ale'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'neoclide/coc-json', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-tsserver', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'fannheyward/coc-markdownlint', { 'do': 'yarn install --frozen-lockfile' }
 
 " JS support
 Plug 'moll/vim-node'

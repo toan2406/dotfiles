@@ -17,5 +17,11 @@
       "filetypes": ["rust"],
       "rootPatterns": ["Cargo.toml"]
     }
+  },
+  "markdownlint.onOpen": true,
+  "markdownlint.onChange": false,
+  "markdownlint.config": {
+    "default": true,
+    "line_length": false
   }
 }
