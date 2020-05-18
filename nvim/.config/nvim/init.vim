@@ -3,6 +3,7 @@ call plug#begin('~/.config/nvim/plugged')
 " UI
 Plug 'jacoborus/tender.vim'
 Plug 'andreypopp/vim-colors-plain'
+Plug 'arcticicestudio/nord-vim'
 
 " Navigation
 Plug 'justinmk/vim-sneak'
@@ -115,7 +116,7 @@ nnoremap <leader>gf <C-w>vgf
 
 
 " UI
-colorscheme tender
+colorscheme nord
 
 if !exists('g:syntax_on')
   syntax enable
@@ -150,7 +151,7 @@ nnoremap <leader>ld :call CocAction('diagnosticPreview')<CR>
 
 " Statusline configs
 let g:lightline = {}
-let g:lightline.colorscheme = 'tender'
+let g:lightline.colorscheme = 'nord'
 let g:lightline.component_function = {
       \ 'gitbranch': 'fugitive#head'
       \ }
