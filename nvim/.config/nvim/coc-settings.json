@@ -8,10 +8,6 @@
       "args": ["stdio"],
       "filetypes": ["ruby"]
     },
-    "reason": {
-      "command": "reason-language-server.exe",
-      "filetypes": ["reason"]
-    },
     "rust": {
       "command": "rls",
       "filetypes": ["rust"],
