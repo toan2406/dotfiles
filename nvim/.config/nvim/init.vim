@@ -140,7 +140,7 @@ au Filetype reason let b:AutoPairs = {'(':')', '[':']', '{':'}', '"':'"'}
 
 
 " Coc configs
-let g:coc_global_extensions = [ 'coc-reason' ]
+let g:coc_global_extensions = [ 'coc-reason', 'coc-solargraph' ]
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <silent><expr> <C-Space> coc#refresh()
