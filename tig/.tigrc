@@ -7,5 +7,5 @@ bind stash D !?git stash drop %(stash)
 bind stash A !?git stash apply %(stash)
 bind status S !?git stash save --keep-index %(prompt)
 
-set main-options = --exclude=refs/stash --all
+set main-options = --exclude=refs/stash
 set line-graphics = utf-8
