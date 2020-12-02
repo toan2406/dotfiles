@@ -53,7 +53,7 @@ Plug 'benmills/vimux'
 Plug 'brooth/far.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'norcalli/nvim-colorizer.lua'
-Plug 'psliwka/vim-smoothie'
+" Plug 'psliwka/vim-smoothie'
 
 call plug#end()
 
