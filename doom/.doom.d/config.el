@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
-(setq user-full-name "John Doe"
-      user-mail-address "john@doe.com")
+(setq user-full-name "Toan Nguyen"
+      user-mail-address "toan2406@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -54,4 +54,7 @@
 
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
-(define-key! evil-insert-state-map "jj" 'evil-normal-state)
+(setq evil-escape-key-sequence "jj")
+
+(setq fancy-splash-image "~/.doom.d/Emacs-logo.png")
+
