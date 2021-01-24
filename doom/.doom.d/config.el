@@ -58,3 +58,9 @@
 
 (setq fancy-splash-image "~/.doom.d/Emacs-logo.png")
 
+(setq avy-all-windows t)
+
+(use-package! prettier-js
+  :config
+  (add-hook! js-mode prettier-js-mode)
+  (add-hook! web-mode prettier-js-mode))
