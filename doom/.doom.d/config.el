@@ -32,7 +32,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-type nil)
 
 (scroll-bar-mode -1)
 (tool-bar-mode   -1)
@@ -56,6 +56,8 @@
 ;;
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
+(load! "ivy")
+
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
@@ -70,6 +72,6 @@
   (add-hook! js-mode prettier-js-mode)
   (add-hook! web-mode prettier-js-mode))
 
-(evil-define-key 'normal 'global "s" 'avy-goto-char-2)
+(evil-define-key* 'normal 'global "s" 'avy-goto-char-2)
 
 (setq evil-escape-key-sequence "jj")
