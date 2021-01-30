@@ -32,7 +32,12 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
+
+(scroll-bar-mode -1)
+(tool-bar-mode   -1)
+(tooltip-mode    -1)
+(menu-bar-mode   -1)
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
@@ -51,10 +56,10 @@
 ;;
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
-
+(add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
-(setq evil-escape-key-sequence "jj")
+(setq scroll-margin 10)
 
 (setq fancy-splash-image "~/.doom.d/Emacs-logo.png")
 
@@ -64,3 +69,7 @@
   :config
   (add-hook! js-mode prettier-js-mode)
   (add-hook! web-mode prettier-js-mode))
+
+(evil-define-key 'normal 'global "s" 'avy-goto-char-2)
+
+(setq evil-escape-key-sequence "jj")
