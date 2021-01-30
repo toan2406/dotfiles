@@ -72,6 +72,8 @@
   (add-hook! js-mode prettier-js-mode)
   (add-hook! web-mode prettier-js-mode))
 
-(evil-define-key* 'normal 'global "s" 'avy-goto-char-2)
+(evil-define-key* 'normal 'global
+  "s" 'avy-goto-char-2-below
+  "S" 'avy-goto-char-2-above)
 
 (setq evil-escape-key-sequence "jj")
