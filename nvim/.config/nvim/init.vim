@@ -219,7 +219,11 @@ let g:ale_set_quickfix = 1
 let g:ale_open_list = 0
 let g:ale_linters = {
       \ 'javascript': [ 'eslint', 'flow' ],
-      \ 'reason': [ 'reason-language-server' ]
+      \ 'reason': [ 'reason-language-server' ],
+      \ 'ruby': [ 'rubocop' ]
+      \ }
+let g:ale_fixers = {
+      \ 'ruby': [ 'rubocop' ]
       \ }
 nmap <silent> <leader>aj :ALENext<CR>
 nmap <silent> <leader>ak :ALEPrevious<CR>
