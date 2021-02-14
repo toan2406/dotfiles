@@ -211,7 +211,7 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 
 
 " Ale configs
-let g:ale_reason_ls_executable = '/usr/local/bin/reason-language-server.exe'
+let g:ale_reason_ls_executable = '/usr/local/bin/reason-language-server'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_set_loclist = 0

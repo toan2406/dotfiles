@@ -77,3 +77,18 @@
   "S" 'avy-goto-char-2-above)
 
 (setq evil-escape-key-sequence "jj")
+
+;; ReasonML
+(use-package! reason-mode
+  :commands reason-mode
+  :config
+  (add-hook! reason-mode #'lsp)
+  (add-hook! reason-mode (add-hook 'before-save-hook #'lsp-format-buffer nil t)))
+
+(after! lsp-mode
+  (lsp-register-client
+   (make-lsp-client :new-connection (lsp-stdio-connection "/usr/local/bin/reason-language-server")
+                    :major-modes '(reason-mode)
+                    :notification-handlers (ht ("client/registerCapability" 'ignore))
+                    :priority 1
+                    :server-id 'reason-ls)))

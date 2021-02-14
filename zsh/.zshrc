@@ -125,6 +125,9 @@ export REVIEW_BASE=master
 bindkey '^ ' autosuggest-accept
 
 
+test -r /Users/toannguyen/.opam/opam-init/init.zsh && . /Users/toannguyen/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+
 # Have some fun
 # if [[ -x /usr/local/bin/cowsay && -x /usr/local/bin/fortune && -x ~/.rbenv/shims/lolcat ]]; then
 #   fortune | cowsay | lolcat
