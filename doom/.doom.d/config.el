@@ -82,8 +82,7 @@
 (use-package! reason-mode
   :commands reason-mode
   :config
-  (add-hook! reason-mode #'lsp)
-  (add-hook! reason-mode (add-hook 'before-save-hook #'lsp-format-buffer nil t)))
+  (add-hook! reason-mode #'lsp))
 
 (after! lsp-mode
   (lsp-register-client
