@@ -77,6 +77,7 @@
   "S" 'avy-goto-char-2-above)
 
 (setq evil-escape-key-sequence "jj")
+(setq evil-escape-delay 1)
 
 ;; ReasonML
 (use-package! reason-mode
