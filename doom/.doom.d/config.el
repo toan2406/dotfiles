@@ -91,3 +91,5 @@
                     :notification-handlers (ht ("client/registerCapability" 'ignore))
                     :priority 1
                     :server-id 'reason-ls)))
+
+(sp-local-pair 'reason-mode "'" nil :actions nil)
