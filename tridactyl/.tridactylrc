@@ -1,0 +1,2 @@
+set searchurls.translate https://translate.google.com/?sl=en&tl=vi&op=translate&text=
+bind ,t fillcmdline tabopen translate
