@@ -1,2 +1,5 @@
 set searchurls.translate https://translate.google.com/?sl=en&tl=vi&op=translate&text=
 bind ,t fillcmdline tabopen translate
+
+set searchurls.mdn https://developer.mozilla.org/en-US/search?q=
+bind ,wd fillcmdline tabopen mdn
