@@ -64,6 +64,7 @@ alias help='tldr'
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias vim='nvim'
 alias vi='nvim'
+alias bim='nvim'
 
 
 # Open CircleCI branch
