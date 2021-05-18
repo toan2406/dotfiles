@@ -267,10 +267,10 @@ let g:far#source = 'rg'
 
 " Tmux navigation
 let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <C-h> :TmuxNavigateLeft<CR>
-nnoremap <silent> <C-j> :TmuxNavigateDown<CR>
-nnoremap <silent> <C-k> :TmuxNavigateUp<CR>
-nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
+nnoremap <silent> <C-w>h :TmuxNavigateLeft<CR>
+nnoremap <silent> <C-w>j :TmuxNavigateDown<CR>
+nnoremap <silent> <C-w>k :TmuxNavigateUp<CR>
+nnoremap <silent> <C-w>l :TmuxNavigateRight<CR>
 
 
 " Color highlighter
