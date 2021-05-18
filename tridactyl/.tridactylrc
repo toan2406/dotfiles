@@ -1,3 +1,5 @@
+colors dark
+
 set searchurls.translate https://translate.google.com/?sl=en&tl=vi&op=translate&text=
 set searchurls.mdn https://developer.mozilla.org/en-US/search?q=
 
