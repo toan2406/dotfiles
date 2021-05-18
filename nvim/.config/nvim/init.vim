@@ -110,7 +110,7 @@ inoremap <right> <nop>
 
 
 " Key bindings
-nnoremap <silent> <leader>ec :e $MYVIMRC<CR>
+nnoremap <silent> <leader>vc :e $MYVIMRC<CR>
 nnoremap <silent> <leader>sc :source $MYVIMRC<CR>
 nnoremap <silent> <leader>sb :topleft 15 new $VIMSCRATCH<CR>
 nnoremap <leader>cp :let @+=expand('%:p')<CR>
@@ -135,6 +135,7 @@ hi! Pmenu guibg=#333333 guifg=white
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
 nnoremap <silent> <C-\> :Vifm<CR>
+nnoremap <silent> <leader>e :Vifm<CR>
 
 
 " Auto Pairs
