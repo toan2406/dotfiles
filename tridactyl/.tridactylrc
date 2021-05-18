@@ -3,5 +3,7 @@ set searchurls.mdn https://developer.mozilla.org/en-US/search?q=
 
 bind ,t fillcmdline tabopen translate
 bind ,wd fillcmdline tabopen mdn
-bind <C-h> tabprev
-bind <C-l> tabnext
+
+unbind --mode=normal <C-a>
+bind <C-a>p tabprev
+bind <C-a>n tabnext
