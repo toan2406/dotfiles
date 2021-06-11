@@ -36,6 +36,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'leafgarland/typescript-vim'
+Plug 'elixir-editors/vim-elixir'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -143,7 +144,7 @@ au Filetype reason let b:AutoPairs = {'(':')', '[':']', '{':'}', '"':'"'}
 
 
 " Coc configs
-let g:coc_global_extensions = [ 'coc-reason', 'coc-solargraph', 'coc-go' ]
+let g:coc_global_extensions = [ 'coc-reason', 'coc-solargraph', 'coc-go', 'coc-elixir' ]
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <silent><expr> <C-Space> coc#refresh()
