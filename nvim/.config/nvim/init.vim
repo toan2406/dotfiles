@@ -100,14 +100,14 @@ nnoremap \ ,
 
 
 " Disable arrow keys
-noremap <up> <nop>
-noremap <down> <nop>
-noremap <left> <nop>
-noremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
+" noremap <up> <nop>
+" noremap <down> <nop>
+" noremap <left> <nop>
+" noremap <right> <nop>
+" inoremap <up> <nop>
+" inoremap <down> <nop>
+" inoremap <left> <nop>
+" inoremap <right> <nop>
 
 
 " Key bindings
@@ -116,6 +116,7 @@ nnoremap <silent> <leader>sc :source $MYVIMRC<CR>
 nnoremap <silent> <leader>sb :topleft 15 new $VIMSCRATCH<CR>
 nnoremap <leader>cp :let @+=expand('%:p')<CR>
 nnoremap <leader>gf <C-w>vgf
+nnoremap <leader><leader> <C-^>
 
 
 " UI
