@@ -1,3 +1,8 @@
-require('plugins')
+require('general/settings')
+require('general/mappings')
 
-vim.cmd[[colorscheme tender]]
+require('plugins')
+require('plugins/vifm')
+
+vim.cmd [[colorscheme tender]]
+
