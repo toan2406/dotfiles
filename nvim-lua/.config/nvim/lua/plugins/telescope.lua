@@ -34,9 +34,9 @@ require('telescope').setup({
 
 require('telescope').load_extension('fzy_native')
 
-api.nvim_set_keymap('n', '<leader>p', '<cmd>Telescope find_files hidden=true<CR>', {noremap = true})
-api.nvim_set_keymap('n', '<leader>f', '<cmd>Telescope live_grep<CR>', {noremap = true})
-api.nvim_set_keymap('n', '<leader>b', '<cmd>Telescope buffers<CR>', {noremap = true})
-api.nvim_set_keymap('n', '<leader>h', '<cmd>Telescope help_tags<CR>', {noremap = true})
-api.nvim_set_keymap('n', '<leader>w', '<cmd>Telescope grep_string<CR>', {noremap = true})
+api.nvim_set_keymap('n', '<leader>p', '<CMD>Telescope find_files hidden=true<CR>', {noremap = true})
+api.nvim_set_keymap('n', '<leader>f', '<CMD>Telescope live_grep<CR>', {noremap = true})
+api.nvim_set_keymap('n', '<leader>b', '<CMD>Telescope buffers<CR>', {noremap = true})
+api.nvim_set_keymap('n', '<leader>h', '<CMD>Telescope help_tags<CR>', {noremap = true})
+api.nvim_set_keymap('n', '<leader>w', '<CMD>Telescope grep_string<CR>', {noremap = true})
 
