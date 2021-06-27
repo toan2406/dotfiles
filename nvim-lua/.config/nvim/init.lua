@@ -5,6 +5,7 @@ require('plugins')
 require('plugins/vifm')
 require('plugins/sneak')
 require('plugins/kommentary')
+require('plugins/telescope')
 
 vim.cmd [[colorscheme tender]]
 
