@@ -9,6 +9,8 @@ require('plugins/telescope')
 require('plugins/compe')
 require('plugins/Navigator')
 require('plugins/autopairs')
+require('plugins/lightline')
+require('plugins/ale')
 
 vim.cmd [[colorscheme tender]]
 
