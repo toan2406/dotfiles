@@ -3,6 +3,14 @@ local api = vim.api
 
 require('telescope').setup({
   defaults = {
+    layout_defaults = {
+      horizontal = {
+        mirror = false,
+        width_padding = 3,
+        height_padding = 1,
+        preview_width = 0.5,
+      }
+    },
     vimgrep_arguments = {
       'rg',
       '--color=never',
