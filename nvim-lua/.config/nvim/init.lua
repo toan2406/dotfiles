@@ -11,6 +11,7 @@ require('plugins/Navigator')
 require('plugins/autopairs')
 require('plugins/lightline')
 require('plugins/ale')
+require('plugins/fugitive')
 
 vim.cmd [[colorscheme tender]]
 

@@ -11,10 +11,14 @@ return require('packer').startup(function()
   use 'norcalli/nvim-colorizer.lua'
   use 'tpope/vim-surround'
   use 'windwp/nvim-autopairs'
-  use 'tpope/vim-fugitive'
   use 'dense-analysis/ale'
+
   use 'itchyny/lightline.vim'
   use 'maximbaz/lightline-ale'
+
+  use 'tpope/vim-fugitive'
+  use 'tpope/vim-rhubarb'
+  use 'junegunn/gv.vim'
 
   use {
     'nvim-telescope/telescope.nvim',
