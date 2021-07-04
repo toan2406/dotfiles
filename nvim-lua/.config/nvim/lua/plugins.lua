@@ -12,6 +12,7 @@ return require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'windwp/nvim-autopairs'
   use 'dense-analysis/ale'
+  use 'lukas-reineke/indent-blankline.nvim'
 
   use 'itchyny/lightline.vim'
   use 'maximbaz/lightline-ale'
