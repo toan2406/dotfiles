@@ -19,6 +19,7 @@ nvim_lsp.tsserver.setup({
   on_attach = on_attach,
   flags = {
     debounce_text_changes = 150,
-  }
+  },
+  handlers = {['textDocument/publishDiagnostics'] = function(...) end}
 })
 
