@@ -32,6 +32,8 @@ return require('packer').startup(function()
   }
   use 'nvim-treesitter/nvim-treesitter-refactor'
 
+  use 'neovim/nvim-lspconfig'
+
   use 'reasonml-editor/vim-reason-plus'
 end)
 

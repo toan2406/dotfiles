@@ -13,6 +13,5 @@ require('plugins/lightline')
 require('plugins/ale')
 require('plugins/fugitive')
 require('plugins/treesitter')
-
-vim.cmd [[colorscheme tender]]
+require('plugins/lsp')
 

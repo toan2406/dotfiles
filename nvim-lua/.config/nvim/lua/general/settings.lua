@@ -30,3 +30,5 @@ o.background = 'dark'
 
 g.mapleader = ','
 
+vim.cmd [[colorscheme tender]]
+
