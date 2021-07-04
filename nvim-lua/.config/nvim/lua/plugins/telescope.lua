@@ -3,11 +3,10 @@ local api = vim.api
 
 require('telescope').setup({
   defaults = {
-    layout_defaults = {
+    layout_config = {
       horizontal = {
-        mirror = false,
-        width_padding = 3,
-        height_padding = 1,
+        width = {padding = 3},
+        height = {padding = 1},
         preview_width = 0.5,
       }
     },
