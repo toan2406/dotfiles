@@ -9,7 +9,7 @@ g.ale_fix_on_save = 0
 
 g.ale_set_loclist = 0
 g.ale_set_quickfix = 1
-g.ale_open_list = 0
+g.ale_open_list = 1
 
 g.ale_linters = {
   javascript = {'eslint', 'prettier'},
