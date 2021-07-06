@@ -23,3 +23,24 @@ nvim_lsp.tsserver.setup({
   handlers = {['textDocument/publishDiagnostics'] = function(...) end}
 })
 
+-- curl -fLO https://github.com/elixir-lsp/elixir-ls/releases/latest/download/elixir-ls.zip
+-- unzip elixir-ls.zip -d /usr/local/bin/elixir-ls
+-- chmod +x /usr/local/bin/elixir-ls/language_server.sh
+nvim_lsp.elixirls.setup({
+  cmd = {'/usr/local/bin/elixir-ls/language_server.sh'},
+  settings = {
+    ['elixirLS.dialyzerEnabled'] = true,
+    ['elixirLS.dialyzerFormat'] = 'dialyzer',
+    ['elixirLS.dialyzerWarnOpts'] = {},
+    ['elixirLS.fetchDeps'] = true,
+    ['elixirLS.mixEnv'] = 'test',
+    ['elixirLS.suggestSpecs'] = true,
+  },
+
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  },
+  handlers = {['textDocument/publishDiagnostics'] = function(...) end}
+})
+
