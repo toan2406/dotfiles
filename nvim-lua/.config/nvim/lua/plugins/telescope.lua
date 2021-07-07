@@ -4,11 +4,18 @@ local api = vim.api
 require('telescope').setup({
   defaults = {
     layout_config = {
+      prompt_position = 'top',
       horizontal = {
         width = {padding = 3},
         height = {padding = 1},
         preview_width = 0.5,
       }
+    },
+    borderchars = {
+      {'─', '│', '─', '│', '╭', '╮', '╯', '╰'},
+      prompt = {'─', '│', ' ', '│', '╭', '╮', '│', '│'},
+      results = {'─', '│', '─', '│', '├', '┤', '╯', '╰'},
+      preview = {'─', '│', '─', '│', '╭', '╮', '╯', '╰'},
     },
     vimgrep_arguments = {
       'rg',
@@ -20,7 +27,7 @@ require('telescope').setup({
       '--smart-case',
       '--hidden',
     },
-    sorting_strategy = 'descending',
+    sorting_strategy = 'ascending',
     file_ignore_patterns = {'.git', 'node_modules'},
     mappings = {
       i = {
@@ -32,9 +39,21 @@ require('telescope').setup({
     }
   },
   pickers = {
+    find_files = {
+      results_title = false,
+    },
+    live_grep = {
+      results_title = false,
+    },
     buffers = {
       theme = 'ivy',
       previewer = false,
+    },
+    help_tags = {
+      results_title = false,
+    },
+    grep_string = {
+      results_title = false,
     }
   },
   extensions = {
