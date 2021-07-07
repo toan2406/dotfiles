@@ -31,6 +31,12 @@ require('telescope').setup({
       }
     }
   },
+  pickers = {
+    buffers = {
+      theme = 'ivy',
+      previewer = false,
+    }
+  },
   extensions = {
     fzy_native = {
       override_generic_sorter = true,
