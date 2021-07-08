@@ -73,6 +73,7 @@ api.nvim_set_keymap('n', '<leader>fh', '<CMD>Telescope help_tags<CR>', {noremap 
 api.nvim_set_keymap('n', '<leader>fw', '<CMD>Telescope grep_string<CR>', {noremap = true})
 
 api.nvim_set_keymap('n', '<leader>p', '<leader>ff', {noremap = false})
-api.nvim_set_keymap('n', '<leader>s', '<leader>fg', {noremap = false})
+api.nvim_set_keymap('n', '<leader>s', "<CMD>Telescope grep_string search= only_sort_text=true<CR>", {noremap = true})
 api.nvim_set_keymap('n', '<leader>b', '<leader>fb', {noremap = false})
 api.nvim_set_keymap('n', '<leader>w', '<leader>fw', {noremap = false})
+
