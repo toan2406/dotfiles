@@ -21,11 +21,16 @@ return require('packer').startup(function()
   use 'tpope/vim-rhubarb'
   use 'junegunn/gv.vim'
 
+  -- use {
+  --   'nvim-telescope/telescope.nvim',
+  --   requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+  -- }
+  -- use 'nvim-telescope/telescope-fzy-native.nvim'
   use {
-    'nvim-telescope/telescope.nvim',
-    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+    'junegunn/fzf',
+    run = function() vim.fn['fzf#install']() end
   }
-  use 'nvim-telescope/telescope-fzy-native.nvim'
+  use 'junegunn/fzf.vim'
 
   use {
     'nvim-treesitter/nvim-treesitter',
