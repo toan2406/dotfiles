@@ -3,6 +3,7 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   use 'jacoborus/tender.vim'
+  use 'joshdick/onedark.vim'
   use 'toan2406/vifm.vim'
   use 'justinmk/vim-sneak'
   use 'b3nj5m1n/kommentary'
