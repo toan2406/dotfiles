@@ -14,4 +14,5 @@ require('plugins/ale')
 require('plugins/fugitive')
 require('plugins/treesitter')
 require('plugins/lsp')
+require('plugins/indent-blankline')
 
