@@ -1,6 +1,8 @@
 require('general/settings')
 require('general/mappings')
 
+require('colorschemes/tender')
+
 require('plugins')
 require('plugins/vifm')
 require('plugins/sneak')

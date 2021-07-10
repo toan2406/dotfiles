@@ -30,8 +30,6 @@ o.background = 'dark'
 
 g.mapleader = ','
 
-vim.cmd [[colorscheme tender]]
-
 vim.cmd [[
   augroup YankHighlight
     autocmd!
