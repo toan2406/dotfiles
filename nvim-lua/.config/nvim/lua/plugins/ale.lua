@@ -17,6 +17,8 @@ g.ale_linters = {
 }
 g.ale_fixers = {
   javascript = {'prettier'},
+  typescript = {'prettier'},
+  json = {'prettier'},
   ruby = {'rubocop'},
 }
 g.ale_ruby_rubocop_executable = 'bundle'
