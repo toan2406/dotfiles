@@ -17,4 +17,5 @@ require('plugins/fugitive')
 require('plugins/treesitter')
 require('plugins/lsp')
 require('plugins/indent-blankline')
+require('plugins/colorizer')
 
