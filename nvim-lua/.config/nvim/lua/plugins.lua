@@ -39,5 +39,6 @@ return require('packer').startup(function()
   use 'lukas-reineke/indent-blankline.nvim'
   use 'b3nj5m1n/kommentary'
   use 'numToStr/Navigator.nvim'
+  use 'simrat39/symbols-outline.nvim'
 end)
 
