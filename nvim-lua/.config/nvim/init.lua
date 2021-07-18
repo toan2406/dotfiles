@@ -1,3 +1,5 @@
+vim.g.start_time = vim.fn.reltime()
+
 require('general/settings')
 require('general/mappings')
 
@@ -19,4 +21,5 @@ require('plugins/lsp')
 require('plugins/blankline')
 require('plugins/colorizer')
 require('plugins/symbols')
+require('plugins/dashboard')
 

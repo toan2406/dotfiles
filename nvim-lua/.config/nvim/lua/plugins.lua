@@ -41,5 +41,6 @@ return require('packer').startup(function()
   use 'b3nj5m1n/kommentary'
   use 'numToStr/Navigator.nvim'
   use 'simrat39/symbols-outline.nvim'
+  use 'glepnir/dashboard-nvim'
 end)
 
