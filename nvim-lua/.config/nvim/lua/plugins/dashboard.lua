@@ -48,5 +48,7 @@ g.dashboard_custom_footer = {
   'Nvim loaded in ' .. fn.printf('%.3f', fn.reltimefloat(fn.reltime(g.start_time))) .. ' seconds.'
 }
 
--- g.dashboard_disable_statusline = 1
+g.dashboard_disable_statusline = 1
+
+vim.cmd [[autocmd BufEnter * set laststatus=2]]
 
