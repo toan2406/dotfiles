@@ -49,7 +49,7 @@ rbenv() {
 
 # Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='rg --files --ignore-vcs --hidden'
+export FZF_DEFAULT_COMMAND="rg --files --ignore-vcs --hidden --glob '!{node_modules,.git}'"
 
 
 # Android configs
