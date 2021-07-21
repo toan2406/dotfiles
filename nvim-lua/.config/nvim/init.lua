@@ -21,6 +21,6 @@ require('plugins/treesitter')
 require('plugins/lsp')
 require('plugins/blankline')
 require('plugins/colorizer')
-require('plugins/symbols')
+-- require('plugins/symbols')
 require('plugins/dashboard')
 

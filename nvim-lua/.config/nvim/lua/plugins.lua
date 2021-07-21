@@ -33,6 +33,7 @@ return require('packer').startup(function()
   use 'neovim/nvim-lspconfig'
   use 'glepnir/lspsaga.nvim'
   use 'reasonml-editor/vim-reason-plus'
+  use 'rescript-lang/vim-rescript'
 
   -- Misc
   use 'windwp/nvim-autopairs'

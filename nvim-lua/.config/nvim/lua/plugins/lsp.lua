@@ -26,10 +26,8 @@ end
 -- npm install -g typescript typescript-language-server
 nvim_lsp.tsserver.setup({
   on_attach = on_attach,
-  flags = {
-    debounce_text_changes = 150,
-  },
-  -- handlers = {['textDocument/publishDiagnostics'] = function(...) end}
+  flags = {debounce_text_changes = 150},
+  handlers = {['textDocument/publishDiagnostics'] = function(...) end}
 })
 
 -- curl -fLO https://github.com/elixir-lsp/elixir-ls/releases/latest/download/elixir-ls.zip
@@ -47,10 +45,7 @@ nvim_lsp.elixirls.setup({
   },
 
   on_attach = on_attach,
-  flags = {
-    debounce_text_changes = 150,
-  },
-  handlers = {['textDocument/publishDiagnostics'] = function(...) end}
+  flags = {debounce_text_changes = 150}
 })
 
 -- npm install -g ocaml-language-server
@@ -58,6 +53,17 @@ nvim_lsp.elixirls.setup({
 -- eval $(opam env)
 -- opam install reason merlin
 nvim_lsp.ocamlls.setup({
-  on_attach = on_attach
+  on_attach = on_attach,
+  flags = {debounce_text_changes = 150}
 })
 
+nvim_lsp.rescriptls.setup({
+  cmd = {
+    'node',
+    '/Users/toannguyen/.local/share/nvim/site/pack/packer/start/vim-rescript/server/out/server.js',
+    '--stdio'
+  },
+
+  on_attach = on_attach,
+  flags = {debounce_text_changes = 150}
+})
