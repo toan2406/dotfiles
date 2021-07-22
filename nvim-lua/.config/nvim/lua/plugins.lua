@@ -5,6 +5,7 @@ return require('packer').startup(function()
   -- Color schemes
   use 'jacoborus/tender.vim'
   use 'andreypopp/vim-colors-plain'
+  use 'folke/tokyonight.nvim'
 
   -- Navigation
   use 'toan2406/vifm.vim'
