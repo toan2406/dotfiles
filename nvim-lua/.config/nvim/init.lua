@@ -3,7 +3,7 @@ vim.g.start_time = vim.fn.reltime()
 require('general/settings')
 require('general/mappings')
 
-require('colorschemes/tokyonight')
+require('colorschemes/tender')
 
 require('plugins')
 require('plugins/vifm')
