@@ -67,3 +67,10 @@ nvim_lsp.rescriptls.setup({
   on_attach = on_attach,
   flags = {debounce_text_changes = 150}
 })
+
+-- gem install solargraph
+nvim_lsp.solargraph.setup({
+  on_attach = on_attach,
+  flags = {debounce_text_changes = 150}
+})
+
