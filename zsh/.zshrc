@@ -49,7 +49,7 @@ rbenv() {
 
 # Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='rg --files --ignore-vcs --hidden'
+export FZF_DEFAULT_COMMAND="rg --files --ignore-vcs --hidden --glob '!{node_modules,.git}'"
 
 
 # Android configs
@@ -126,7 +126,8 @@ export REVIEW_BASE=master
 bindkey '^ ' autosuggest-accept
 
 
-# test -r /Users/toannguyen/.opam/opam-init/init.zsh && . /Users/toannguyen/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+# opam configuration
+test -r $HOME/.opam/opam-init/init.zsh && . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 
 # Have some fun

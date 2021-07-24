@@ -210,9 +210,9 @@ colors:
   # Colors which should be used to draw the selection area. If selection
   # background is unset, selection color will be the inverse of the cell colors.
   # If only text is unset the cell text color will remain the same.
-  selection:
-    text: '0xeaeaea'
-    background: '0x404040'
+  # selection:
+  #   text: '0xeaeaea'
+  #   background: '0x404040'
 
   # Normal colors
   normal:
@@ -557,6 +557,7 @@ key_bindings:
   - { key: Q,      mods: Command, action: Quit                   }
   - { key: W,      mods: Command, action: Quit                   }
   - { key: Return, mods: Command, action: ToggleSimpleFullscreen }
+  - { key: N,      mods: Command, action: SpawnNewInstance       }
 
   - { key: Paste,                   action: Paste                      }
   - { key: Copy,                    action: Copy                       }
