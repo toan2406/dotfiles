@@ -6,6 +6,7 @@ return require('packer').startup(function()
   use 'jacoborus/tender.vim'
   use 'andreypopp/vim-colors-plain'
   use 'folke/tokyonight.nvim'
+  use 'projekt0n/github-nvim-theme'
 
   -- Navigation
   use 'toan2406/vifm.vim'
@@ -19,8 +20,7 @@ return require('packer').startup(function()
   use 'hrsh7th/nvim-compe'
 
   -- Statusline
-  use 'itchyny/lightline.vim'
-  use 'maximbaz/lightline-ale'
+  use {'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
 
   -- Git support
   use 'tpope/vim-fugitive'
