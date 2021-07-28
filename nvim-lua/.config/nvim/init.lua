@@ -22,5 +22,6 @@ require('plugins/lsp')
 require('plugins/blankline')
 require('plugins/colorizer')
 -- require('plugins/symbols')
+require('plugins/spotify')
 require('plugins/dashboard')
 

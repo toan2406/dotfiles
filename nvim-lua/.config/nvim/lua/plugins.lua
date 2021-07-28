@@ -37,6 +37,9 @@ return require('packer').startup(function()
   use 'reasonml-editor/vim-reason-plus'
   use 'rescript-lang/vim-rescript'
 
+  -- Terminal
+  use 'numtostr/FTerm.nvim'
+
   -- Misc
   use 'windwp/nvim-autopairs'
   use 'tpope/vim-surround'
