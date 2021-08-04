@@ -36,6 +36,7 @@ return require('packer').startup(function()
   use 'glepnir/lspsaga.nvim'
   use 'reasonml-editor/vim-reason-plus'
   use 'rescript-lang/vim-rescript'
+  use 'tpope/vim-rails'
 
   -- Terminal
   use 'numtostr/FTerm.nvim'
