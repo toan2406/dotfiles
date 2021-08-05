@@ -4,7 +4,7 @@ return require('packer').startup(function()
 
   -- Color schemes
   use 'jacoborus/tender.vim'
-  use 'morhetz/gruvbox'
+  use 'gruvbox-community/gruvbox'
 
   -- Navigation
   use 'toan2406/vifm.vim'
@@ -25,7 +25,7 @@ return require('packer').startup(function()
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'junegunn/gv.vim'
-  use 'airblade/vim-gitgutter'
+  use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
 
   -- Language support
   use 'dense-analysis/ale'
