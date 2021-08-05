@@ -1,5 +1,5 @@
 vim.g.lightline = {
-  colorscheme = 'tender',
+  colorscheme = 'gruvbox',
   component_function = {
     gitbranch = 'fugitive#head',
   },

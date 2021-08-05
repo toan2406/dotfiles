@@ -6,7 +6,7 @@ local spotify_tui = term:new():setup({
     height = 0.8,
     width = 0.7
   },
-  border = 'single'
+  border = 'none'
 })
 
 _G.__fterm_spotify_tui = function()
