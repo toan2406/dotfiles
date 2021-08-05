@@ -9,6 +9,7 @@ plugins=(
   zsh-autosuggestions
   dotenv
   z.lua
+  urltools
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -74,9 +75,9 @@ function ci() {
 
 function ciob() {
   if [[ -z "$1" ]]; then
-    ci "$(basename $(pwd))/tree/$(git rev-parse --abbrev-ref HEAD)"
+    ci "$(basename $(pwd))/tree/$(urlencode $(git rev-parse --abbrev-ref HEAD))"
   else
-    ci "$(basename $(pwd))/tree/$1"
+    ci "$(basename $(pwd))/tree/$(urlencode $1)"
   fi
 }
 
