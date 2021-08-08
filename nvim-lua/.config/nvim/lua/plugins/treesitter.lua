@@ -1,7 +1,7 @@
 require('nvim-treesitter.configs').setup({
   ensure_installed = {'javascript', 'ruby', 'lua', 'bash', 'go', 'json', 'typescript', 'elixir'},
   highlight = {
-    enable = false,
+    enable = true,
   },
   incremental_selection = {
     enable = true,
