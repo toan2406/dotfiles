@@ -27,7 +27,7 @@ end
 nvim_lsp.tsserver.setup({
   on_attach = on_attach,
   flags = {debounce_text_changes = 150},
-  -- handlers = {['textDocument/publishDiagnostics'] = function(...) end}
+  handlers = {['textDocument/publishDiagnostics'] = function(...) end}
 })
 
 -- curl -fLO https://github.com/elixir-lsp/elixir-ls/releases/latest/download/elixir-ls.zip

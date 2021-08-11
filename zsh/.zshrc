@@ -93,7 +93,7 @@ function emu() {
 
 
 # Find directory
-function fd() {
+function fddir() {
   local dir
   dir=$(find $HOME -path '*/\.*' -prune -o -type d -print 2>/dev/null | fzf +m --height 40% --reverse) &&
     cd "$dir"
