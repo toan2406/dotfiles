@@ -53,6 +53,8 @@ rbenv() {
 # Load fzf
 function zvm_after_init() {
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+  bindkey '^ ' autosuggest-accept
 }
 export FZF_DEFAULT_COMMAND="rg --files --ignore-vcs --hidden --glob '!{node_modules,.git}'"
 
@@ -127,8 +129,6 @@ alias herocliprod='HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_PROD herocli --server he
 export EDITOR=nvim
 export REACT_EDITOR=nvim
 export REVIEW_BASE=master
-
-bindkey '^ ' autosuggest-accept
 
 
 # opam configuration
