@@ -3,6 +3,7 @@ local MYVIMRC = '$HOME/.config/nvim/init.lua'
 
 api.nvim_set_keymap('i', 'jj', '<Esc>', {noremap = false})
 api.nvim_set_keymap('n', '<Space>', ':', {noremap = true})
+api.nvim_set_keymap('n', '<Esc>', ':noh<CR>', {noremap = true})
 
 -- Behave Vim
 api.nvim_set_keymap('n', 'Y', 'y$', {noremap = true})

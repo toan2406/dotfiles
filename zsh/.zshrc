@@ -3,6 +3,7 @@ export ZSH=/Users/toannguyen/.oh-my-zsh
 
 ZSH_THEME="refined"
 
+# git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH/custom/plugins/zsh-vi-mode
 plugins=(
   git
   zsh-syntax-highlighting
@@ -10,6 +11,7 @@ plugins=(
   dotenv
   z.lua
   urltools
+  zsh-vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -49,7 +51,9 @@ rbenv() {
 
 
 # Load fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+function zvm_after_init() {
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+}
 export FZF_DEFAULT_COMMAND="rg --files --ignore-vcs --hidden --glob '!{node_modules,.git}'"
 
 
