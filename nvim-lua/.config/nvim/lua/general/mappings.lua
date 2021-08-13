@@ -12,6 +12,10 @@ api.nvim_set_keymap('n', 'Y', 'y$', {noremap = true})
 api.nvim_set_keymap('n', 'n', 'nzzzv', {noremap = true})
 api.nvim_set_keymap('n', 'N', 'Nzzzv', {noremap = true})
 api.nvim_set_keymap('n', 'J', 'mzJ`z', {noremap = true})
+api.nvim_set_keymap('n', '[l', ':lprevious<CR>zzzv', {noremap = true})
+api.nvim_set_keymap('n', ']l', ':lnext<CR>zzzv', {noremap = true})
+api.nvim_set_keymap('n', '[q', ':cprevious<CR>zzzv', {noremap = true})
+api.nvim_set_keymap('n', ']q', ':cnext<CR>zzzv', {noremap = true})
 
 -- Undo break points
 api.nvim_set_keymap('i', '.', '.<C-g>u', {noremap = true})
