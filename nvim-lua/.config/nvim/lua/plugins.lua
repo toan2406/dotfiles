@@ -50,5 +50,7 @@ return require('packer').startup(function()
   use 'simrat39/symbols-outline.nvim'
   use 'glepnir/dashboard-nvim'
   use 'tversteeg/registers.nvim'
+
+  use {'~/.dotfiles/nvim-plugins/list-toggle.nvim', config = function() require('list-toggle') end}
 end)
 
