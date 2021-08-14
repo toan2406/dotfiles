@@ -4,7 +4,7 @@ return require('packer').startup(function()
 
   -- Color schemes
   use 'jacoborus/tender.vim'
-  use 'gruvbox-community/gruvbox'
+  use {'npxbr/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}}
 
   -- Navigation
   use 'toan2406/vifm.vim'
@@ -51,6 +51,7 @@ return require('packer').startup(function()
   use 'glepnir/dashboard-nvim'
   use 'tversteeg/registers.nvim'
 
+  -- Local plugins
   use {'~/.dotfiles/nvim-plugins/list-toggle.nvim', config = function() require('list-toggle') end}
 end)
 
