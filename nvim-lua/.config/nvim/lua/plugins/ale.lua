@@ -13,10 +13,12 @@ g.ale_open_list = 0
 
 g.ale_linters = {
   javascript = {'eslint', 'prettier'},
+  javascriptreact = {'eslint', 'prettier'},
   ruby = {'rubocop'},
 }
 g.ale_fixers = {
   javascript = {'prettier'},
+  javascriptreact = {'prettier'},
   typescript = {'prettier'},
   json = {'prettier'},
   ruby = {'rubocop'},
