@@ -25,8 +25,8 @@ api.nvim_set_keymap('n', 'k', "(v:count > 5 ? \"m'\" . v:count : \"\") . 'k'", {
 api.nvim_set_keymap('n', 'j', "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'", {noremap = true, expr = true})
 
 -- Moving text
-api.nvim_set_keymap('v', 'J', ":m '>+1<CR>gv=gv", {noremap = true})
-api.nvim_set_keymap('v', 'K', ":m '<-2<CR>gv=gv", {noremap = true})
+-- api.nvim_set_keymap('v', 'J', ":m '>+1<CR>gv=gv", {noremap = true})
+-- api.nvim_set_keymap('v', 'K', ":m '<-2<CR>gv=gv", {noremap = true})
 
 api.nvim_set_keymap('n', '<leader>vc', ':e $MYVIMRC<CR>', {noremap = true, silent = true})
 api.nvim_set_keymap('n', '<leader>cp', ":let @+=expand('%:p')<CR>", {noremap = true})
