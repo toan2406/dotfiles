@@ -30,6 +30,7 @@ api.nvim_set_keymap('n', 'j', "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'", {
 
 api.nvim_set_keymap('n', '<leader>vc', ':e $MYVIMRC<CR>', {noremap = true, silent = true})
 api.nvim_set_keymap('n', '<leader>cp', ":let @+=expand('%:p')<CR>", {noremap = true})
-api.nvim_set_keymap('n', '<leader>gf', '<C-w>vgf', {noremap = true})
 api.nvim_set_keymap('n', '<leader><leader>', '<C-^>', {noremap = true})
+api.nvim_set_keymap('n', '<leader>gf', '<C-w>vgf', {noremap = true})
+vim.cmd [[autocmd User Rails nmap <buffer> <leader>gf :vert sfind <Plug><cfile><CR>]]
 
