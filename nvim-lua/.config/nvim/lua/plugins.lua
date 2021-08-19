@@ -18,8 +18,7 @@ return require('packer').startup(function()
   use 'hrsh7th/nvim-compe'
 
   -- Statusline
-  use 'itchyny/lightline.vim'
-  use 'maximbaz/lightline-ale'
+  use {'shadmansaleh/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
 
   -- Git support
   use 'tpope/vim-fugitive'
@@ -48,7 +47,7 @@ return require('packer').startup(function()
   use 'b3nj5m1n/kommentary'
   use 'numToStr/Navigator.nvim'
   use 'simrat39/symbols-outline.nvim'
-  use 'glepnir/dashboard-nvim'
+  -- use 'glepnir/dashboard-nvim'
   use 'tversteeg/registers.nvim'
 
   -- Local plugins
