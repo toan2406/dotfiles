@@ -7,7 +7,6 @@ saga.init_lsp_saga()
 api.nvim_set_keymap('n', '<leader>lh', ':Lspsaga hover_doc<CR>', {noremap = true, silent = true})
 api.nvim_set_keymap('n', '<C-f>', ':lua require("lspsaga.action").smart_scroll_with_saga(1)<CR>', {noremap = true, silent = true})
 api.nvim_set_keymap('n', '<C-b>', ':lua require("lspsaga.action").smart_scroll_with_saga(-1)<CR>', {noremap = true, silent = true})
--- api.nvim_set_keymap('n', '<leader>ld', ':Lspsaga lsp_finder<CR>', {noremap = true, silent = true})
 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -19,8 +18,10 @@ local on_attach = function(client, bufnr)
 
   buf_set_keymap('n', '<leader>lf', '<CMD>lua vim.lsp.buf.formatting()<CR>', opts)
   buf_set_keymap('n', '<leader>ld', '<CMD>lua vim.lsp.buf.definition()<CR>', opts)
-  -- buf_set_keymap('n', '<leader>lD', '<CMD>lua vim.lsp.buf.declaration()<CR>', opts)
-  -- buf_set_keymap('n', '<leader>lh', '<CMD>lua vim.lsp.buf.hover()<CR>', opts)
+
+  if client.name ~= 'efm' then
+    client.resolved_capabilities.document_formatting = false
+  end
 end
 
 -- npm install -g typescript typescript-language-server
@@ -70,6 +71,25 @@ nvim_lsp.rescriptls.setup({
 
 -- gem install solargraph
 nvim_lsp.solargraph.setup({
+  on_attach = on_attach,
+  flags = {debounce_text_changes = 150}
+})
+
+-- brew install efm-langserver
+nvim_lsp.efm.setup({
+  init_options = {documentFormatting = true, codeAction = true},
+  filetypes = {'javascript', 'javascriptreact', 'typescript', 'ruby', 'json'},
+  settings = {
+    languages = {
+      json = {
+        {
+          formatCommand = 'prettier --stdin-filepath ${INPUT}',
+          formatStdin = true,
+        }
+      }
+    }
+  },
+
   on_attach = on_attach,
   flags = {debounce_text_changes = 150}
 })

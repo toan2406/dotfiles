@@ -12,7 +12,7 @@ require('lualine').setup({
     lualine_x = {
       {
         'diagnostics',
-        sources = {'ale'},
+        sources = {'nvim_lsp'},
         sections = {'error', 'warn', 'info', 'hint'},
       }
     },
