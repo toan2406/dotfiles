@@ -75,18 +75,30 @@ nvim_lsp.solargraph.setup({
   flags = {debounce_text_changes = 150}
 })
 
+local prettier = {
+  formatCommand = 'prettier --stdin-filepath ${INPUT}',
+  formatStdin = true,
+}
+
+local eslint = {
+  lintCommand = 'eslint_d -f visualstudio --stdin --stdin-filename ${INPUT}',
+  lintIgnoreExitCode = true,
+  lintStdin = true,
+  lintFormats = {'%f(%l,%c): %tarning %m', '%f(%l,%c): %rror %m'},
+}
+
 -- brew install efm-langserver
+-- npm install -g eslint_d
 nvim_lsp.efm.setup({
   init_options = {documentFormatting = true, codeAction = true},
-  filetypes = {'javascript', 'javascriptreact', 'typescript', 'ruby', 'json'},
+  filetypes = {'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'ruby', 'json'},
   settings = {
     languages = {
-      json = {
-        {
-          formatCommand = 'prettier --stdin-filepath ${INPUT}',
-          formatStdin = true,
-        }
-      }
+      javascript = {prettier, eslint},
+      javascriptreact = {prettier, eslint},
+      typescript = {prettier, eslint},
+      typescriptreact = {prettier, eslint},
+      json = {prettier},
     }
   },
 
