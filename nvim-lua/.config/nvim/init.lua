@@ -21,7 +21,6 @@ require('plugins/lsp')
 require('plugins/blankline')
 require('plugins/colorizer')
 require('plugins/gitsigns')
--- require('plugins/symbols')
 require('plugins/spotify')
--- require('plugins/dashboard')
+-- require('plugins/symbols')
 
