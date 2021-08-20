@@ -1,6 +1,18 @@
-local nvim_lsp = require('lspconfig')
+local lspconfig = require('lspconfig')
 local saga = require('lspsaga')
 local api = vim.api
+
+vim.lsp.handlers['textDocument/publishDiagnostics'] = function(...)
+  vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics,
+    {
+      virtual_text = false,
+      underline = true,
+      update_in_insert = false,
+    }
+  )(...)
+  pcall(vim.lsp.diagnostic.set_loclist, {open_loclist = false})
+end
 
 saga.init_lsp_saga()
 
@@ -25,16 +37,15 @@ local on_attach = function(client, bufnr)
 end
 
 -- npm install -g typescript typescript-language-server
-nvim_lsp.tsserver.setup({
+lspconfig.tsserver.setup({
   on_attach = on_attach,
   flags = {debounce_text_changes = 150},
-  -- handlers = {['textDocument/publishDiagnostics'] = function(...) end}
 })
 
 -- curl -fLO https://github.com/elixir-lsp/elixir-ls/releases/latest/download/elixir-ls.zip
 -- unzip elixir-ls.zip -d /usr/local/bin/elixir-ls
 -- chmod +x /usr/local/bin/elixir-ls/language_server.sh
-nvim_lsp.elixirls.setup({
+lspconfig.elixirls.setup({
   cmd = {'/usr/local/bin/elixir-ls/language_server.sh'},
   settings = {
     ['elixirLS.dialyzerEnabled'] = true,
@@ -53,12 +64,12 @@ nvim_lsp.elixirls.setup({
 -- opam switch create 4.06.0
 -- eval $(opam env)
 -- opam install reason merlin
-nvim_lsp.ocamlls.setup({
+lspconfig.ocamlls.setup({
   on_attach = on_attach,
   flags = {debounce_text_changes = 150}
 })
 
-nvim_lsp.rescriptls.setup({
+lspconfig.rescriptls.setup({
   cmd = {
     'node',
     '/Users/toannguyen/.local/share/nvim/site/pack/packer/start/vim-rescript/server/out/server.js',
@@ -70,7 +81,7 @@ nvim_lsp.rescriptls.setup({
 })
 
 -- gem install solargraph
-nvim_lsp.solargraph.setup({
+lspconfig.solargraph.setup({
   on_attach = on_attach,
   flags = {debounce_text_changes = 150}
 })
@@ -89,7 +100,7 @@ local eslint = {
 
 -- brew install efm-langserver
 -- npm install -g eslint_d
-nvim_lsp.efm.setup({
+lspconfig.efm.setup({
   init_options = {documentFormatting = true, codeAction = true},
   filetypes = {'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'ruby', 'json'},
   settings = {
