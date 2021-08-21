@@ -1,4 +1,6 @@
-vim.g.start_time = vim.fn.reltime()
+local g = vim.g
+local fn = vim.fn
+local start_time = fn.reltime()
 
 require('general/settings')
 require('general/mappings')
@@ -23,4 +25,6 @@ require('plugins/colorizer')
 require('plugins/gitsigns')
 require('plugins/spotify')
 -- require('plugins/symbols')
+
+print('Loaded in ' .. fn.printf('%.3f', fn.reltimefloat(fn.reltime(start_time))) .. ' seconds.')
 
