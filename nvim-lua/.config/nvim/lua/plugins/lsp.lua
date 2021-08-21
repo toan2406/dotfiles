@@ -95,7 +95,16 @@ local eslint = {
   lintCommand = 'eslint_d -f visualstudio --stdin --stdin-filename ${INPUT}',
   lintIgnoreExitCode = true,
   lintStdin = true,
-  lintFormats = {'%f(%l,%c): %tarning %m', '%f(%l,%c): %rror %m'},
+  lintFormats = {'%f(%l,%c): %tarning %m', '%f(%l,%c): %trror %m'},
+}
+
+local rubocop = {
+  lintCommand = 'bundle exec rubocop --format emacs --force-exclusion --stdin ${INPUT}',
+  lintIgnoreExitCode = true,
+  lintStdin = true,
+  lintFormats = {'%f:%l:%c: %t: %m'},
+  formatCommand = 'bundle exec rubocop --auto-correct --force-exclusion --stdin ${INPUT} 2>/dev/null | sed "1,/^====================$/d"',
+  formatStdin = true,
 }
 
 -- brew install efm-langserver
@@ -109,6 +118,7 @@ lspconfig.efm.setup({
       javascriptreact = {prettier, eslint},
       typescript = {prettier, eslint},
       typescriptreact = {prettier, eslint},
+      ruby = {rubocop},
       json = {prettier},
     }
   },
