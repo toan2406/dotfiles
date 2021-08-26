@@ -49,7 +49,7 @@ return require('packer').startup(function()
   use 'tversteeg/registers.nvim'
 
   -- Org mode
-  use {'vhyrro/neorg', requires = {'nvim-lua/plenary.nvim'}}
+  use {'vhyrro/neorg', branch = 'unstable', requires = {'nvim-lua/plenary.nvim'}}
 
   -- Local plugins
   use {'~/.dotfiles/nvim-plugins/list-toggle.nvim', config = function() require('list-toggle') end}
