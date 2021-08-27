@@ -10,7 +10,7 @@ require('neorg').setup({
     ['core.norg.dirman'] = {
       config = {
         workspaces = {
-          my_workspace = '~/Dropbox/neorg'
+          my_workspace = '~/Dropbox/org'
         }
       }
     }
