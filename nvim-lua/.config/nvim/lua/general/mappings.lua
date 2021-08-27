@@ -24,6 +24,9 @@ api.nvim_set_keymap('i', '.', '.<C-g>u', {noremap = true})
 api.nvim_set_keymap('n', 'k', "(v:count > 5 ? \"m'\" . v:count : \"\") . 'k'", {noremap = true, expr = true})
 api.nvim_set_keymap('n', 'j', "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'", {noremap = true, expr = true})
 
+-- Highlight word without jumping
+api.nvim_set_keymap('n', '*', ':let @/=\'\\<<C-R>=expand("<cword>")<CR>\\>\'<CR>:set hls<CR>', {noremap = true})
+
 -- Moving text
 -- api.nvim_set_keymap('v', 'J', ":m '>+1<CR>gv=gv", {noremap = true})
 -- api.nvim_set_keymap('v', 'K', ":m '<-2<CR>gv=gv", {noremap = true})

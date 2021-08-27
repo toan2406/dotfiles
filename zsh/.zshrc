@@ -135,6 +135,10 @@ export REVIEW_BASE=master
 test -r $HOME/.opam/opam-init/init.zsh && . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 
+# Find brew curl first
+export PATH=/usr/local/opt/curl/bin:$PATH
+
+
 # Have some fun
 # if [[ -x /usr/local/bin/cowsay && -x /usr/local/bin/fortune && -x ~/.rbenv/shims/lolcat ]]; then
 #   fortune | cowsay | lolcat
