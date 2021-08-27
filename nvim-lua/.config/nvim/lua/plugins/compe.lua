@@ -22,7 +22,6 @@ require('compe').setup({
     vsnip = false,
     ultisnips = false,
     neorg = true,
-    orgmode = true,
   },
 })
 
