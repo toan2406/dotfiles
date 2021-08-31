@@ -46,6 +46,14 @@ require('neorg').setup({
             enabled = true,
             icon = '!'
           },
+        },
+        conceals = {
+          url = true,
+          bold = true,
+          italic = true,
+          underline = true,
+          strikethrough = true,
+          monospace = true,
         }
       }
     },
