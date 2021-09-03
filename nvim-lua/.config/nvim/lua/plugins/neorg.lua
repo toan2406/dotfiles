@@ -8,7 +8,7 @@ require('neorg').setup({
             enabled = true,
             done = {
               enabled = true,
-              icon = '✓'
+              icon = 'X'
             },
             pending = {
               enabled = true,

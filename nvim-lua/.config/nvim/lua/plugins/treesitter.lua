@@ -8,10 +8,20 @@ parser_configs.norg = {
   }
 }
 
+parser_configs.org = {
+  install_info = {
+    url = 'https://github.com/milisims/tree-sitter-org',
+    files = {'src/parser.c', 'src/scanner.cc'},
+    revision = 'main'
+  },
+  filetype = 'org'
+}
+
 require('nvim-treesitter.configs').setup({
-  ensure_installed = {'javascript', 'ruby', 'lua', 'bash', 'go', 'json', 'typescript', 'elixir', 'norg', 'cpp'},
+  ensure_installed = {'javascript', 'ruby', 'lua', 'bash', 'go', 'json', 'typescript', 'elixir', 'norg', 'org', 'cpp'},
   highlight = {
     enable = true,
+    additional_vim_regex_highlighting = {'org'},
   },
   incremental_selection = {
     enable = true,
