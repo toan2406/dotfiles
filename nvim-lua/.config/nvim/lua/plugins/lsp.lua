@@ -100,11 +100,11 @@ local eslint = {
 }
 
 local rubocop = {
-  lintCommand = 'bundle exec rubocop --format emacs --force-exclusion --stdin ${INPUT}',
+  lintCommand = 'rubocop --format emacs --force-exclusion --stdin ${INPUT}',
   lintIgnoreExitCode = true,
   lintStdin = true,
   lintFormats = {'%f:%l:%c: %t: %m'},
-  formatCommand = 'bundle exec rubocop --auto-correct --force-exclusion --stdin ${INPUT} 2>/dev/null | sed "1,/^====================$/d"',
+  formatCommand = 'rubocop --auto-correct --force-exclusion --stdin ${INPUT} 2>/dev/null | sed "1,/^====================$/d"',
   formatStdin = true,
 }
 
