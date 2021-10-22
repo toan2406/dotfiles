@@ -12,6 +12,9 @@ echo <namespace>>/dev/null; HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_STG herocli --s
 # List all staging apps
 HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_STG herocli --server <server> app list --namespace <namespace>
 
+# Deployment status of a staging app
+echo <namespace>>/dev/null; HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_STG herocli --server <server> app deployment-status <app_name>
+
 $ namespace: echo -e 'staging\nsandbox'
 $ server: echo 'hero2.staging.ehrocks.com:443'
 $ app_name: HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_STG herocli --server $server app list --namespace $namespace | awk -F '|' "/$(echo $namespace)/ {gsub(\" \", \"\", \$0); print \$2}"
@@ -28,6 +31,9 @@ echo <namespace>>/dev/null; HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_PROD herocli --
 
 # List all production apps
 HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_PROD herocli --server <server> app list --namespace <namespace>
+
+# Deployment status of a production app
+echo <namespace>>/dev/null; HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_PROD herocli --server <server> app deployment-status <app_name>
 
 $ namespace: echo -e 'application'
 $ server: echo 'hero2.ehrocks.com:443'
