@@ -18,7 +18,7 @@ return require('packer').startup(function()
   use 'hrsh7th/nvim-compe'
 
   -- Statusline
-  use {'shadmansaleh/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
+  use {'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
 
   -- Git support
   use 'tpope/vim-fugitive'
