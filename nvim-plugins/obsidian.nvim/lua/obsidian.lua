@@ -1,8 +1,35 @@
 local M = {}
+local DEFAULT_TEMPLATE = [[
+---
+tags: []
+---
+
+# %s
+
+]]
+
+local function lines(str)
+  local result = {}
+  for line in str:gmatch('([^\n]*)\n?') do
+    table.insert(result, line)
+  end
+  return result
+end
+
+local function snakecase(str)
+  return str:lower():gsub('%s+', '_')
+end
 
 M.capture = function(title)
-  vim.cmd('tabnew ~/Workspace/Personal/my-second-brain/' .. title .. '.md')
-  vim.cmd('lcd ~/Workspace/Personal/my-second-brain')
+  local file_name = snakecase(title)
+
+  vim.cmd('tabnew ' .. M.config.directory .. '/' .. file_name .. '.md')
+  vim.cmd('lcd ' .. M.config.directory)
+  vim.api.nvim_put(lines(string.format(DEFAULT_TEMPLATE, title)), '', false, true)
+end
+
+M.setup = function(config)
+  M.config = config
 end
 
 return M
