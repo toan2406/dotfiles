@@ -26,6 +26,7 @@ M.capture = function(title)
   vim.cmd('tabnew ' .. M.config.directory .. '/' .. file_name .. '.md')
   vim.cmd('lcd ' .. M.config.directory)
   vim.api.nvim_put(lines(string.format(DEFAULT_TEMPLATE, title)), '', false, true)
+  vim.cmd('startinsert')
 end
 
 M.setup = function(config)
