@@ -94,3 +94,5 @@
                     :server-id 'reason-ls)))
 
 (sp-local-pair 'reason-mode "'" nil :actions nil)
+
+(setq org-roam-directory "~/Dropbox/roam")
