@@ -54,5 +54,6 @@ return require('packer').startup(function()
 
   -- Local plugins
   use {'~/.dotfiles/nvim-plugins/list-toggle.nvim', config = function() require('list-toggle') end}
+  use '~/.dotfiles/nvim-plugins/obsidian.nvim'
 end)
 

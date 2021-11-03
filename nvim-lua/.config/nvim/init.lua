@@ -26,6 +26,7 @@ require('plugins/gitsigns')
 require('plugins/spotify')
 require('plugins/neorg')
 require('plugins/orgmode')
+require('plugins/obsidian')
 -- require('plugins/symbols')
 
 print('Loaded in ' .. fn.printf('%.3f', fn.reltimefloat(fn.reltime(start_time))) .. ' seconds.')
