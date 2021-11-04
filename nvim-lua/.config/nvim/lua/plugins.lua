@@ -47,6 +47,7 @@ return require('packer').startup(function()
   use 'numToStr/Navigator.nvim'
   use 'simrat39/symbols-outline.nvim'
   use 'tversteeg/registers.nvim'
+  use 'chentau/marks.nvim'
 
   -- Org mode
   use {'vhyrro/neorg', branch = 'unstable', requires = {'nvim-lua/plenary.nvim'}}
