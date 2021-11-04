@@ -29,11 +29,15 @@ end
 
 M.capture = function(title)
   local file_name = snakecase(title) .. '.md'
+  local file_path = path_join(M.config.directory, file_name)
 
-  api.nvim_command('tabnew ' .. path_join(M.config.directory, file_name))
+  api.nvim_command('tabnew ' .. file_path)
   api.nvim_command('silent lcd ' .. M.config.directory)
-  api.nvim_put(lines(string.format(DEFAULT_TEMPLATE, title)), 'c', false, true)
-  api.nvim_command('startinsert')
+
+  if fn.empty(fn.glob(file_path)) == 1 then
+    api.nvim_put(lines(string.format(DEFAULT_TEMPLATE, title)), 'c', false, true)
+    api.nvim_command('startinsert')
+  end
 end
 
 M.screenshot = function()
