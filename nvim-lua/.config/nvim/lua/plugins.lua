@@ -50,8 +50,8 @@ return require('packer').startup(function()
   use 'chentau/marks.nvim'
 
   -- Org mode
-  use {'vhyrro/neorg', branch = 'unstable', requires = {'nvim-lua/plenary.nvim'}}
-  use {'kristijanhusak/orgmode.nvim', branch = 'tree-sitter'}
+  use {'nvim-neorg/neorg', branch = 'unstable', requires = {'nvim-lua/plenary.nvim'}}
+  use 'kristijanhusak/orgmode.nvim'
 
   -- Local plugins
   use {'~/.dotfiles/nvim-plugins/list-toggle.nvim', config = function() require('list-toggle') end}
