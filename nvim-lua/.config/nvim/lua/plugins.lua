@@ -51,7 +51,7 @@ return require('packer').startup(function()
 
   -- Org mode
   use {'nvim-neorg/neorg', branch = 'unstable', requires = {'nvim-lua/plenary.nvim'}}
-  use 'kristijanhusak/orgmode.nvim'
+  use 'nvim-orgmode/orgmode'
 
   -- Local plugins
   use {'~/.dotfiles/nvim-plugins/list-toggle.nvim', config = function() require('list-toggle') end}
