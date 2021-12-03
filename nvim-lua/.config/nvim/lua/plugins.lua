@@ -53,6 +53,9 @@ return require('packer').startup(function()
   use {'nvim-neorg/neorg', branch = 'unstable', requires = {'nvim-lua/plenary.nvim'}}
   use 'nvim-orgmode/orgmode'
 
+  -- Copilot
+  -- use 'github/copilot.vim'
+
   -- Local plugins
   use {'~/.dotfiles/nvim-plugins/list-toggle.nvim', config = function() require('list-toggle') end}
   use '~/.dotfiles/nvim-plugins/obsidian.nvim'
