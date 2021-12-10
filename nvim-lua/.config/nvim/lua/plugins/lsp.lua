@@ -11,7 +11,7 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = function(...)
       update_in_insert = false,
     }
   )(...)
-  -- pcall(vim.lsp.diagnostic.set_loclist, {open_loclist = false})
+  -- pcall(vim.diagnostic.setloclist, {open = false})
 end
 
 saga.init_lsp_saga()
