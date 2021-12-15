@@ -69,6 +69,11 @@ require('neorg').setup({
           my_workspace = '~/Dropbox/org'
         }
       }
+    },
+    ['core.norg.completion'] = {
+      config = {
+        engine = 'nvim-cmp'
+      }
     }
   }
 })

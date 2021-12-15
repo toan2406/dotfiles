@@ -56,7 +56,7 @@ return require('packer').startup(function()
   use 'chentau/marks.nvim'
 
   -- Org mode
-  use {'nvim-neorg/neorg', branch = 'unstable', requires = {'nvim-lua/plenary.nvim'}}
+  use {'nvim-neorg/neorg', requires = {'nvim-lua/plenary.nvim'}}
   use 'nvim-orgmode/orgmode'
 
   -- Copilot
