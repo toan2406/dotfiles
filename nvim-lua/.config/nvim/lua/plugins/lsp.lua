@@ -37,9 +37,12 @@ local on_attach = function(client, bufnr)
   end
 end
 
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 -- npm install -g typescript typescript-language-server
 lspconfig.tsserver.setup({
   on_attach = on_attach,
+  capabilities = capabilities,
   flags = {debounce_text_changes = 150},
 })
 
@@ -58,6 +61,7 @@ lspconfig.elixirls.setup({
   },
 
   on_attach = on_attach,
+  capabilities = capabilities,
   flags = {debounce_text_changes = 150}
 })
 
@@ -67,6 +71,7 @@ lspconfig.elixirls.setup({
 -- opam install reason merlin
 lspconfig.ocamlls.setup({
   on_attach = on_attach,
+  capabilities = capabilities,
   flags = {debounce_text_changes = 150}
 })
 
@@ -78,12 +83,14 @@ lspconfig.rescriptls.setup({
   },
 
   on_attach = on_attach,
+  capabilities = capabilities,
   flags = {debounce_text_changes = 150}
 })
 
 -- gem install solargraph
 lspconfig.solargraph.setup({
   on_attach = on_attach,
+  capabilities = capabilities,
   flags = {debounce_text_changes = 150}
 })
 
