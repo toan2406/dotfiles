@@ -61,6 +61,7 @@ cmp.setup({
       vim_item.menu = ({
         buffer = '[Buffer]',
         nvim_lsp = '[LSP]',
+        path = '[Path]',
       })[entry.source.name]
       return vim_item
     end,
