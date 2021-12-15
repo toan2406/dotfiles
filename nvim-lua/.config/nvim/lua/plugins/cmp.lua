@@ -55,6 +55,15 @@ cmp.setup({
     {name = 'vsnip'},
     {name = 'path'},
     {name = 'buffer'},
-  }
+  },
+  formatting = {
+    format = function(entry, vim_item)
+      vim_item.menu = ({
+        buffer = '[Buffer]',
+        nvim_lsp = '[LSP]',
+      })[entry.source.name]
+      return vim_item
+    end,
+  },
 })
 
