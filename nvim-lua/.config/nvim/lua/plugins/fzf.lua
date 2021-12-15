@@ -15,6 +15,7 @@ api.nvim_set_keymap('n', '<leader>fs', ':History/!<CR>', {noremap = true})
 api.nvim_set_keymap('n', '<leader>fc', ':History:!<CR>', {noremap = true})
 api.nvim_set_keymap('n', '<leader>fm', ':Marks!<CR>', {noremap = true})
 api.nvim_set_keymap('n', '<leader>ft', ':GFiles?<CR>', {noremap = true})
+api.nvim_set_keymap('n', '<leader>fa', ':Maps<CR>', {noremap = true})
 
 api.nvim_set_keymap('n', '<leader>p', '<leader>ff', {noremap = false})
 api.nvim_set_keymap('n', '<leader>s', '<leader>fg', {noremap = false})
