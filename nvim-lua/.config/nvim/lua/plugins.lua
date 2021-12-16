@@ -4,7 +4,7 @@ return require('packer').startup(function()
 
   -- Color schemes
   use 'jacoborus/tender.vim'
-  use {'npxbr/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}}
+  use {'ellisonleao/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}}
 
   -- Navigation
   use 'toan2406/vifm.vim'
