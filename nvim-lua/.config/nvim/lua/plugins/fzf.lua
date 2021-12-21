@@ -5,6 +5,7 @@ g.fzf_history_dir = '~/.local/share/fzf-history'
 
 -- vim.cmd [[command! -bang -nargs=* Rg call fzf#vim#grep('rg --column --line-number --no-heading --color=always --smart-case --hidden -- '.shellescape(<q-args>), 1, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)]]
 vim.cmd [[command! -bang -nargs=* Rg call fzf#vim#grep('rg --column --line-number --no-heading --color=always --smart-case --hidden -- '.shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)]]
+vim.cmd [[command! -bar -bang Maps call fzf#vim#maps('n', {'down': '50%'}, <bang>0)]]
 
 api.nvim_set_keymap('n', '<leader>ff', ':Files!<CR>', {noremap = true})
 api.nvim_set_keymap('n', '<leader>fg', ':Rg!<CR>', {noremap = true})
@@ -15,7 +16,7 @@ api.nvim_set_keymap('n', '<leader>fs', ':History/!<CR>', {noremap = true})
 api.nvim_set_keymap('n', '<leader>fc', ':History:!<CR>', {noremap = true})
 api.nvim_set_keymap('n', '<leader>fm', ':Marks!<CR>', {noremap = true})
 api.nvim_set_keymap('n', '<leader>ft', ':GFiles!?<CR>', {noremap = true})
-api.nvim_set_keymap('n', '<leader>fa', ':Maps!<CR>', {noremap = true})
+api.nvim_set_keymap('n', '<leader>fa', ':Maps<CR>', {noremap = true})
 
 api.nvim_set_keymap('n', '<leader>p', '<leader>ff', {noremap = false})
 api.nvim_set_keymap('n', '<leader>s', '<leader>fg', {noremap = false})
