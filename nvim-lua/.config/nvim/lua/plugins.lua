@@ -12,7 +12,7 @@ return require('packer').startup(function()
   use {'phaazon/hop.nvim', as = 'hop'}
   use {'junegunn/fzf', run = function() vim.fn['fzf#install']() end}
   use 'junegunn/fzf.vim'
-  use 'tpope/vim-projectionist'
+  -- use 'tpope/vim-projectionist'
 
   -- Completion
   use 'hrsh7th/cmp-nvim-lsp'
