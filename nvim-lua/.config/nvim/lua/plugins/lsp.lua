@@ -11,7 +11,10 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = function(...)
       update_in_insert = false,
     }
   )(...)
-  -- pcall(vim.diagnostic.setloclist, {open = false})
+
+  if vim.lsp.buf.server_ready() then
+    pcall(vim.diagnostic.setloclist, {open = false})
+  end
 end
 
 saga.init_lsp_saga()
