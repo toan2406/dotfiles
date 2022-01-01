@@ -121,6 +121,7 @@ local rubocop = {
 -- brew install efm-langserver
 -- npm install -g eslint_d
 lspconfig.efm.setup({
+  root_dir = lspconfig.util.root_pattern('.git', 'package.json'),
   init_options = {documentFormatting = true, codeAction = true},
   filetypes = {'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'ruby', 'json'},
   settings = {

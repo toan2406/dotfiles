@@ -41,6 +41,9 @@ return require('packer').startup(function()
   use 'rescript-lang/vim-rescript'
   use 'tpope/vim-rails'
 
+  -- Debug
+  use 'mfussenegger/nvim-dap'
+
   -- Terminal
   use 'numtostr/FTerm.nvim'
 
@@ -64,6 +67,7 @@ return require('packer').startup(function()
 
   -- Local plugins
   use {'~/.dotfiles/nvim-plugins/list-toggle.nvim', config = function() require('list-toggle') end}
+  use '~/.dotfiles/nvim-plugins/debug-helper.nvim'
   use '~/.dotfiles/nvim-plugins/obsidian.nvim'
 end)
 
