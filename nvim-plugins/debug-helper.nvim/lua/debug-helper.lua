@@ -26,4 +26,12 @@ M.step_out = function(opts)
   end
 end
 
+M.status = function()
+  if dap.session() then
+    return 'DEBUGGING'
+  else
+    return ''
+  end
+end
+
 return M

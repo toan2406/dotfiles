@@ -1,12 +1,12 @@
 local dap = require('dap')
 
 local api = vim.api
-local installation_path = os.getenv('HOME') .. '/Workspace/Personal'
+local installation_path = vim.fn.stdpath('data') .. '/dap_debuggers'
 
--- git clone https://github.com/microsoft/vscode-node-debug2.git
--- cd vscode-node-debug2
+-- mkdir -p ~/.local/share/nvim/dap_debuggers && cd "$_"
+-- git clone https://github.com/microsoft/vscode-node-debug2.git && cd vscode-node-debug2
 -- npm install
--- gulp build
+-- npm run build
 dap.adapters.node2 = {
   type = 'executable',
   command = 'node',
@@ -34,8 +34,8 @@ dap.configurations.javascript = {
 
 vim.fn.sign_define('DapBreakpoint', {text = '●', texthl = 'GruvboxRed', linehl = '', numhl = ''})
 
-api.nvim_set_keymap('n', '<leader>db', ":lua require('dap').toggle_breakpoint()<CR>", {noremap = true})
-api.nvim_set_keymap('n', '<leader>ds', ":lua require('dap').close()<CR>", {noremap = true})
+api.nvim_set_keymap('n', '<leader>dt', ":lua require('dap').toggle_breakpoint()<CR>", {noremap = true})
+api.nvim_set_keymap('n', '<leader>dq', ":lua require('dap').close()<CR>", {noremap = true})
 api.nvim_set_keymap('n', '<leader>dc', ":lua require('dap').continue()<CR>", {noremap = true})
 api.nvim_set_keymap('n', '<leader>dr', ":lua require('dap').repl.open({}, 'vsplit')<CR><C-w>la", {noremap = true})
 

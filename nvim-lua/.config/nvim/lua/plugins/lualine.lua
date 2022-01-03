@@ -1,3 +1,5 @@
+local colors = require('gruvbox.colors')
+
 require('lualine').setup({
   options = {
     icons_enabled = false,
@@ -6,7 +8,13 @@ require('lualine').setup({
     section_separators = '',
   },
   sections = {
-    lualine_a = {'mode'},
+    lualine_a = {
+      {
+        "require('debug-helper').status()",
+        color = {fg = colors.bg0.hex, bg = colors.bright_red.hex, gui = 'bold'},
+      },
+      'mode',
+    },
     lualine_b = {'branch'},
     lualine_c = {'filename', 'filetype'},
     lualine_x = {
@@ -14,7 +22,7 @@ require('lualine').setup({
         'diagnostics',
         sources = {'nvim_diagnostic'},
         sections = {'error', 'warn', 'info', 'hint'},
-      }
+      },
     },
     lualine_y = {'progress'},
     lualine_z = {'location'},
@@ -27,6 +35,6 @@ require('lualine').setup({
     lualine_y = {},
     lualine_z = {},
   },
-  extensions = {'fzf'}
+  extensions = {'fzf'},
 })
 
