@@ -32,6 +32,53 @@ dap.configurations.javascript = {
   },
 }
 
+-- gem install debug
+dap.adapters.ruby = function(callback, config)
+  local stdout = vim.loop.new_pipe(false)
+  local handle
+  local pid_or_err
+
+  local opts = {
+    stdio = {nil, stdout},
+    args = {'--open', '--port', config.port, '-c', '--', config.command, config.script},
+    detached = true
+  }
+
+  handle, pid_or_err = vim.loop.spawn('rdbg', opts, function(code)
+    stdout:close()
+    handle:close()
+    if code ~= 0 then
+      print('rdbg exited with code', code)
+    end
+  end)
+
+  assert(handle, 'Error running rdbg: ' .. tostring(pid_or_err))
+
+  stdout:read_start(function(err, chunk)
+    assert(not err, err)
+    if chunk then
+      vim.schedule(function()
+        require('dap.repl').append(chunk)
+      end)
+    end
+  end)
+
+  vim.defer_fn(function()
+    callback({type = 'server', host = '127.0.0.1', port = config.port})
+  end, 500)
+end
+
+dap.configurations.ruby = {
+  {
+    name = 'Launch',
+    type = 'ruby',
+    request = 'launch',
+    command = 'ruby',
+    script = '${file}',
+    port = 38697,
+  },
+}
+
 vim.fn.sign_define('DapBreakpoint', {text = '●', texthl = 'GruvboxRed', linehl = '', numhl = ''})
 
 api.nvim_set_keymap('n', '<leader>dt', ":lua require('dap').toggle_breakpoint()<CR>", {noremap = true})
