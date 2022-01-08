@@ -86,7 +86,7 @@ api.nvim_set_keymap('n', '<leader>dq', ":lua require('dap').close()<CR>", {norem
 api.nvim_set_keymap('n', '<leader>dc', ":lua require('dap').continue()<CR>", {noremap = true})
 api.nvim_set_keymap('n', '<leader>dr', ":lua require('dap').repl.open({}, 'vsplit')<CR><C-w>la", {noremap = true})
 
-api.nvim_set_keymap('n', 'J', ":lua require('debug-helper').step_over({fallback = 'mzJ`z'})<CR>", {noremap = true})
+api.nvim_set_keymap('n', 'J', ":lua require('debug-helper').step_over({fallback = 'J'})<CR>", {noremap = true})
 api.nvim_set_keymap('n', 'L', ":lua require('debug-helper').step_into({fallback = 'L'})<CR>", {noremap = true})
 api.nvim_set_keymap('n', 'K', ":lua require('debug-helper').step_out({fallback = 'K'})<CR>", {noremap = true})
 
