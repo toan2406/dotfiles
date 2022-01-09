@@ -118,12 +118,16 @@ local rubocop = {
   formatStdin = true,
 }
 
+local pandoc = {
+  formatCommand = 'pandoc -f markdown -t gfm -sp --tab-stop=2',
+}
+
 -- brew install efm-langserver
 -- npm install -g eslint_d
 lspconfig.efm.setup({
   root_dir = lspconfig.util.root_pattern('.git', 'package.json'),
   init_options = {documentFormatting = true, codeAction = true},
-  filetypes = {'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'ruby', 'json'},
+  filetypes = {'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'ruby', 'json', 'markdown'},
   settings = {
     languages = {
       javascript = {prettier, eslint},
@@ -132,6 +136,7 @@ lspconfig.efm.setup({
       typescriptreact = {prettier, eslint},
       ruby = {rubocop},
       json = {prettier},
+      markdown = {pandoc},
     }
   },
 
