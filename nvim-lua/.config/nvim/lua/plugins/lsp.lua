@@ -119,7 +119,7 @@ local rubocop = {
 }
 
 local pandoc = {
-  formatCommand = 'pandoc -f markdown -t gfm -sp --tab-stop=2',
+  formatCommand = 'pandoc -f markdown -t gfm -sp --tab-stop=2 --wrap=none',
 }
 
 -- brew install efm-langserver
