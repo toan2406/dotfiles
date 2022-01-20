@@ -1,4 +1,5 @@
 local dap = require('dap')
+local dapui = require('dapui')
 
 local api = vim.api
 local installation_path = vim.fn.stdpath('data') .. '/dap_debuggers'
@@ -89,4 +90,14 @@ api.nvim_set_keymap('n', '<leader>dr', ":lua require('dap').repl.open({}, 'vspli
 api.nvim_set_keymap('n', 'J', ":lua require('debug-helper').step_over({fallback = 'J'})<CR>", {noremap = true})
 api.nvim_set_keymap('n', 'L', ":lua require('debug-helper').step_into({fallback = 'L'})<CR>", {noremap = true})
 api.nvim_set_keymap('n', 'K', ":lua require('debug-helper').step_out({fallback = 'K'})<CR>", {noremap = true})
+
+dapui.setup({
+  sidebar = {
+    size = 80
+  }
+})
+
+dap.listeners.after.event_initialized['dapui_config'] = function() dapui.open() end
+dap.listeners.before.event_terminated['dapui_config'] = function() dapui.close() end
+dap.listeners.before.event_exited['dapui_config'] = function() dapui.close() end
 

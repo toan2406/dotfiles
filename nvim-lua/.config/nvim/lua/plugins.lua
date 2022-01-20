@@ -44,6 +44,7 @@ return require('packer').startup(function()
 
   -- Debug
   use 'mfussenegger/nvim-dap'
+  use {'rcarriga/nvim-dap-ui', requires = {'mfussenegger/nvim-dap'}}
 
   -- Terminal
   use 'numtostr/FTerm.nvim'

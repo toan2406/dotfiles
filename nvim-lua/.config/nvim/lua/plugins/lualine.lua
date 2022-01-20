@@ -11,7 +11,7 @@ require('lualine').setup({
     lualine_a = {
       {
         "require('debug-helper').status()",
-        color = {fg = colors.bg0.hex, bg = colors.bright_red.hex, gui = 'bold'},
+        color = {fg = colors.bg0, bg = colors.bright_red, gui = 'bold'},
       },
       'mode',
     },
