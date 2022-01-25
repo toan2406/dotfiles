@@ -12,6 +12,7 @@ return require('packer').startup(function()
   use {'phaazon/hop.nvim', as = 'hop'}
   use {'junegunn/fzf', run = function() vim.fn['fzf#install']() end}
   use 'junegunn/fzf.vim'
+  use 'kyazdani42/nvim-tree.lua'
   -- use 'tpope/vim-projectionist'
 
   -- Completion
