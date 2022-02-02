@@ -42,6 +42,7 @@ return require('packer').startup(function()
   use 'reasonml-editor/vim-reason-plus'
   use 'rescript-lang/vim-rescript'
   use 'tpope/vim-rails'
+  use 'elixir-editors/vim-elixir'
 
   -- Debug
   use 'mfussenegger/nvim-dap'
