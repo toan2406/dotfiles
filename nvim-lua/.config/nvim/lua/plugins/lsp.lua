@@ -97,6 +97,13 @@ lspconfig.solargraph.setup({
   flags = {debounce_text_changes = 150}
 })
 
+-- go install golang.org/x/tools/gopls@latest
+lspconfig.gopls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = {debounce_text_changes = 150}
+})
+
 local prettier = {
   formatCommand = 'prettier --stdin-filepath ${INPUT}',
   formatStdin = true,
