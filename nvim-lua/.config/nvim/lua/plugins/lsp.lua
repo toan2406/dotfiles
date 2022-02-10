@@ -111,6 +111,10 @@ lspconfig.rust_analyzer.setup({
   flags = {debounce_text_changes = 150}
 })
 
+-- vim.cmd [[
+--   autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require('lsp_extensions').inlay_hints({})
+-- ]]
+
 local prettier = {
   formatCommand = 'prettier --stdin-filepath ${INPUT}',
   formatStdin = true,
