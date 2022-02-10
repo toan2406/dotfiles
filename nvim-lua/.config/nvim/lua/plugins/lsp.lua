@@ -104,6 +104,13 @@ lspconfig.gopls.setup({
   flags = {debounce_text_changes = 150}
 })
 
+-- brew install rust-analyzer
+lspconfig.rust_analyzer.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = {debounce_text_changes = 150}
+})
+
 local prettier = {
   formatCommand = 'prettier --stdin-filepath ${INPUT}',
   formatStdin = true,

@@ -18,7 +18,7 @@ parser_configs.org = {
 }
 
 require('nvim-treesitter.configs').setup({
-  ensure_installed = {'javascript', 'ruby', 'lua', 'bash', 'go', 'json', 'typescript', 'norg', 'org', 'cpp'},
+  ensure_installed = {'javascript', 'ruby', 'lua', 'bash', 'go', 'json', 'typescript', 'norg', 'org', 'cpp', 'rust'},
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = {'org'},

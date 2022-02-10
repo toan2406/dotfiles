@@ -43,6 +43,7 @@ return require('packer').startup(function()
   use 'rescript-lang/vim-rescript'
   use 'tpope/vim-rails'
   use 'elixir-editors/vim-elixir'
+  use 'simrat39/rust-tools.nvim'
 
   -- Debug
   use 'mfussenegger/nvim-dap'
