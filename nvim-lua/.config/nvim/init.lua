@@ -29,7 +29,7 @@ require('plugins/orgmode')
 require('plugins/obsidian')
 require('plugins/marks')
 require('plugins/dap')
-require('plugins/tree')
+-- require('plugins/tree')
 -- require('plugins/symbols')
 
 print('Loaded in ' .. fn.printf('%.3f', fn.reltimefloat(fn.reltime(start_time))) .. ' seconds.')
