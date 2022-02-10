@@ -29,6 +29,7 @@ require('plugins/orgmode')
 require('plugins/obsidian')
 require('plugins/marks')
 require('plugins/dap')
+require('plugins/rust')
 -- require('plugins/tree')
 -- require('plugins/symbols')
 

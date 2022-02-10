@@ -38,12 +38,12 @@ return require('packer').startup(function()
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use 'nvim-treesitter/nvim-treesitter-refactor'
   use 'neovim/nvim-lspconfig'
-  use 'nvim-lua/lsp_extensions.nvim'
   use 'glepnir/lspsaga.nvim'
   use 'reasonml-editor/vim-reason-plus'
   use 'rescript-lang/vim-rescript'
   use 'tpope/vim-rails'
   use 'elixir-editors/vim-elixir'
+  use 'simrat39/rust-tools.nvim'
 
   -- Debug
   use 'mfussenegger/nvim-dap'
