@@ -3,7 +3,6 @@ export ZSH=/Users/toannguyen/.oh-my-zsh
 
 ZSH_THEME="refined"
 
-# git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH/custom/plugins/zsh-vi-mode
 plugins=(
   git
   zsh-syntax-highlighting
@@ -11,13 +10,9 @@ plugins=(
   dotenv
   z.lua
   urltools
-  zsh-vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
-
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
 
 
 # Config PostgreSQL
@@ -28,11 +23,8 @@ export PGDATABASE=postgres
 source $HOME/.secrets
 
 
-# Load nvm
+# Lazyload nvm
 export NVM_DIR="$HOME/.nvm"
-if [[ -e ~/.nvm/alias/default ]]; then
-  PATH="${PATH}:${HOME}/.nvm/versions/node/v$(cat ~/.nvm/alias/default)/bin"
-fi
 nvm() {
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
@@ -40,10 +32,7 @@ nvm() {
 }
 
 
-# Load rbenv
-if [[ -s ~/.rbenv/shims/ruby ]]; then
-  PATH="${HOME}/.rbenv/shims:${PATH}"
-fi
+# Lazyload rbenv
 rbenv() {
   eval "$(command rbenv init -)"
   rbenv "$@"
@@ -51,11 +40,8 @@ rbenv() {
 
 
 # Load fzf
-function zvm_after_init() {
-  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-  bindkey '^ ' autosuggest-accept
-}
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+bindkey '^ ' autosuggest-accept
 export FZF_DEFAULT_COMMAND="rg --files --ignore-vcs --hidden --glob '!{node_modules,.git}'"
 
 
@@ -137,11 +123,6 @@ test -r $HOME/.opam/opam-init/init.zsh && . $HOME/.opam/opam-init/init.zsh > /de
 
 # Find brew curl first
 export PATH=/usr/local/opt/curl/bin:$PATH
-
-
-if (( $+commands[go] )); then
-  export PATH=$PATH:$(go env GOPATH)/bin
-fi
 
 
 # Have some fun
