@@ -23,7 +23,7 @@ function! s:sink(selection) abort
 endfunction
 
 function! s:get_source() abort
-  return "find $HOME/Workspace -maxdepth 2 -type d"
+  return '{ echo "${HOME}/.dotfiles"; find $HOME/Workspace -maxdepth 2 -type d; }'
 endfunction
 
 command! Projects call fzf#run({
