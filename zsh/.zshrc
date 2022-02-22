@@ -85,10 +85,16 @@ function emu() {
 
 
 # Find directory
-function fddir() {
+function fdd() {
   local dir
-  dir=$(find $HOME -path '*/\.*' -prune -o -type d -print 2>/dev/null | fzf +m --height 40% --reverse) &&
+  dir=$(find $HOME -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf +m --height 40% --reverse) &&
     cd "$dir"
+}
+
+
+# Find project
+function fdp() {
+  cd $({ echo "${HOME}/.dotfiles"; find $HOME/Workspace -maxdepth 2 -type d -print 2> /dev/null; } | fzf)
 }
 
 
@@ -106,7 +112,6 @@ eval "$(hub alias -s)"
 
 alias venv="python3 -m venv"
 alias mp="tree $HOME/Workspace -d -L 2"
-alias fp='cd $({ echo "${HOME}/.dotfiles"; find $HOME/Workspace -maxdepth 2 -type d; } | fzf)'
 alias npmg="npm list -g --depth 0"
 alias herostag='hero $@ --context solomon.ehrocks.com'
 alias heroprod='hero $@ --context david.ehrocks.com'
