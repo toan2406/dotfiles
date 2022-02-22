@@ -106,6 +106,7 @@ eval "$(hub alias -s)"
 
 alias venv="python3 -m venv"
 alias mp="tree $HOME/Workspace -d -L 2"
+alias fp='cd $({ echo "${HOME}/.dotfiles"; find $HOME/Workspace -maxdepth 2 -type d; } | fzf)'
 alias npmg="npm list -g --depth 0"
 alias herostag='hero $@ --context solomon.ehrocks.com'
 alias heroprod='hero $@ --context david.ehrocks.com'
