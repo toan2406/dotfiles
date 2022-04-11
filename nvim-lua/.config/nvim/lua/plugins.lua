@@ -74,5 +74,6 @@ return require('packer').startup(function()
   use {'~/.dotfiles/nvim-plugins/list-toggle.nvim', config = function() require('list-toggle') end}
   use '~/.dotfiles/nvim-plugins/debug-helper.nvim'
   use '~/.dotfiles/nvim-plugins/obsidian.nvim'
+  use {'~/.dotfiles/nvim-plugins/cheat.nvim', requires = {'nvim-lua/plenary.nvim'}}
 end)
 
