@@ -62,6 +62,7 @@ return require('packer').startup(function()
   use 'simrat39/symbols-outline.nvim'
   use 'tversteeg/registers.nvim'
   use 'chentau/marks.nvim'
+  use 'folke/which-key.nvim'
 
   -- Org mode
   use {'nvim-neorg/neorg', requires = {'nvim-lua/plenary.nvim'}}
