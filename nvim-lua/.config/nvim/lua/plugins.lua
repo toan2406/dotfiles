@@ -60,7 +60,7 @@ return require('packer').startup(function()
   use 'b3nj5m1n/kommentary'
   use 'numToStr/Navigator.nvim'
   use 'simrat39/symbols-outline.nvim'
-  use 'tversteeg/registers.nvim'
+  -- use 'tversteeg/registers.nvim'
   use 'chentau/marks.nvim'
   use 'folke/which-key.nvim'
 
