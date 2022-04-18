@@ -4,7 +4,7 @@ return require('packer').startup(function()
 
   -- Color schemes
   use 'jacoborus/tender.vim'
-  use {'ellisonleao/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}}
+  use {'ellisonleao/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}, commit = 'eba9aac32a18c0dcdd49e5610b205a9d4cf73ae7'}
 
   -- Navigation
   use 'toan2406/vifm.vim'
@@ -20,7 +20,7 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
+  use {'hrsh7th/nvim-cmp', commit = 'f573479528cac39ff5917a4679529e4435b71ffe'}
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
 
