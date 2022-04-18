@@ -132,6 +132,10 @@ test -r $HOME/.opam/opam-init/init.zsh && . $HOME/.opam/opam-init/init.zsh > /de
 export PATH=/usr/local/opt/curl/bin:$PATH
 
 
+# Find rubocop-daemon-wrapper first
+export PATH=/usr/local/bin/rubocop-daemon-wrapper:$PATH
+
+
 # Have some fun
 # if [[ -x /usr/local/bin/cowsay && -x /usr/local/bin/fortune && -x ~/.rbenv/shims/lolcat ]]; then
 #   fortune | cowsay | lolcat
