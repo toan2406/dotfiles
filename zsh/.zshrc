@@ -58,7 +58,7 @@ alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias vim='nvim'
 alias vi='nvim'
 alias bim='nvim'
-export BAT_THEME="gruvbox-dark"
+export BAT_THEME="gruvbox-light"
 
 
 # Open CircleCI branch

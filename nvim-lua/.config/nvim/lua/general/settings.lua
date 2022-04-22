@@ -27,7 +27,7 @@ o.completeopt = 'menu,menuone,noselect'
 o.clipboard = o.clipboard .. 'unnamedplus'
 o.lazyredraw = true
 o.termguicolors = true
-o.background = 'dark'
+o.background = 'light'
 
 g.mapleader = ','
 
