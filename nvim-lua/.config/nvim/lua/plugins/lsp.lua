@@ -1,6 +1,11 @@
 local lspconfig = require('lspconfig')
+local lsp_status = require('lsp-status')
 local saga = require('lspsaga')
 local api = vim.api
+
+lsp_status.register_progress()
+
+saga.init_lsp_saga()
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] = function(...)
   vim.lsp.with(
@@ -17,9 +22,9 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = function(...)
   end
 end
 
-saga.init_lsp_saga()
+local common_on_attach = function(client, bufnr)
+  lsp_status.on_attach(client)
 
-local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
@@ -29,22 +34,24 @@ local on_attach = function(client, bufnr)
 
   buf_set_keymap('n', '<leader>lf', '<CMD>lua vim.lsp.buf.formatting()<CR>', opts)
   buf_set_keymap('n', '<leader>ld', '<CMD>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', '<leader>lr', '<CMD>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', '<leader>ll', '<CMD>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 
   buf_set_keymap('n', '<leader>lh', ':Lspsaga hover_doc<CR>', opts)
   buf_set_keymap('n', '<C-f>', ':lua require("lspsaga.action").smart_scroll_with_saga(1)<CR>', opts)
   buf_set_keymap('n', '<C-b>', ':lua require("lspsaga.action").smart_scroll_with_saga(-1)<CR>', opts)
-
-  if client.name == 'solargraph' or client.name == 'tsserver' then
-    client.resolved_capabilities.document_formatting = false
-  end
 end
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = vim.tbl_extend('keep', capabilities, lsp_status.capabilities)
 
 -- npm install -g typescript typescript-language-server
 lspconfig.tsserver.setup({
-  on_attach = on_attach,
+  on_attach = function(client, bufnr)
+    common_on_attach(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+  end,
   capabilities = capabilities,
   flags = {debounce_text_changes = 150},
 })
@@ -63,7 +70,7 @@ lspconfig.elixirls.setup({
     ['elixirLS.suggestSpecs'] = true,
   },
 
-  on_attach = on_attach,
+  on_attach = common_on_attach,
   capabilities = capabilities,
   flags = {debounce_text_changes = 150}
 })
@@ -73,7 +80,7 @@ lspconfig.elixirls.setup({
 -- eval $(opam env)
 -- opam install reason merlin
 lspconfig.ocamlls.setup({
-  on_attach = on_attach,
+  on_attach = common_on_attach,
   capabilities = capabilities,
   flags = {debounce_text_changes = 150}
 })
@@ -85,28 +92,32 @@ lspconfig.rescriptls.setup({
     '--stdio'
   },
 
-  on_attach = on_attach,
+  on_attach = common_on_attach,
   capabilities = capabilities,
   flags = {debounce_text_changes = 150}
 })
 
 -- gem install solargraph
 lspconfig.solargraph.setup({
-  on_attach = on_attach,
+  on_attach = function(client, bufnr)
+    common_on_attach(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.goto_definition = false
+  end,
   capabilities = capabilities,
   flags = {debounce_text_changes = 150}
 })
 
 -- go install golang.org/x/tools/gopls@latest
 lspconfig.gopls.setup({
-  on_attach = on_attach,
+  on_attach = common_on_attach,
   capabilities = capabilities,
   flags = {debounce_text_changes = 150}
 })
 
 -- brew install rust-analyzer
 lspconfig.rust_analyzer.setup({
-  on_attach = on_attach,
+  on_attach = common_on_attach,
   capabilities = capabilities,
   flags = {debounce_text_changes = 150}
 })
@@ -145,7 +156,7 @@ local pandoc = {
 -- npm install -g eslint_d
 lspconfig.efm.setup({
   root_dir = lspconfig.util.root_pattern('.git', 'package.json'),
-  init_options = {documentFormatting = true, codeAction = true},
+  init_options = {documentFormatting = true, codeAction = false},
   filetypes = {'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'ruby', 'json', 'markdown'},
   settings = {
     languages = {
@@ -159,7 +170,10 @@ lspconfig.efm.setup({
     }
   },
 
-  on_attach = on_attach,
+  on_attach = function(client, bufnr)
+    common_on_attach(client, bufnr)
+    -- client.resolved_capabilities.goto_definition = false
+  end,
   flags = {debounce_text_changes = 150}
 })
 

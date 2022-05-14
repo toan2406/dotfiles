@@ -37,4 +37,5 @@ api.nvim_set_keymap('n', '<leader>cp', ":let @+=expand('%:p')<CR>", {noremap = t
 api.nvim_set_keymap('n', '<leader><leader>', '<C-^>', {noremap = true})
 api.nvim_set_keymap('n', '<leader>gf', '<C-w>vgf', {noremap = true})
 vim.cmd [[autocmd User Rails nmap <buffer> <leader>gf :vert sfind <Plug><cfile><CR>]]
+vim.cmd [[autocmd User Rails nmap <buffer><silent> gf :find <Plug><cfile><CR>]]
 

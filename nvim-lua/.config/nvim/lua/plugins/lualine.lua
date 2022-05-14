@@ -18,6 +18,7 @@ require('lualine').setup({
     lualine_b = {'branch'},
     lualine_c = {'filename', 'filetype'},
     lualine_x = {
+      'require("lsp-status").status()',
       {
         'diagnostics',
         sources = {'nvim_diagnostic'},

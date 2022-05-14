@@ -38,6 +38,7 @@ return require('packer').startup(function()
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use 'nvim-treesitter/nvim-treesitter-refactor'
   use 'neovim/nvim-lspconfig'
+  use 'nvim-lua/lsp-status.nvim'
   use 'nvim-lua/lsp_extensions.nvim'
   use 'tami5/lspsaga.nvim'
   use 'reasonml-editor/vim-reason-plus'
