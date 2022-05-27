@@ -37,6 +37,7 @@ return require('packer').startup(function()
   -- Language support
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use 'nvim-treesitter/nvim-treesitter-refactor'
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'neovim/nvim-lspconfig'
   use 'nvim-lua/lsp-status.nvim'
   use 'nvim-lua/lsp_extensions.nvim'
@@ -62,7 +63,7 @@ return require('packer').startup(function()
   use 'numToStr/Navigator.nvim'
   use 'simrat39/symbols-outline.nvim'
   -- use 'tversteeg/registers.nvim'
-  use 'chentau/marks.nvim'
+  use 'chentoast/marks.nvim'
   use 'folke/which-key.nvim'
 
   -- Org mode
