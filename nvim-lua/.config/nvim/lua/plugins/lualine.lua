@@ -1,4 +1,9 @@
 local colors = require('gruvbox.colors')
+local gps = require('nvim-gps')
+
+gps.setup({
+  disable_icons = true,
+})
 
 require('lualine').setup({
   options = {
@@ -16,7 +21,14 @@ require('lualine').setup({
       'mode',
     },
     lualine_b = {'branch'},
-    lualine_c = {'filename', 'filetype'},
+    lualine_c = {
+      'filename',
+      'filetype',
+      {
+        gps.get_location,
+        cond = gps.is_available,
+      },
+    },
     lualine_x = {
       'require("lsp-status").status()',
       {

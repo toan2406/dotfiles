@@ -46,5 +46,11 @@ wk.register({
   s = {'Live Grep'},
   b = {'Find Buffers'},
   w = {'Grep Word'},
+  g = {
+    name = 'git',
+    g = {'Open status window'},
+    v = {'Open commit browser'},
+    l = {'List previous revisions'},
+  }
 }, {prefix = '<leader>'})
 

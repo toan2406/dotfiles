@@ -46,6 +46,7 @@ return require('packer').startup(function()
   use 'rescript-lang/vim-rescript'
   use 'tpope/vim-rails'
   use 'elixir-editors/vim-elixir'
+  use {'SmiteshP/nvim-gps', requires = {'nvim-treesitter/nvim-treesitter'}}
 
   -- Debug
   use 'mfussenegger/nvim-dap'
@@ -65,6 +66,7 @@ return require('packer').startup(function()
   -- use 'tversteeg/registers.nvim'
   use 'chentoast/marks.nvim'
   use 'folke/which-key.nvim'
+  use {'ellisonleao/glow.nvim', branch = 'main'}
 
   -- Org mode
   use {'nvim-neorg/neorg', requires = {'nvim-lua/plenary.nvim'}}
