@@ -92,9 +92,26 @@ api.nvim_set_keymap('n', 'L', ":lua require('debug-helper').step_into({fallback 
 api.nvim_set_keymap('n', 'K', ":lua require('debug-helper').step_out({fallback = 'K'})<CR>", {noremap = true})
 
 dapui.setup({
-  sidebar = {
-    size = 80
-  }
+  layouts = {
+    {
+      elements = {
+        'scopes',
+        'breakpoints',
+        'stacks',
+        'watches',
+      },
+      size = 80,
+      position = 'left',
+    },
+    {
+      elements = {
+        'repl',
+        'console',
+      },
+      size = 10,
+      position = 'bottom',
+    },
+  },
 })
 
 dap.listeners.after.event_initialized['dapui_config'] = function() dapui.open() end
