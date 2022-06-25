@@ -126,6 +126,30 @@ lspconfig.rust_analyzer.setup({
 --   autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require('lsp_extensions').inlay_hints({})
 -- ]]
 
+-- brew install lua-language-server
+lspconfig.sumneko_lua.setup({
+  settings = {
+    Lua = {
+      runtime = {
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        globals = {'vim'},
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file('', true),
+      },
+      telemetry = {
+        enable = false,
+      },
+    }
+  },
+
+  on_attach = common_on_attach,
+  capabilities = capabilities,
+  flags = {debounce_text_changes = 150}
+})
+
 local prettier = {
   formatCommand = 'prettier --stdin-filepath ${INPUT}',
   formatStdin = true,
