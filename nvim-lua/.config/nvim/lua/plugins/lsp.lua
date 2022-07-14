@@ -4,6 +4,13 @@ local saga = require('lspsaga')
 local api = vim.api
 
 lsp_status.register_progress()
+lsp_status.config({
+  indicator_errors = 'E',
+  indicator_warnings = 'W',
+  indicator_info = 'i',
+  indicator_hint = '?',
+  indicator_ok = 'Ok',
+})
 
 saga.init_lsp_saga()
 
@@ -20,6 +27,12 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = function(...)
   if vim.lsp.buf.server_ready() then
     pcall(vim.diagnostic.setloclist, {open = false})
   end
+end
+
+local signs = {Error = 'E ', Warn = 'W ', Hint = '? ', Info = 'i '}
+for type, icon in pairs(signs) do
+  local hl = 'DiagnosticSign' .. type
+  vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = hl})
 end
 
 local common_on_attach = function(client, bufnr)
