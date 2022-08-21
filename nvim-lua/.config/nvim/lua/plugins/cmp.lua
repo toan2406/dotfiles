@@ -10,6 +10,9 @@ end
 local cmp = require('cmp')
 
 cmp.setup({
+  performance = {
+    debounce = 200,
+  },
   completion = {
     completeopt = 'menu,menuone,noselect',
   },
@@ -19,7 +22,7 @@ cmp.setup({
       vim.fn['vsnip#anonymous'](args.body)
     end,
   },
-  mapping = {
+  mapping = cmp.mapping.preset.insert({
     ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -31,7 +34,7 @@ cmp.setup({
       select = false,
     }),
 
-    ['<Tab>'] = function(fallback)
+    ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       elseif vim.fn['vsnip#available'](1) == 1 then
@@ -41,22 +44,22 @@ cmp.setup({
       else
         fallback()
       end
-    end,
+    end, {'i', 's'}),
 
-    ['<S-Tab>'] = function()
+    ['<S-Tab>'] = cmp.mapping(function()
       if cmp.visible() then
         cmp.select_prev_item()
       elseif vim.fn['vsnip#jumpable'](-1) == 1 then
         feedkey('<Plug>(vsnip-jump-prev)', '')
       end
-    end,
-  },
-  sources = {
+    end, {'i', 's'}),
+  }),
+  sources = cmp.config.sources({
     {name = 'nvim_lsp'},
     {name = 'vsnip'},
     {name = 'path'},
     {name = 'buffer'},
-  },
+  }),
   formatting = {
     format = function(entry, vim_item)
       vim_item.menu = ({
@@ -70,12 +73,16 @@ cmp.setup({
 })
 
 cmp.setup.cmdline(':', {
-  sources = {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    {name = 'path'}
+  }, {
     {name = 'cmdline'}
-  }
+  })
 })
 
 cmp.setup.cmdline('/', {
+  mapping = cmp.mapping.preset.cmdline(),
   sources = {
     {name = 'buffer'}
   }

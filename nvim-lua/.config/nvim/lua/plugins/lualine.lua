@@ -1,4 +1,4 @@
-local colors = require('gruvbox.colors')
+local palette = require('gruvbox.palette')
 local gps = require('nvim-gps')
 
 gps.setup({
@@ -16,7 +16,7 @@ require('lualine').setup({
     lualine_a = {
       {
         "require('debug-helper').status()",
-        color = {fg = colors.bg0, bg = colors.bright_red, gui = 'bold'},
+        color = {fg = palette.bg0, bg = palette.bright_red, gui = 'bold'},
       },
       'mode',
     },

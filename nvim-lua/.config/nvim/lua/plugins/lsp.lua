@@ -24,7 +24,7 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = function(...)
     }
   )(...)
 
-  if vim.lsp.buf.server_ready() then
+  if vim.lsp.buf.server_ready() and api.nvim_get_mode().mode ~= 'i' then
     pcall(vim.diagnostic.setloclist, {open = false})
   end
 end
