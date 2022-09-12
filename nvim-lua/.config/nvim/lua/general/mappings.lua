@@ -16,6 +16,9 @@ api.nvim_set_keymap('n', ']l', ':lnext<CR>zzzv', {noremap = true})
 api.nvim_set_keymap('n', '[q', ':cprevious<CR>zzzv', {noremap = true})
 api.nvim_set_keymap('n', ']q', ':cnext<CR>zzzv', {noremap = true})
 
+-- Paste without overwriting register
+api.nvim_set_keymap('x', '<C-p>', '"_dP', {noremap = true})
+
 -- Undo break points
 api.nvim_set_keymap('i', '.', '.<C-g>u', {noremap = true})
 

@@ -1,7 +1,6 @@
 local lspconfig = require('lspconfig')
 local lsp_status = require('lsp-status')
 local saga = require('lspsaga')
-local api = vim.api
 
 lsp_status.register_progress()
 lsp_status.config({
@@ -24,10 +23,20 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = function(...)
     }
   )(...)
 
-  if vim.lsp.buf.server_ready() and api.nvim_get_mode().mode ~= 'i' then
+  if vim.lsp.buf.server_ready() and vim.api.nvim_get_mode().mode ~= 'i' then
     pcall(vim.diagnostic.setloclist, {open = false})
   end
 end
+
+-- vim.api.nvim_create_augroup('diagnostics', {clear = true})
+-- vim.api.nvim_create_autocmd('DiagnosticChanged', {
+--   group = 'diagnostics',
+--   callback = function()
+--     if vim.api.nvim_get_mode().mode ~= 'i' then
+--       vim.diagnostic.setloclist({open = false})
+--     end
+--   end,
+-- })
 
 local signs = {Error = 'E ', Warn = 'W ', Hint = '? ', Info = 'i '}
 for type, icon in pairs(signs) do
