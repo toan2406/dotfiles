@@ -42,3 +42,26 @@ $ namespace: echo -e 'application'
 $ server: echo 'hero2.ehrocks.com:443'
 $ app_name: HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_PROD herocli --server $server app list --namespace $namespace | awk -F '|' "/$(echo $namespace)/ {gsub(\" \", \"\", \$0); print \$2}"
 
+
+
+% herocli integration
+
+# Access to a integration app
+echo <namespace>>/dev/null; HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_INT herocli --server <server> app run-tty <app_name>
+
+# View status of a integration app
+echo <namespace>>/dev/null; HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_INT herocli --server <server> app status <app_name>
+
+# List all integration apps
+HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_INT herocli --server <server> app list --namespace <namespace>
+
+# Deployment status of a integration app
+echo <namespace>>/dev/null; HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_INT herocli --server <server> app deployment-status <app_name>
+
+# List horizontal pod autoscaling of a integration app
+echo <namespace>>/dev/null; HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_INT herocli --server <server> app list-hpa <app_name>
+
+$ namespace: echo -e 'application'
+$ server: echo 'hero2.integration.ehrocks.com:443'
+$ app_name: HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_INT herocli --server $server app list --namespace $namespace | awk -F '|' "/$(echo $namespace)/ {gsub(\" \", \"\", \$0); print \$2}"
+
