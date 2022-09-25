@@ -31,6 +31,7 @@ require('plugins/marks')
 require('plugins/dap')
 require('plugins/spellcheck')
 require('plugins/whichkey')
+require('plugins/diffview')
 -- require('plugins/tree')
 -- require('plugins/symbols')
 

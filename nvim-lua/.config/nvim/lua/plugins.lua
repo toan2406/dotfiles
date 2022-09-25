@@ -37,6 +37,7 @@ return require('packer').startup(function()
   use 'junegunn/gv.vim'
   use 'stsewd/fzf-checkout.vim'
   use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
+  use {'sindrets/diffview.nvim', requires = {'nvim-lua/plenary.nvim'}}
 
   -- Language support
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
