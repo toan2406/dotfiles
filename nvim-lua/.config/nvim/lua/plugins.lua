@@ -46,7 +46,7 @@ return require('packer').startup(function()
   use 'neovim/nvim-lspconfig'
   use 'nvim-lua/lsp-status.nvim'
   use 'nvim-lua/lsp_extensions.nvim'
-  use 'tami5/lspsaga.nvim'
+  use {'glepnir/lspsaga.nvim', branch = 'main'}
   use 'reasonml-editor/vim-reason-plus'
   use 'rescript-lang/vim-rescript'
   use 'tpope/vim-rails'

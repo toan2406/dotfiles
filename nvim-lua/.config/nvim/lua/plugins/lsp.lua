@@ -11,7 +11,11 @@ lsp_status.config({
   indicator_ok = 'Ok',
 })
 
-saga.init_lsp_saga()
+saga.init_lsp_saga({
+  code_action_lightbulb = {
+    enable = false
+  }
+})
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] = function(...)
   vim.lsp.with(
@@ -56,6 +60,7 @@ local common_on_attach = function(client, bufnr)
 
   buf_set_keymap('n', '<leader>lf', '<CMD>lua vim.lsp.buf.formatting()<CR>', opts)
   buf_set_keymap('n', '<leader>ld', '<CMD>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', '<leader>lv', '<CMD>vsplit | lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', '<leader>lr', '<CMD>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', '<leader>ll', '<CMD>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 
