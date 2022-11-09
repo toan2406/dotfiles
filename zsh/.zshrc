@@ -47,7 +47,9 @@ export FZF_DEFAULT_COMMAND="rg --files --ignore-vcs --hidden --glob '!{node_modu
 
 # Android configs
 export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 
@@ -141,4 +143,8 @@ export PATH=/usr/local/bin/rubocop-daemon-wrapper:$PATH
 # if [[ -x /usr/local/bin/cowsay && -x /usr/local/bin/fortune && -x ~/.rbenv/shims/lolcat ]]; then
 #   fortune | cowsay | lolcat
 # fi
+
+
+alias arm="arch -arm64"
+alias intel="arch -x86_64"
 
