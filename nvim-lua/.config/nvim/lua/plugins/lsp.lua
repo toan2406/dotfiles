@@ -58,11 +58,11 @@ local common_on_attach = function(client, bufnr)
 
   local opts = {noremap = true, silent = true}
 
-  buf_set_keymap('n', '<leader>lf', '<CMD>lua vim.lsp.buf.formatting()<CR>', opts)
+  buf_set_keymap('n', '<leader>lf', '<CMD>lua vim.lsp.buf.format({async = true})<CR>', opts)
   buf_set_keymap('n', '<leader>ld', '<CMD>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', '<leader>lv', '<CMD>vsplit | lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', '<leader>lr', '<CMD>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<leader>ll', '<CMD>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  buf_set_keymap('n', '<leader>ll', '<CMD>lua vim.diagnostic.setloclist()<CR>', opts)
 
   buf_set_keymap('n', '<leader>lh', ':Lspsaga hover_doc<CR>', opts)
   buf_set_keymap('n', '<C-f>', ':lua require("lspsaga.action").smart_scroll_with_saga(1)<CR>', opts)
@@ -77,7 +77,7 @@ capabilities = vim.tbl_extend('keep', capabilities, lsp_status.capabilities)
 lspconfig.tsserver.setup({
   on_attach = function(client, bufnr)
     common_on_attach(client, bufnr)
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.document_formatting = false
   end,
   capabilities = capabilities,
   flags = {debounce_text_changes = 150},
@@ -128,8 +128,8 @@ lspconfig.rescriptls.setup({
 lspconfig.solargraph.setup({
   on_attach = function(client, bufnr)
     common_on_attach(client, bufnr)
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.goto_definition = false
+    client.server_capabilities.document_formatting = false
+    client.server_capabilities.goto_definition = false
   end,
   capabilities = capabilities,
   flags = {debounce_text_changes = 150}
@@ -223,7 +223,7 @@ lspconfig.efm.setup({
 
   on_attach = function(client, bufnr)
     common_on_attach(client, bufnr)
-    -- client.resolved_capabilities.goto_definition = false
+    -- client.server_capabilities.goto_definition = false
   end,
   flags = {debounce_text_changes = 150}
 })

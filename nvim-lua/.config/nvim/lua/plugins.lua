@@ -9,7 +9,7 @@ return require('packer').startup(function()
   -- Navigation
   use 'toan2406/vifm.vim'
   use 'justinmk/vim-sneak'
-  use {'phaazon/hop.nvim', as = 'hop'}
+  use 'ggandor/leap.nvim'
   use {'junegunn/fzf', run = function() vim.fn['fzf#install']() end}
   use 'junegunn/fzf.vim'
   use 'kyazdani42/nvim-tree.lua'
@@ -25,11 +25,7 @@ return require('packer').startup(function()
   use 'hrsh7th/vim-vsnip'
 
   -- Statusline
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true},
-    commit = '5f68f070e4f7158517afc55f125a6f5ed1f7db47'
-  }
+  use {'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
 
   -- Git support
   use 'tpope/vim-fugitive'
