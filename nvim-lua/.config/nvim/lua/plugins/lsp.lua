@@ -65,6 +65,7 @@ local common_on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>ll', '<CMD>lua vim.diagnostic.setloclist()<CR>', opts)
 
   buf_set_keymap('n', '<leader>lh', ':Lspsaga hover_doc<CR>', opts)
+  buf_set_keymap('n', '<leader>ln', ':Lspsaga rename<CR>', opts)
   buf_set_keymap('n', '<C-f>', ':lua require("lspsaga.action").smart_scroll_with_saga(1)<CR>', opts)
   buf_set_keymap('n', '<C-b>', ':lua require("lspsaga.action").smart_scroll_with_saga(-1)<CR>', opts)
 end

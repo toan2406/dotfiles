@@ -68,6 +68,7 @@ return require('packer').startup(function()
   use 'chentoast/marks.nvim'
   use 'folke/which-key.nvim'
   use {'ellisonleao/glow.nvim', branch = 'main'}
+  use {'ThePrimeagen/harpoon', requires = {'nvim-lua/plenary.nvim'}}
 
   -- Org mode
   use {'nvim-neorg/neorg', requires = {'nvim-lua/plenary.nvim'}}
