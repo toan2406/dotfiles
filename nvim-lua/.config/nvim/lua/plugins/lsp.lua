@@ -78,7 +78,7 @@ capabilities = vim.tbl_extend('keep', capabilities, lsp_status.capabilities)
 lspconfig.tsserver.setup({
   on_attach = function(client, bufnr)
     common_on_attach(client, bufnr)
-    client.server_capabilities.document_formatting = false
+    client.server_capabilities.documentFormattingProvider = false
   end,
   capabilities = capabilities,
   flags = {debounce_text_changes = 150},
@@ -129,8 +129,8 @@ lspconfig.rescriptls.setup({
 lspconfig.solargraph.setup({
   on_attach = function(client, bufnr)
     common_on_attach(client, bufnr)
-    client.server_capabilities.document_formatting = false
-    client.server_capabilities.goto_definition = false
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.definitionProvider = false
   end,
   capabilities = capabilities,
   flags = {debounce_text_changes = 150}
@@ -173,6 +173,13 @@ lspconfig.sumneko_lua.setup({
     }
   },
 
+  on_attach = common_on_attach,
+  capabilities = capabilities,
+  flags = {debounce_text_changes = 150}
+})
+
+-- brew install llvm
+lspconfig.clangd.setup({
   on_attach = common_on_attach,
   capabilities = capabilities,
   flags = {debounce_text_changes = 150}
@@ -224,7 +231,7 @@ lspconfig.efm.setup({
 
   on_attach = function(client, bufnr)
     common_on_attach(client, bufnr)
-    -- client.server_capabilities.goto_definition = false
+    client.server_capabilities.definitionProvider = false
   end,
   flags = {debounce_text_changes = 150}
 })
