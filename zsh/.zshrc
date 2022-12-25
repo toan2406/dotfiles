@@ -140,6 +140,10 @@ export PATH=/usr/local/opt/curl/bin:$PATH
 export PATH=/usr/local/bin/rubocop-daemon-wrapper:$PATH
 
 
+# Config zk
+export ZK_NOTEBOOK_DIR=$HOME/Workspace/Personal/my-second-brain
+
+
 # Have some fun
 # if [[ -x /usr/local/bin/cowsay && -x /usr/local/bin/fortune && -x ~/.rbenv/shims/lolcat ]]; then
 #   fortune | cowsay | lolcat

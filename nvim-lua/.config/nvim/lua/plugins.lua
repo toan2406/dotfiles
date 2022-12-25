@@ -48,6 +48,7 @@ return require('packer').startup(function()
   use 'tpope/vim-rails'
   use 'elixir-editors/vim-elixir'
   use {'SmiteshP/nvim-gps', requires = {'nvim-treesitter/nvim-treesitter'}}
+  use 'mickael-menu/zk-nvim'
 
   -- Debug
   use 'mfussenegger/nvim-dap'

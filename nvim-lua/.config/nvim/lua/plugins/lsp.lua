@@ -185,6 +185,35 @@ lspconfig.clangd.setup({
   flags = {debounce_text_changes = 150}
 })
 
+-- brew install ltex-ls
+lspconfig.ltex.setup({
+  cmd = {'ltex-ls'},
+  filetypes = {'markdown'},
+  root_dir = lspconfig.util.find_git_ancestor,
+  settings = {
+    ltex = {
+      enabled = {'markdown'},
+      checkFrequency = 'save',
+      language = 'en-US',
+      diagnosticSeverity = 'information',
+      setenceCacheSize = 2000,
+      additionalRules = {
+        enablePickyRules = true,
+        motherTongue = 'en-US',
+      },
+      dictionary = {},
+      disabledRules = {
+        ['en-US'] = {'EN_QUOTES'},
+      },
+      hiddenFalsePositives = {},
+    },
+  },
+
+  on_attach = common_on_attach,
+  capabilities = capabilities,
+  flags = {debounce_text_changes = 150}
+})
+
 local prettier = {
   formatCommand = 'prettier --stdin-filepath ${INPUT}',
   formatStdin = true,
