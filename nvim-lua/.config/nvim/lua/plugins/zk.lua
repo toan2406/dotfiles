@@ -41,10 +41,8 @@ commands.add('ZkLinkSelection', function(options)
 end, {needs_selection = true})
 
 vim.api.nvim_set_keymap('n', '<leader>zn', ":ZkNew {title = vim.fn.input('Title: ')}<CR>", opts)
-vim.api.nvim_set_keymap('n', '<leader>zo', ":ZkNotes {sort = {'modified'}}<CR>", opts)
+vim.api.nvim_set_keymap('n', '<leader>zf', ":ZkNotes {sort = {'modified'}}<CR>", opts)
 vim.api.nvim_set_keymap('n', '<leader>zt', ":ZkTags<CR>", opts)
-vim.api.nvim_set_keymap('n', '<leader>zf', ":ZkNotes {sort = {'modified'}, match = {vim.fn.input('Search: ')}}<CR>", opts)
-vim.api.nvim_set_keymap('v', '<leader>zf', ":'<,'>ZkMatch<CR>", opts)
-vim.api.nvim_set_keymap('n', '<leader>zi', ":ZkInsertLink<CR>", opts)
-vim.api.nvim_set_keymap('v', '<leader>zi', ":'<,'>ZkLinkSelection<CR>", opts)
+vim.api.nvim_set_keymap('n', '<leader>zs', ":ZkNotes {sort = {'modified'}, match = {vim.fn.input('Search: ')}}<CR>", opts)
+vim.api.nvim_set_keymap('v', '<leader>zs', ":'<,'>ZkMatch<CR>", opts)
 
