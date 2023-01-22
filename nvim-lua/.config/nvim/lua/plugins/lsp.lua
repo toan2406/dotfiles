@@ -11,10 +11,29 @@ lsp_status.config({
   indicator_ok = 'Ok',
 })
 
-saga.init_lsp_saga({
-  code_action_lightbulb = {
+saga.setup({
+  lightbulb = {
     enable = false
-  }
+  },
+  symbol_in_winbar = {
+    enable = false
+  },
+  ui = {
+    -- Gruvbox dark
+    colors = {
+      normal_bg = '#32302f',
+      title_bg = '#32302f',
+      fg = '#ebdbb2',
+      red = '#cc241d',
+      magenta = '#b16286',
+      yellow = '#d79921',
+      green = '#98971a',
+      cyan = '#689d6a',
+      blue = '#458588',
+      white = '#a89984',
+      black = '#282828',
+    },
+  },
 })
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] = function(...)
@@ -66,6 +85,7 @@ local common_on_attach = function(client, bufnr)
 
   buf_set_keymap('n', '<leader>lh', ':Lspsaga hover_doc<CR>', opts)
   buf_set_keymap('n', '<leader>ln', ':Lspsaga rename<CR>', opts)
+  buf_set_keymap('n', '<leader>lo', ':Lspsaga outline<CR>', opts)
   buf_set_keymap('n', '<C-f>', ':lua require("lspsaga.action").smart_scroll_with_saga(1)<CR>', opts)
   buf_set_keymap('n', '<C-b>', ':lua require("lspsaga.action").smart_scroll_with_saga(-1)<CR>', opts)
 end
