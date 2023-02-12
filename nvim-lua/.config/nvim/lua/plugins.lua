@@ -1,86 +1,98 @@
-return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable',
+    lazypath,
+  })
+end
+
+vim.opt.rtp:prepend(lazypath)
+
+require('lazy').setup({
   -- Color schemes
-  use 'jacoborus/tender.vim'
-  use 'ellisonleao/gruvbox.nvim'
+  'jacoborus/tender.vim',
+  'ellisonleao/gruvbox.nvim',
 
   -- Navigation
-  use 'toan2406/vifm.vim'
-  use 'justinmk/vim-sneak'
-  use 'ggandor/leap.nvim'
-  use {'junegunn/fzf', run = function() vim.fn['fzf#install']() end}
-  use 'junegunn/fzf.vim'
-  use 'kyazdani42/nvim-tree.lua'
-  -- use 'tpope/vim-projectionist'
+  'toan2406/vifm.vim',
+  'justinmk/vim-sneak',
+  'ggandor/leap.nvim',
+  {'junegunn/fzf', build = function() vim.fn['fzf#install']() end},
+  'junegunn/fzf.vim',
+  'kyazdani42/nvim-tree.lua',
+  -- 'tpope/vim-projectionist',
 
   -- Completion
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-vsnip'
-  use 'hrsh7th/vim-vsnip'
+  'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/cmp-path',
+  'hrsh7th/cmp-cmdline',
+  'hrsh7th/nvim-cmp',
+  'hrsh7th/cmp-vsnip',
+  'hrsh7th/vim-vsnip',
 
   -- Statusline
-  use {'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
+  {'nvim-lualine/lualine.nvim', dependencies = {'kyazdani42/nvim-web-devicons', lazy = true}},
 
   -- Git support
-  use 'tpope/vim-fugitive'
-  use 'tpope/vim-rhubarb'
-  use 'junegunn/gv.vim'
-  use 'stsewd/fzf-checkout.vim'
-  use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
-  use {'sindrets/diffview.nvim', requires = {'nvim-lua/plenary.nvim'}}
+  'tpope/vim-fugitive',
+  'tpope/vim-rhubarb',
+  'junegunn/gv.vim',
+  'stsewd/fzf-checkout.vim',
+  {'lewis6991/gitsigns.nvim', dependencies = {'nvim-lua/plenary.nvim'}},
+  {'sindrets/diffview.nvim', dependencies = {'nvim-lua/plenary.nvim'}},
 
   -- Language support
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-  use 'nvim-treesitter/nvim-treesitter-refactor'
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
-  use 'neovim/nvim-lspconfig'
-  use 'nvim-lua/lsp-status.nvim'
-  use 'nvim-lua/lsp_extensions.nvim'
-  use {'glepnir/lspsaga.nvim', branch = 'main'}
-  use 'reasonml-editor/vim-reason-plus'
-  use 'rescript-lang/vim-rescript'
-  use 'tpope/vim-rails'
-  use 'elixir-editors/vim-elixir'
-  use {'SmiteshP/nvim-gps', requires = {'nvim-treesitter/nvim-treesitter'}}
-  use 'mickael-menu/zk-nvim'
+  {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
+  'nvim-treesitter/nvim-treesitter-refactor',
+  'nvim-treesitter/nvim-treesitter-textobjects',
+  'neovim/nvim-lspconfig',
+  'nvim-lua/lsp-status.nvim',
+  'nvim-lua/lsp_extensions.nvim',
+  {'glepnir/lspsaga.nvim', branch = 'main'},
+  'reasonml-editor/vim-reason-plus',
+  'rescript-lang/vim-rescript',
+  'tpope/vim-rails',
+  'elixir-editors/vim-elixir',
+  {'SmiteshP/nvim-gps', dependencies = {'nvim-treesitter/nvim-treesitter'}},
+  'mickael-menu/zk-nvim',
 
   -- Debug
-  use 'mfussenegger/nvim-dap'
-  use {'rcarriga/nvim-dap-ui', requires = {'mfussenegger/nvim-dap'}}
+  'mfussenegger/nvim-dap',
+  {'rcarriga/nvim-dap-ui', dependencies = {'mfussenegger/nvim-dap'}},
 
   -- Terminal
-  use 'numtostr/FTerm.nvim'
+  'numtostr/FTerm.nvim',
 
   -- Misc
-  use 'windwp/nvim-autopairs'
-  use 'tpope/vim-surround'
-  use 'norcalli/nvim-colorizer.lua'
-  use 'lukas-reineke/indent-blankline.nvim'
-  use 'b3nj5m1n/kommentary'
-  use 'numToStr/Navigator.nvim'
-  use 'simrat39/symbols-outline.nvim'
-  -- use 'tversteeg/registers.nvim'
-  use 'chentoast/marks.nvim'
-  use 'folke/which-key.nvim'
-  use {'ellisonleao/glow.nvim', branch = 'main'}
-  use {'ThePrimeagen/harpoon', requires = {'nvim-lua/plenary.nvim'}}
+  'windwp/nvim-autopairs',
+  'tpope/vim-surround',
+  'norcalli/nvim-colorizer.lua',
+  'lukas-reineke/indent-blankline.nvim',
+  'b3nj5m1n/kommentary',
+  'numToStr/Navigator.nvim',
+  'simrat39/symbols-outline.nvim',
+  -- 'tversteeg/registers.nvim',
+  'chentoast/marks.nvim',
+  'folke/which-key.nvim',
+  {'ellisonleao/glow.nvim', branch = 'main'},
+  {'ThePrimeagen/harpoon', dependencies = {'nvim-lua/plenary.nvim'}},
 
   -- Org mode
-  use {'nvim-neorg/neorg', requires = {'nvim-lua/plenary.nvim'}}
-  use 'nvim-orgmode/orgmode'
+  {'nvim-neorg/neorg', dependencies = {'nvim-lua/plenary.nvim'}},
+  'nvim-orgmode/orgmode',
 
   -- Copilot
-  -- use 'github/copilot.vim'
+  -- 'github/copilot.vim',
 
   -- Local plugins
-  use {'~/.dotfiles/nvim-plugins/list-toggle.nvim', config = function() require('list-toggle') end}
-  use '~/.dotfiles/nvim-plugins/debug-helper.nvim'
-  use '~/.dotfiles/nvim-plugins/obsidian.nvim'
-end)
+  {dir = '~/.dotfiles/nvim-plugins/list-toggle.nvim', config = function() require('list-toggle') end},
+  {dir = '~/.dotfiles/nvim-plugins/debug-helper.nvim'},
+  {dir = '~/.dotfiles/nvim-plugins/obsidian.nvim'},
+})
 
