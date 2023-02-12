@@ -136,7 +136,7 @@ lspconfig.ocamlls.setup({
 lspconfig.rescriptls.setup({
   cmd = {
     'node',
-    '/Users/toannguyen/.local/share/nvim/site/pack/packer/start/vim-rescript/server/out/server.js',
+    '/Users/toannguyen/.local/share/nvim/lazy/vim-rescript/server/out/server.js',
     '--stdio'
   },
 
