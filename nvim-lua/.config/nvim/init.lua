@@ -5,9 +5,9 @@ local start_time = fn.reltime()
 require('general/settings')
 require('general/mappings')
 
-require('colorschemes/gruvbox')
-
 require('plugins')
+
+require('colorschemes/gruvbox')
 require('plugins/vifm')
 require('plugins/fzf')
 require('plugins/sneak')
