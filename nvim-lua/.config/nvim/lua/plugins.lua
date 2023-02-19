@@ -55,10 +55,10 @@ require('lazy').setup({
   'nvim-lua/lsp-status.nvim',
   'nvim-lua/lsp_extensions.nvim',
   {'glepnir/lspsaga.nvim', branch = 'main'},
-  'reasonml-editor/vim-reason-plus',
-  'rescript-lang/vim-rescript',
-  'tpope/vim-rails',
-  'elixir-editors/vim-elixir',
+  {'reasonml-editor/vim-reason-plus', ft = {'re', 'rei'}},
+  {'rescript-lang/vim-rescript', ft = {'res', 'resi'}},
+  {'tpope/vim-rails', ft = 'rb'},
+  {'elixir-editors/vim-elixir', ft = {'ex', 'exs'}},
   {'SmiteshP/nvim-gps', dependencies = {'nvim-treesitter/nvim-treesitter'}},
   'mickael-menu/zk-nvim',
 
@@ -84,8 +84,8 @@ require('lazy').setup({
   {'ThePrimeagen/harpoon', dependencies = {'nvim-lua/plenary.nvim'}},
 
   -- Org mode
-  {'nvim-neorg/neorg', dependencies = {'nvim-lua/plenary.nvim'}},
-  'nvim-orgmode/orgmode',
+  {'nvim-neorg/neorg', ft = 'norg', dependencies = {'nvim-lua/plenary.nvim'}},
+  {'nvim-orgmode/orgmode', ft = 'org'},
 
   -- Copilot
   -- 'github/copilot.vim',
