@@ -2,6 +2,7 @@ local api = vim.api
 
 api.nvim_set_keymap('i', 'jj', '<Esc>', {noremap = false})
 api.nvim_set_keymap('n', '<Space>', ':', {noremap = true})
+api.nvim_set_keymap('v', '<Space>', ':', {noremap = true})
 api.nvim_set_keymap('n', '<Esc>', ':noh<CR>', {noremap = true})
 
 -- Behave Vim

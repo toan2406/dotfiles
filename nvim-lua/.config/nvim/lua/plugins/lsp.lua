@@ -136,7 +136,7 @@ lspconfig.ocamlls.setup({
 lspconfig.rescriptls.setup({
   cmd = {
     'node',
-    '/Users/toannguyen/.local/share/nvim/site/pack/packer/start/vim-rescript/server/out/server.js',
+    '/Users/toannguyen/.local/share/nvim/lazy/vim-rescript/server/out/server.js',
     '--stdio'
   },
 
@@ -175,7 +175,7 @@ lspconfig.rust_analyzer.setup({
 -- ]]
 
 -- brew install lua-language-server
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
   settings = {
     Lua = {
       runtime = {
