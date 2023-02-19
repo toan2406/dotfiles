@@ -57,7 +57,7 @@ require('lazy').setup({
   {'glepnir/lspsaga.nvim', branch = 'main'},
   {'reasonml-editor/vim-reason-plus', ft = {'re', 'rei'}},
   {'rescript-lang/vim-rescript', ft = {'res', 'resi'}},
-  {'tpope/vim-rails', ft = 'rb'},
+  'tpope/vim-rails',
   {'elixir-editors/vim-elixir', ft = {'ex', 'exs'}},
   {'SmiteshP/nvim-gps', dependencies = {'nvim-treesitter/nvim-treesitter'}},
   'mickael-menu/zk-nvim',
