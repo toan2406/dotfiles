@@ -46,11 +46,33 @@ wk.register({
   s = {'Live Grep'},
   b = {'Find Buffers'},
   w = {'Grep Word'},
+  gf = 'which_key_ignore',
+  [','] = 'which_key_ignore',
   g = {
     name = 'git',
-    g = {'Open status window'},
-    v = {'Open commit browser'},
-    l = {'List previous revisions'},
-  }
+    g = {'Open Status Window'},
+    v = {'Open Commit Browser'},
+    l = {'List Previous Revisions'},
+  },
+  z = {
+    name = 'note',
+    f = {'Open Notes'},
+    s = {'Search Notes'},
+    t = {'Open Notes By Tag'},
+    n = {'New Note'},
+  },
+  l = {
+    name = 'language',
+    d = {'Go To Definition'},
+    v = {'Go To Definition In Split'},
+    f = {'Format'},
+    h = {'Hover'},
+  },
+  h = {
+    name = 'Harpoon',
+  },
+  d = {
+    name = 'debug',
+  },
 }, {prefix = '<leader>'})
 
