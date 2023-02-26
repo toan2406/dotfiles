@@ -7,7 +7,7 @@ local installation_path = vim.fn.stdpath('data') .. '/dap_debuggers'
 -- mkdir -p ~/.local/share/nvim/dap_debuggers && cd "$_"
 -- git clone https://github.com/microsoft/vscode-node-debug2.git && cd vscode-node-debug2
 -- npm install
--- npm run build
+-- NODE_OPTIONS=--no-experimental-fetch npm run build
 dap.adapters.node2 = {
   type = 'executable',
   command = 'node',
@@ -80,10 +80,45 @@ dap.configurations.ruby = {
   },
 }
 
+-- go install github.com/go-delve/delve/cmd/dlv@latest
+-- mkdir -p ~/.local/share/nvim/dap_debuggers
+-- cp ~/.dotfiles/scripts/dlv-wrapper.sh ~/.local/share/nvim/dap_debuggers/dlv-wrapper.sh
+dap.adapters.delve = {
+  type = 'server',
+  port = '${port}',
+  executable = {
+    command = installation_path .. '/dlv-wrapper.sh',
+    args = {'dap', '-l', '127.0.0.1:${port}'},
+  },
+}
+
+dap.configurations.go = {
+  {
+    type = 'delve',
+    name = 'Debug',
+    request = 'launch',
+    program = '${file}',
+  },
+  {
+    type = 'delve',
+    name = 'Debug test',
+    request = 'launch',
+    mode = 'test',
+    program = '${file}',
+  },
+  {
+    type = 'delve',
+    name = 'Debug test (go.mod)',
+    request = 'launch',
+    mode = 'test',
+    program = './${relativeFileDirname}',
+  },
+}
+
 vim.fn.sign_define('DapBreakpoint', {text = '●', texthl = 'GruvboxRed', linehl = '', numhl = ''})
 
 api.nvim_set_keymap('n', '<leader>dt', ":lua require('dap').toggle_breakpoint()<CR>", {noremap = true})
-api.nvim_set_keymap('n', '<leader>dq', ":lua require('dap').close()<CR>", {noremap = true})
+api.nvim_set_keymap('n', '<leader>dq', ":lua require('dap').terminate()<CR>", {noremap = true})
 api.nvim_set_keymap('n', '<leader>dc', ":lua require('dap').continue()<CR>", {noremap = true})
 api.nvim_set_keymap('n', '<leader>dr', ":lua require('dap').repl.open({}, 'vsplit')<CR><C-w>la", {noremap = true})
 
