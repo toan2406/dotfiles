@@ -102,6 +102,14 @@ function fdp() {
 }
 
 
+# npm run test
+function nrt() {
+  local file
+  file=$(fd '\.(test|spec)\.' $PWD --type file --exclude '__snapshots__' | fzf --reverse) &&
+    yarn test "$file"
+}
+
+
 # Cheatsheet tool
 export NAVI_PATH="$HOME/.dotfiles/cheats"
 navi() {
