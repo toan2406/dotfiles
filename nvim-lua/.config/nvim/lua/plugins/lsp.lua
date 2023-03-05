@@ -223,7 +223,10 @@ lspconfig.ltex.setup({
       },
       dictionary = {},
       disabledRules = {
-        ['en-US'] = {'EN_QUOTES'},
+        ['en-US'] = {
+          'EN_QUOTES',
+          'UPPERCASE_SENTENCE_START',
+        },
       },
       hiddenFalsePositives = {},
     },
