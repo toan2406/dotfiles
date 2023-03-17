@@ -88,7 +88,8 @@ require('lazy').setup({
   {'nvim-orgmode/orgmode', ft = 'org'},
 
   -- Copilot
-  -- 'github/copilot.vim',
+  {'zbirenbaum/copilot.lua', cmd = 'Copilot', event = 'InsertEnter'},
+  {'zbirenbaum/copilot-cmp', dependencies = {'zbirenbaum/copilot.lua'}},
 
   -- Local plugins
   {dir = '~/.dotfiles/nvim-plugins/list-toggle.nvim', config = function() require('list-toggle') end},
