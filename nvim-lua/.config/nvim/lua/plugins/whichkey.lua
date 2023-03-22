@@ -53,6 +53,7 @@ wk.register({
     g = {'Open Status Window'},
     v = {'Open Commit Browser'},
     l = {'List Previous Revisions'},
+    r = {'Open On Github'},
   },
   z = {
     name = 'note',
