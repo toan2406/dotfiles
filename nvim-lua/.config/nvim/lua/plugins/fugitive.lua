@@ -9,8 +9,8 @@ api.nvim_set_keymap('n', '<leader>gl', ':0Gclog<CR>', {noremap = true, silent = 
 api.nvim_set_keymap('n', '<leader>gv', ':GV!<CR>', {noremap = true, silent = true})
 api.nvim_set_keymap('v', '<leader>gv', ':GV<CR>', {noremap = true, silent = true})
 
-api.nvim_set_keymap('n', '<leader>gr', 'V:GBrowse<CR>', {noremap = true, silent = true})
-api.nvim_set_keymap('v', '<leader>gr', ':GBrowse<CR>', {noremap = true, silent = true})
+api.nvim_set_keymap('n', '<leader>go', 'V:GBrowse<CR>', {noremap = true, silent = true})
+api.nvim_set_keymap('v', '<leader>go', ':GBrowse<CR>', {noremap = true, silent = true})
 
 api.nvim_set_keymap('n', '<leader>gc', ':GBranches<CR>', {noremap = true, silent = true})
 
