@@ -3,3 +3,5 @@ require('diffview').setup({
   use_icons = false,
 })
 
+vim.keymap.set('n', '<leader>gh', ':DiffviewFileHistory %<CR>')
+

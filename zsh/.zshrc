@@ -98,7 +98,9 @@ function fdd() {
 
 # Find project
 function fdp() {
-  cd $({ echo "${HOME}/.dotfiles"; find $HOME/Workspace -maxdepth 2 -type d -print 2> /dev/null; } | fzf -q "$1")
+  local dir
+  dir=$({ echo "${HOME}/.dotfiles"; find $HOME/Workspace -maxdepth 2 -type d -print 2> /dev/null; } | fzf -q "$1") &&
+    cd "$dir"
 }
 
 

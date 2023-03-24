@@ -54,6 +54,7 @@ wk.register({
     v = {'Open Commit Browser'},
     l = {'List Previous Revisions'},
     o = {'Open On Github'},
+    h = {'Open File History'},
   },
   z = {
     name = 'note',
