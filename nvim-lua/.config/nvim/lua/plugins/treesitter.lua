@@ -7,7 +7,7 @@ require('nvim-treesitter.configs').setup({
     additional_vim_regex_highlighting = {'org', 'markdown'},
   },
   incremental_selection = {
-    enable = true,
+    enable = false,
     keymaps = {
       init_selection = 'gnn',
       node_incremental = 'grn',
@@ -17,13 +17,13 @@ require('nvim-treesitter.configs').setup({
   },
   refactor = {
     smart_rename = {
-      enable = true,
+      enable = false,
       keymaps = {
         smart_rename = 'grr',
       },
     },
     navigation = {
-      enable = true,
+      enable = false,
       keymaps = {
         goto_definition = 'gnd',
         list_definitions = 'gnD',
