@@ -35,6 +35,7 @@ require('plugins/whichkey')
 require('plugins/diffview')
 require('plugins/harpoon')
 require('plugins/zk')
+require('plugins/dadbod')
 -- require('plugins/tree')
 -- require('plugins/symbols')
 
