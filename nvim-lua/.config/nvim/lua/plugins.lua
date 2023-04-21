@@ -62,6 +62,10 @@ require('lazy').setup({
   {'SmiteshP/nvim-gps', dependencies = {'nvim-treesitter/nvim-treesitter'}},
   'mickael-menu/zk-nvim',
 
+  -- Database
+  'tpope/vim-dadbod',
+  'kristijanhusak/vim-dadbod-ui',
+
   -- Debug
   'mfussenegger/nvim-dap',
   {'rcarriga/nvim-dap-ui', dependencies = {'mfussenegger/nvim-dap'}},
