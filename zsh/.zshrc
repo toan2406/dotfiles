@@ -98,9 +98,29 @@ function fdd() {
 
 # Find project
 function fdp() {
-  local dir
-  dir=$({ echo "${HOME}/.dotfiles"; find $HOME/Workspace -maxdepth 2 -type d -print 2> /dev/null; } | fzf -q "$1") &&
-    cd "$dir"
+  # local dir
+  # dir=$({ echo "${HOME}/.dotfiles"; find $HOME/Workspace -maxdepth 2 -type d -print 2> /dev/null; } | fzf -q "$1") &&
+  #   cd "$dir"
+
+  local search=$({ echo "${HOME}/.dotfiles"; find $HOME/Workspace -maxdepth 2 -type d -print 2> /dev/null; } | fzf -q "$1")
+  if [[ -n $search ]]; then
+    local folder=$(basename $search)
+    local session=$(tmux list-sessions | grep $folder | awk -F ':' '{print $1}')
+    if [[ -z $TMUX ]]; then
+      if [[ -z $session ]]; then
+        tmux new-session -s $folder -c $search
+      else
+        tmux attach -t $session
+      fi
+    else
+      if [[ -z $session ]]; then
+        tmux new-session -d -s $folder -c $search
+        tmux switch-client -t $folder
+      else
+        tmux switch-client -t $session
+      fi
+    fi
+  fi
 }
 
 
