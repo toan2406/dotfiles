@@ -104,7 +104,7 @@ function fdp() {
 
   local search=$({ echo "${HOME}/.dotfiles"; find $HOME/Workspace -maxdepth 2 -type d -print 2> /dev/null; } | fzf -q "$1")
   if [[ -n $search ]]; then
-    local folder=$(basename $search)
+    local folder=${$(basename $search)//./_}
     local session=$(tmux list-sessions | grep $folder | awk -F ':' '{print $1}')
     if [[ -z $TMUX ]]; then
       if [[ -z $session ]]; then
@@ -120,6 +120,9 @@ function fdp() {
         tmux switch-client -t $session
       fi
     fi
+  fi
+  if [[ -n $FDP_WINDOW ]]; then
+    tmux kill-window -t $FDP_WINDOW
   fi
 }
 
