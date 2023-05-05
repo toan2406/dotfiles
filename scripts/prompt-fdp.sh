@@ -7,10 +7,16 @@ if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
   exit 1
 fi
 
-temp_session="__fdp__"
-curr_session=$(tmux display-message -p "#S:#W")
+search=$({ echo "${HOME}/.dotfiles"; find $HOME/Workspace -maxdepth 2 -type d -print 2> /dev/null; } | fzf-tmux -p)
 
-tmux new-session -d -s $temp_session -c $HOME
-tmux set-environment -t $temp_session PREV_SESSION $curr_session
-tmux send -t $temp_session fdp ENTER
-tmux switch-client -t $temp_session
+if [[ -n $search ]]; then
+  folder=$(basename $search | sed "s/\./_/g")
+  session=$(tmux list-sessions | grep $folder | awk -F ':' '{print $1}')
+
+  if [[ -z $session ]]; then
+    tmux new-session -d -s $folder -c $search
+    tmux switch-client -t $folder
+  else
+    tmux switch-client -t $session
+  fi
+fi
