@@ -7,7 +7,8 @@ if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
   exit 1
 fi
 
-search=$({ echo "${HOME}/.dotfiles"; find $HOME/Workspace -maxdepth 2 -type d -print 2> /dev/null; } | fzf-tmux -p)
+lines=$(tmux display-message -p "#{window_height}")
+search=$({ echo "${HOME}/.dotfiles"; find $HOME/Workspace -maxdepth 2 -type d -print 2> /dev/null; } | fzf-tmux -p -w 100% -h 50% -y $lines)
 
 if [[ -n $search ]]; then
   folder=$(basename $search | sed "s/\./_/g")
