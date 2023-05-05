@@ -7,7 +7,10 @@ if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
   exit 1
 fi
 
-curr_session=$(tmux display-message -p "#S")
+temp_session="__fdp__"
+curr_session=$(tmux display-message -p "#S:#W")
 
-tmux new-window -n "fdp" -e FDP_WINDOW="$curr_session:fdp"
-tmux send fdp ENTER
+tmux new-session -d -s $temp_session -c $HOME
+tmux set-environment -t $temp_session PREV_SESSION $curr_session
+tmux send -t $temp_session fdp ENTER
+tmux switch-client -t $temp_session

@@ -120,9 +120,11 @@ function fdp() {
         tmux switch-client -t $session
       fi
     fi
-  fi
-  if [[ -n $FDP_WINDOW ]]; then
-    tmux kill-window -t $FDP_WINDOW
+  else
+    local prev_session=$(tmux show-environment PREV_SESSION 2> /dev/null | awk -F '=' '{print $2}')
+    if [[ -n $prev_session ]]; then
+      tmux switch-client -t $prev_session
+    fi
   fi
 }
 
