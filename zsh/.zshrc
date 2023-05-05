@@ -8,7 +8,6 @@ plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
   dotenv
-  z.lua
   urltools
 )
 
