@@ -59,6 +59,7 @@ alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias vim='nvim'
 alias vi='nvim'
 alias bim='nvim'
+alias ls='exa'
 alias ctags="$(brew --prefix)/bin/ctags"
 export BAT_THEME="gruvbox-dark"
 

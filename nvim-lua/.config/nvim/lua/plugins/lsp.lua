@@ -47,7 +47,12 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = function(...)
   )(...)
 
   if vim.lsp.buf.server_ready() and vim.api.nvim_get_mode().mode ~= 'i' then
-    pcall(vim.diagnostic.setloclist, {open = false})
+    -- If the current win is a loclist, get its associated win
+    -- Ref: https://neovim.io/doc/user/builtin.html#getloclist()
+    local filewinid = vim.fn.getloclist(0, {filewinid = 0})['filewinid']
+    local winnr = filewinid ~= 0 and filewinid or 0;
+
+    pcall(vim.diagnostic.setloclist, {open = false, winnr = winnr})
   end
 end
 
