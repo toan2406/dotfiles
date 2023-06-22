@@ -1,0 +1,2 @@
+# float / unfloat window and fill screen
+cmd + shift + alt - k : yabai -m window --toggle float --grid 1:1:0:0:1:1

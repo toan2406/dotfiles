@@ -49,7 +49,10 @@ yabai -m config                                 \
 # rules
 yabai -m rule --add app="^System Settings$"        manage=off
 yabai -m rule --add app="^App Store$"              manage=off
+yabai -m rule --add app="^Preview$"                manage=off
 yabai -m rule --add app="^Digital Colou?r Meter$"  sticky=on
 yabai -m rule --add app="^Alacritty$"              space=^1
+yabai -m rule --add app="^Firefox$"                space=^2
+yabai -m rule --add app="^Slack$"                  space=^3
 
 echo "yabai configuration loaded.."
