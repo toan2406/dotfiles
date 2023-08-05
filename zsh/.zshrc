@@ -32,6 +32,7 @@ nvm() {
 
 
 # Lazyload rbenv
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 rbenv() {
   eval "$(command rbenv init -)"
   rbenv "$@"

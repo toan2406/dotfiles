@@ -268,12 +268,17 @@ local pandoc = {
   formatStdin = true,
 }
 
+local pgformatter = {
+  formatCommand = 'pg_format',
+  formatStdin = true,
+}
+
 -- brew install efm-langserver
 -- npm install -g eslint_d
 lspconfig.efm.setup({
   root_dir = lspconfig.util.root_pattern('.git', 'package.json'),
   init_options = {documentFormatting = true, codeAction = false},
-  filetypes = {'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'ruby', 'json', 'markdown'},
+  filetypes = {'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'ruby', 'json', 'markdown', 'sql'},
   settings = {
     languages = {
       javascript = {prettier, eslint},
@@ -283,6 +288,7 @@ lspconfig.efm.setup({
       ruby = {rubocop},
       json = {prettier},
       markdown = {pandoc},
+      sql = {pgformatter},
     }
   },
 
