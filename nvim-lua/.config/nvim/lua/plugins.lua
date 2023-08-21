@@ -86,6 +86,13 @@ require('lazy').setup({
   'folke/which-key.nvim',
   {'ellisonleao/glow.nvim', branch = 'main'},
   {'ThePrimeagen/harpoon', dependencies = {'nvim-lua/plenary.nvim'}},
+  {
+    'tamton-aquib/duck.nvim',
+    config = function()
+      vim.keymap.set('n', '<leader>dd', function() require('duck').hatch() end, {})
+      vim.keymap.set('n', '<leader>dk', function() require('duck').cook() end, {})
+    end
+  },
 
   -- Org mode
   {'nvim-neorg/neorg', ft = 'norg', dependencies = {'nvim-lua/plenary.nvim'}},

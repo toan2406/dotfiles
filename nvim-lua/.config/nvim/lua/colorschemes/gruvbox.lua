@@ -1,6 +1,10 @@
 require('gruvbox').setup({
   bold = false,
-  italic = false,
+  italic = {
+    strings = false,
+    operators = false,
+    comments = true,
+  },
   invert_selection = false,
   contrast = '',
 })
