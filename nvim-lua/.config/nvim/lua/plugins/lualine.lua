@@ -1,9 +1,4 @@
 local palette = require('gruvbox.palette')
-local gps = require('nvim-gps')
-
-gps.setup({
-  disable_icons = true,
-})
 
 require('lualine').setup({
   options = {
@@ -25,8 +20,9 @@ require('lualine').setup({
       'filename',
       'filetype',
       {
-        gps.get_location,
-        cond = gps.is_available,
+        'navic',
+        color_correction = nil,
+        navic_opts = nil,
       },
     },
     lualine_x = {

@@ -1,6 +1,7 @@
 local lspconfig = require('lspconfig')
 local lsp_status = require('lsp-status')
 local saga = require('lspsaga')
+local navic = require('nvim-navic')
 
 lsp_status.register_progress()
 lsp_status.config({
@@ -34,6 +35,37 @@ saga.setup({
       black = '#282828',
     },
   },
+})
+
+navic.setup({
+  icons = {
+    File = " ",
+    Module = " ",
+    Namespace = " ",
+    Package = " ",
+    Class = " ",
+    Method = "ƒ ",
+    Property = " ",
+    Field = " ",
+    Constructor = " ",
+    Enum = " ",
+    Interface = " ",
+    Function = "ƒ ",
+    Variable = " ",
+    Constant = " ",
+    String = " ",
+    Number = " ",
+    Boolean = " ",
+    Array = " ",
+    Object = " ",
+    Key = " ",
+    Null = " ",
+    EnumMember = " ",
+    Struct = " ",
+    Event = " ",
+    Operator = " ",
+    TypeParameter = " ",
+  }
 })
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] = function(...)
@@ -103,6 +135,7 @@ capabilities = vim.tbl_extend('keep', capabilities, lsp_status.capabilities)
 lspconfig.tsserver.setup({
   on_attach = function(client, bufnr)
     common_on_attach(client, bufnr)
+    navic.attach(client, bufnr)
     client.server_capabilities.documentFormattingProvider = false
   end,
   capabilities = capabilities,

@@ -59,7 +59,7 @@ require('lazy').setup({
   {'rescript-lang/vim-rescript', ft = {'res', 'resi'}},
   'tpope/vim-rails',
   {'elixir-editors/vim-elixir', ft = {'ex', 'exs'}},
-  {'SmiteshP/nvim-gps', dependencies = {'nvim-treesitter/nvim-treesitter'}},
+  {'SmiteshP/nvim-navic', dependencies = {'neovim/nvim-lspconfig'}},
   'mickael-menu/zk-nvim',
 
   -- Database
