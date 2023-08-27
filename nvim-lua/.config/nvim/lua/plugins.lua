@@ -86,6 +86,7 @@ require('lazy').setup({
   'folke/which-key.nvim',
   {'ellisonleao/glow.nvim', branch = 'main'},
   {'ThePrimeagen/harpoon', dependencies = {'nvim-lua/plenary.nvim'}},
+  {'chrisgrieser/nvim-spider', lazy = true},
   {
     'tamton-aquib/duck.nvim',
     config = function()

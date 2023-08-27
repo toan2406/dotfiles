@@ -36,6 +36,7 @@ require('plugins/diffview')
 require('plugins/harpoon')
 require('plugins/zk')
 require('plugins/dadbod')
+require('plugins/spider')
 -- require('plugins/tree')
 -- require('plugins/symbols')
 
