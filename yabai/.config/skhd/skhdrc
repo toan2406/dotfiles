@@ -1,2 +1,6 @@
 # float / unfloat window and fill screen
 cmd + shift + alt - k : yabai -m window --toggle float --grid 1:1:0:0:1:1
+
+# send window to monitor and follow focus
+cmd + shift + alt - n : yabai -m window --display next; yabai -m display --focus next
+cmd + shift + alt - p : yabai -m window --display prev; yabai -m display --focus prev

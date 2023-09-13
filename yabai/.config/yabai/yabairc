@@ -52,6 +52,8 @@ yabai -m rule --add app="^App Store$"              manage=off
 yabai -m rule --add app="^Preview$"                manage=off
 yabai -m rule --add app="^Finder$"                 manage=off
 yabai -m rule --add app="^Okta Verify$"            manage=off
+yabai -m rule --add app="^Calculator$"             manage=off
+yabai -m rule --add app="^Books$"                  manage=off
 yabai -m rule --add app="^Digital Colou?r Meter$"  sticky=on
 yabai -m rule --add app="^Alacritty$"              space=^1
 yabai -m rule --add app="^Firefox$"                space=^2
