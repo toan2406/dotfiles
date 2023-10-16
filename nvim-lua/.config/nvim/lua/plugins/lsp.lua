@@ -275,6 +275,12 @@ lspconfig.ltex.setup({
   flags = {debounce_text_changes = 150}
 })
 
+lspconfig.zls.setup({
+  on_attach = common_on_attach,
+  capabilities = capabilities,
+  flags = {debounce_text_changes = 150}
+})
+
 local prettier = {
   formatCommand = 'prettier --stdin-filepath ${INPUT}',
   formatStdin = true,
