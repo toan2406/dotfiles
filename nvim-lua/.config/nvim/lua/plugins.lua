@@ -77,7 +77,7 @@ require('lazy').setup({
   'windwp/nvim-autopairs',
   'tpope/vim-surround',
   'norcalli/nvim-colorizer.lua',
-  'lukas-reineke/indent-blankline.nvim',
+  {'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = {}},
   'b3nj5m1n/kommentary',
   'numToStr/Navigator.nvim',
   'simrat39/symbols-outline.nvim',

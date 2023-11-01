@@ -1,4 +1,4 @@
-local palette = require('gruvbox.palette')
+local palette = require('gruvbox').palette
 
 require('lualine').setup({
   options = {
