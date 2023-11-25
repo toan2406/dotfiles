@@ -47,18 +47,13 @@ yabai -m config                                 \
     mouse_drop_action            swap
 
 # rules
-yabai -m rule --add app="^System Settings$"        manage=off
-yabai -m rule --add app="^App Store$"              manage=off
-yabai -m rule --add app="^Preview$"                manage=off
-yabai -m rule --add app="^Finder$"                 manage=off
-yabai -m rule --add app="^Okta Verify$"            manage=off
-yabai -m rule --add app="^Calculator$"             manage=off
-yabai -m rule --add app="^Books$"                  manage=off
-yabai -m rule --add app="^Digital Colou?r Meter$"  sticky=on
-yabai -m rule --add app="^Alacritty$"              space=^1
-yabai -m rule --add app="^Firefox$"                space=^2
-yabai -m rule --add app="^Slack$"                  space=^3
-yabai -m rule --add app="^Telegram$"               space=^3
-yabai -m rule --add app="^Obsidian$"               space=^4
+yabai -m rule --add app="[\w\W]*"                  manage=off
+yabai -m rule --add app="^Digital Colou?r Meter$"  manage=on sticky=on
+yabai -m rule --add app="^Alacritty$"              manage=on space=^1
+yabai -m rule --add app="^Firefox$"                manage=on space=^2
+yabai -m rule --add app="^Slack$"                  manage=on space=^3
+yabai -m rule --add app="^Simulator$"              manage=on space=^4
+yabai -m rule --add app="^Flipper$"                manage=on space=^4
+yabai -m rule --add app="^Obsidian$"               manage=on space=^5
 
 echo "yabai configuration loaded.."
