@@ -15,7 +15,7 @@ require('copilot').setup({
   panel = {
     enabled = false,
   },
-  copilot_node_command = vim.fn.expand('$HOME') .. '/.nvm/versions/node/v16.18.0/bin/node',
+  copilot_node_command = vim.fn.expand('$HOME') .. '/.nvm/versions/node/v20.10.0/bin/node',
 })
 
 require('copilot_cmp').setup()
