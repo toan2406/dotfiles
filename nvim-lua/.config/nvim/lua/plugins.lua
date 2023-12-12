@@ -102,6 +102,7 @@ require('lazy').setup({
   -- Copilot
   {'zbirenbaum/copilot.lua', cmd = 'Copilot', event = 'InsertEnter'},
   {'zbirenbaum/copilot-cmp', dependencies = {'zbirenbaum/copilot.lua'}},
+  {'David-Kunz/gen.nvim'},
 
   -- Local plugins
   {dir = '~/.dotfiles/nvim-plugins/list-toggle.nvim', config = function() require('list-toggle') end},
