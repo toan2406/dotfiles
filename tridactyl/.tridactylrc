@@ -2,9 +2,11 @@ colors dark
 
 set searchurls.translate https://translate.google.com/?sl=en&tl=vi&op=translate&text=
 set searchurls.mdn https://developer.mozilla.org/en-US/search?q=
+set searchurls.dictionary https://www.dictionary.com/browse/
 
 bind ,t fillcmdline tabopen translate
 bind ,wd fillcmdline tabopen mdn
+bind ,ld fillcmdline tabopen dictionary
 
 unbind --mode=normal <C-a>
 bind <C-a>p tabprev

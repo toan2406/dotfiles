@@ -51,14 +51,14 @@ yabai -m config                                 \
 
 # rules
 yabai -m rule --add app="[\w\W]*"                  manage=off
-yabai -m rule --add app="^Digital Colou?r Meter$"  manage=on sticky=on
-yabai -m rule --add app="^Alacritty$"              manage=on space=^1
-yabai -m rule --add app="^Firefox$"                manage=on space=^2
-yabai -m rule --add app="^Slack$"                  manage=on space=^3
-yabai -m rule --add app="^Simulator$"              manage=on space=^4
-yabai -m rule --add app="^Flipper$"                manage=on space=^4
-yabai -m rule --add app="^Obsidian$"               manage=on space=^5
-yabai -m rule --add app="^ChatGPT$"                manage=on space=^5
+yabai -m rule --add app="^Digital Colou?r Meter$"  role=AXWindow subrole=AXStandardWindow manage=on sticky=on
+yabai -m rule --add app="^Alacritty$"              role=AXWindow subrole=AXStandardWindow manage=on space=^1
+yabai -m rule --add app="^Firefox$"                role=AXWindow subrole=AXStandardWindow manage=on space=^2
+yabai -m rule --add app="^Slack$"                  role=AXWindow subrole=AXStandardWindow manage=on space=^3
+yabai -m rule --add app="^Simulator$"              role=AXWindow subrole=AXStandardWindow manage=on space=^4
+yabai -m rule --add app="^Flipper$"                role=AXWindow subrole=AXStandardWindow manage=on space=^4
+yabai -m rule --add app="^Obsidian$"               role=AXWindow subrole=AXStandardWindow manage=on space=^5
+yabai -m rule --add app="^ChatGPT$"                role=AXWindow subrole=AXStandardWindow manage=on space=^5
 
 # signals
 yabai -m signal --add event=application_front_switched action="yabai -m window --layer normal"
