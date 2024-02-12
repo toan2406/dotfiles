@@ -312,12 +312,17 @@ local pgformatter = {
   formatStdin = true,
 }
 
+local yapf = {
+  formatCommand = 'yapf',
+  formatStdin = true,
+}
+
 -- brew install efm-langserver
 -- npm install -g eslint_d
 lspconfig.efm.setup({
   root_dir = lspconfig.util.root_pattern('.git', 'package.json'),
   init_options = {documentFormatting = true, codeAction = false},
-  filetypes = {'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'ruby', 'json', 'markdown', 'sql'},
+  filetypes = {'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'ruby', 'json', 'markdown', 'sql', 'python'},
   settings = {
     languages = {
       javascript = {prettier, eslint},
@@ -328,6 +333,7 @@ lspconfig.efm.setup({
       json = {prettier},
       markdown = {pandoc},
       sql = {pgformatter},
+      python = {yapf},
     }
   },
 
