@@ -1,3 +1,6 @@
+# Uncomment this and run zprof to get profiling information
+# zmodload zsh/zprof
+
 # Config zsh
 export ZSH=/Users/toannguyen/.oh-my-zsh
 
@@ -62,7 +65,8 @@ alias vim='nvim'
 alias vi='nvim'
 alias bim='nvim'
 alias ls='exa'
-alias ctags="$(brew --prefix)/bin/ctags"
+# alias ctags="$(brew --prefix)/bin/ctags"
+alias ctags="/opt/homebrew/bin/ctags"
 export BAT_THEME="gruvbox-dark"
 
 
@@ -153,7 +157,7 @@ navi() {
 # Misc
 export PATH=$HOME/.fastlane/bin:$PATH
 
-eval "$(hub alias -s)"
+# eval "$(hub alias -s)"
 
 alias venv="python3 -m venv"
 alias mp="tree $HOME/Workspace -d -L 2"
@@ -195,8 +199,17 @@ alias arm="arch -arm64"
 alias intel="arch -x86_64"
 
 
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
+
+
 # Config Anaconda
 export CONDA_AUTO_ACTIVATE_BASE=false
+
+# Lazyload conda
+conda() {
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -212,4 +225,7 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+  conda "$@"
+}
 
