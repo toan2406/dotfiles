@@ -2,6 +2,7 @@ bind status P !git push origin HEAD
 bind status D !@?rm %(file)
 bind status S !?git stash save --keep-index %(prompt)
 bind status X status-revert
+bind status N !git commit --no-verify
 bind status - status-update
 bind stage X status-revert
 bind stage - status-update

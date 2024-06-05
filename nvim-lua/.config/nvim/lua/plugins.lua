@@ -48,9 +48,9 @@ require('lazy').setup({
   {'sindrets/diffview.nvim', dependencies = {'nvim-lua/plenary.nvim'}},
 
   -- Language support
-  {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
-  'nvim-treesitter/nvim-treesitter-refactor',
-  'nvim-treesitter/nvim-treesitter-textobjects',
+  {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate', event = 'BufRead'},
+  {'nvim-treesitter/nvim-treesitter-refactor', event = 'BufRead'},
+  {'nvim-treesitter/nvim-treesitter-textobjects', event = 'BufRead'},
   'neovim/nvim-lspconfig',
   'nvim-lua/lsp-status.nvim',
   'nvim-lua/lsp_extensions.nvim',
@@ -77,7 +77,29 @@ require('lazy').setup({
   'windwp/nvim-autopairs',
   'tpope/vim-surround',
   'norcalli/nvim-colorizer.lua',
-  {'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = {}},
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
+    opts = {},
+    event = 'BufRead',
+    config = function()
+      require('ibl').setup({
+        enabled = false,
+        debounce = 200,
+        indent = {
+          highlight = {'CursorColumn', 'Whitespace'},
+          char = '',
+        },
+        whitespace = {
+          highlight = {'CursorColumn', 'Whitespace'},
+          remove_blankline_trail = false,
+        },
+        scope = {
+          enabled = false,
+        },
+      })
+    end
+  },
   'b3nj5m1n/kommentary',
   'numToStr/Navigator.nvim',
   'simrat39/symbols-outline.nvim',
@@ -108,5 +130,9 @@ require('lazy').setup({
   {dir = '~/.dotfiles/nvim-plugins/list-toggle.nvim', config = function() require('list-toggle') end},
   {dir = '~/.dotfiles/nvim-plugins/debug-helper.nvim'},
   {dir = '~/.dotfiles/nvim-plugins/obsidian.nvim'},
+}, {
+  defaults = {
+    lazy = false,
+  },
 })
 
