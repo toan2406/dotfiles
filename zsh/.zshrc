@@ -64,6 +64,7 @@ alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias vim='nvim'
 alias vi='nvim'
 alias bim='nvim'
+alias lvim='NVIM_APPNAME=lazyvim nvim'
 alias ls='exa'
 # alias ctags="$(brew --prefix)/bin/ctags"
 alias ctags="/opt/homebrew/bin/ctags"
