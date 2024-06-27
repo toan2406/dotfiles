@@ -25,7 +25,7 @@ herocli --server <server> console approve --id <pending_request_id> --descriptio
 herocli --server <server> console reject --id <pending_request_id> --description "<default_rejection_description>"
 
 # Access a production app
-herocli --server <server> app run-tty <approved_request_id>
+herocli --server <server> app run-tty <approved_request_args>
 
 $ server: echo 'hero2.ehrocks.com:443'
 $ namespace: echo 'application'
@@ -37,11 +37,24 @@ $ default_request_description: echo 'No ticket' --- --fzf-overrides '--no-select
 $ default_approval_description: echo 'Approve to fulfill the task' --- --fzf-overrides '--no-select-1'
 $ default_rejection_description: echo 'Reject because it is no longer needed' --- --fzf-overrides '--no-select-1'
 $ request_list: echo 'herocli --server <server> console list-request'
-$ pending_request_id: <request_list> | awk -F '<_column_separator>' '/pending/ {print $2 "\t" $3}' --- --fzf-overrides '--no-select-1' --map "awk -F '\t' '{print $1}'"
 
-$ approved_request_id: <request_list> | \
-                       awk -F '<_column_separator>' 'BEGIN {OFS="\t"} /approved/ {print $2,$3,$8,$4 "hr",toupper($7)}' | \
-                       sort -t $'\t' -k3,3r --- --fzf-overrides '--no-select-1' --map "awk -F '\t' '{print $2 \" --id \" $1}'"
+$ pending_request_id: <request_list> | awk -F '<_column_separator>' 'BEGIN {OFS = ","} /pending/ {print $2, $3, "PENDING"}' | \
+                      column -s ',' -t --- --fzf-overrides '--no-select-1' --map "awk -F '  +' '{print $1}'"
+
+$ approved_request_args: <request_list> | \
+                         awk -F '<_column_separator>' 'BEGIN {OFS = ","} /approved/ { \
+                           cmd = "gdate -d \"" $8 "\" +%s"; \
+                           cmd | getline approved_at; \
+                           close(cmd); \
+                           expired_at = approved_at + ($7 * 3600); \
+                           cmd = "date +%s"; \
+                           cmd | getline current; \
+                           close(cmd); \
+                           status = (expired_at < current) ? "EXPIRED" : "VALID"; \
+                           print $2, $3, status, $8, $7 "hr" \
+                         }' | \
+                         sort -t ',' -k3,3r | \
+                         column -s ',' -t --- --fzf-overrides '--no-select-1' --map "awk -F '  +' '{print $2 \" --id \" $1}'"
 
 $ _column_separator: echo ' *\\| *'
 
