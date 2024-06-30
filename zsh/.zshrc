@@ -150,7 +150,9 @@ function nrt() {
 # Cheatsheet tool
 export NAVI_PATH="$HOME/.dotfiles/cheats"
 navi() {
-  eval "$(command navi --print)"
+  local result_cmd="$(command navi --print)"
+  print -s $result_cmd
+  eval $result_cmd
 }
 
 
