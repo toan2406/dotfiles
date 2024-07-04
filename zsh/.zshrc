@@ -150,8 +150,9 @@ function nrt() {
 # Cheatsheet tool
 export NAVI_PATH="$HOME/.dotfiles/cheats"
 navi() {
-  local result_cmd="$(command navi --print)"
-  print -s $result_cmd
+  [[ $# -eq 0 ]] && local query=' ' || local query="$*"
+  local result_cmd="$(command navi --print --query $query)"
+  print $result_cmd && print -s $result_cmd
   eval $result_cmd
 }
 
