@@ -32,7 +32,8 @@ require('lazy').setup({
   'hrsh7th/cmp-buffer',
   'hrsh7th/cmp-path',
   'hrsh7th/cmp-cmdline',
-  'hrsh7th/nvim-cmp',
+  -- Issue: https://github.com/hrsh7th/nvim-cmp/issues/1606
+  {'hrsh7th/nvim-cmp', commit = '950d0e3a93ba61c13b031c086d11eacf4bd48d24'},
   'hrsh7th/cmp-vsnip',
   'hrsh7th/vim-vsnip',
 
@@ -105,7 +106,7 @@ require('lazy').setup({
   'simrat39/symbols-outline.nvim',
   -- 'tversteeg/registers.nvim',
   'chentoast/marks.nvim',
-  'folke/which-key.nvim',
+  {'folke/which-key.nvim', event = 'VeryLazy'},
   {'ellisonleao/glow.nvim', branch = 'main'},
   {'ThePrimeagen/harpoon', dependencies = {'nvim-lua/plenary.nvim'}},
   {'chrisgrieser/nvim-spider', lazy = true},

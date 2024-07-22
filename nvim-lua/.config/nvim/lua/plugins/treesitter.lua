@@ -1,5 +1,3 @@
-require('orgmode').setup_ts_grammar()
-
 require('nvim-treesitter.configs').setup({
   ensure_installed = {'javascript', 'ruby', 'lua', 'bash', 'go', 'json', 'typescript', 'norg', 'org', 'cpp', 'rust', 'c', 'markdown', 'markdown_inline', 'zig', 'python'},
   highlight = {
