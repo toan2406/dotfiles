@@ -16,7 +16,7 @@ herocli --server <server> app list-hpa <app_name>
 herocli --server <server> console list-request
 
 # Create an access request
-herocli --server <server> console request <app_name> --duration <duration> --description "<request_description>"
+herocli --server <server> console request <app_name> <writable> --duration <duration> --description "<request_description>"
 
 # Approve an access request
 herocli --server <server> console approve --id <pending_request_id> --description "<approval_description>"
@@ -32,6 +32,7 @@ $ namespace: echo 'application'
 $ app_list: echo 'herocli --server <server> app list --namespace <namespace>'
 $ app_name: <app_list> | awk -F '<_column_separator>' '/<namespace>/ {print $3}'
 
+$ writable: echo -e 'false\ntrue' --- --map "grep -q t && echo --rw || echo ''"
 $ duration: echo -e '3hr\n6hr\n12hr\n24hr' --- --map "sed -E 's/hr$//'"
 $ request_description: echo 'No ticket' --- --fzf-overrides '--no-select-1'
 $ approval_description: echo 'Approve to fulfill the task' --- --fzf-overrides '--no-select-1'
@@ -43,15 +44,15 @@ $ pending_request_id: <request_list> | awk -F '<_column_separator>' 'BEGIN {OFS 
 
 $ approved_request_args: <request_list> | \
                          awk -F '<_column_separator>' 'BEGIN {OFS = ","} /approved/ { \
-                           cmd = "gdate -d \"" $8 "\" +%s"; \
+                           cmd = "gdate -d \"" $9 "\" +%s"; \
                            cmd | getline approved_at; \
                            close(cmd); \
-                           expired_at = approved_at + ($7 * 3600); \
+                           expired_at = approved_at + ($8 * 3600); \
                            cmd = "date +%s"; \
                            cmd | getline current; \
                            close(cmd); \
                            status = (expired_at < current) ? "EXPIRED" : "VALID"; \
-                           print $2, $3, status, $8, $7 "hr" \
+                           print $2, $3, status, $9, $8 "hr" \
                          }' | \
                          sort -t ',' -k3,3r | \
                          column -s ',' -t --- --fzf-overrides '--no-select-1' --map "awk -F '  +' '{print $2 \" --id \" $1}'"

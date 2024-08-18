@@ -84,6 +84,15 @@ function ciob() {
 }
 
 
+function gaob() {
+  if [[ -z "$1" ]]; then
+    open "https://github.com/Thinkei/$(basename $(pwd))/actions?query=$(urlencode branch:$(git rev-parse --abbrev-ref HEAD))"
+  else
+    open "https://github.com/Thinkei/$(basename $(pwd))/actions?query=$(urlencode branch:$1)"
+  fi
+}
+
+
 # Run mobile emulator
 function emu() {
   if [[ "$1" == "ios" ]]; then
