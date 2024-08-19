@@ -43,3 +43,6 @@ api.nvim_set_keymap('n', '<leader>gf', '<C-w>vgf', {noremap = true})
 vim.cmd [[autocmd User Rails nmap <buffer> <leader>gf :vert sfind <Plug><cfile><CR>]]
 vim.cmd [[autocmd User Rails nmap <buffer><silent> gf :find <Plug><cfile><CR>]]
 
+-- SeniorMars: Search and replace
+api.nvim_set_keymap('n', '<leader>rr', ':%s/<C-r><C-w>//g<left><left>', {noremap = true})
+
