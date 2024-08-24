@@ -20,6 +20,7 @@ require('lazy').setup({
   require('plugins.treesitter'),
   require('plugins.vifm'),
   require('plugins.fzf'),
+  require('plugins.harpoon'),
 
   -- Color schemes
   'jacoborus/tender.vim',
@@ -93,7 +94,6 @@ require('lazy').setup({
   'chentoast/marks.nvim',
   { 'folke/which-key.nvim', event = 'VeryLazy' },
   { 'ellisonleao/glow.nvim', branch = 'main' },
-  { 'ThePrimeagen/harpoon', dependencies = { 'nvim-lua/plenary.nvim' } },
   { 'chrisgrieser/nvim-spider', lazy = true },
   {
     'tamton-aquib/duck.nvim',
