@@ -16,6 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   require('plugins.diffview'),
   require('plugins.cmp'),
+  require('plugins.lsp'),
 
   -- Color schemes
   'jacoborus/tender.vim',
@@ -45,15 +46,10 @@ require('lazy').setup({
   { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate', event = 'BufRead' },
   { 'nvim-treesitter/nvim-treesitter-refactor', event = 'BufRead' },
   { 'nvim-treesitter/nvim-treesitter-textobjects', event = 'BufRead' },
-  'neovim/nvim-lspconfig',
-  'nvim-lua/lsp-status.nvim',
-  'nvim-lua/lsp_extensions.nvim',
-  { 'glepnir/lspsaga.nvim', branch = 'main' },
   { 'reasonml-editor/vim-reason-plus', ft = { 're', 'rei' } },
   { 'rescript-lang/vim-rescript', ft = { 'res', 'resi' } },
   'tpope/vim-rails',
   { 'elixir-editors/vim-elixir', ft = { 'ex', 'exs' } },
-  { 'SmiteshP/nvim-navic', dependencies = { 'neovim/nvim-lspconfig' } },
   'mickael-menu/zk-nvim',
 
   -- Database
