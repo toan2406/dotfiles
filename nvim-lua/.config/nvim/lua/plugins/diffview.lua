@@ -24,5 +24,5 @@ return {
     })
 
     vim.keymap.set('n', '<leader>gh', ':DiffviewFileHistory %<CR>')
-  end
+  end,
 }

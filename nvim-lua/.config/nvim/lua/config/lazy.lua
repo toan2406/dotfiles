@@ -15,6 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   require('plugins.diffview'),
+  require('plugins.cmp'),
 
   -- Color schemes
   'jacoborus/tender.vim',
@@ -29,15 +30,6 @@ require('lazy').setup({
   'kyazdani42/nvim-tree.lua',
   -- 'tpope/vim-projectionist',
 
-  -- Completion
-  'hrsh7th/cmp-nvim-lsp',
-  'hrsh7th/cmp-buffer',
-  'hrsh7th/cmp-path',
-  'hrsh7th/cmp-cmdline',
-  -- Issue: https://github.com/hrsh7th/nvim-cmp/issues/1606
-  { 'hrsh7th/nvim-cmp', commit = '950d0e3a93ba61c13b031c086d11eacf4bd48d24' },
-  'hrsh7th/cmp-vsnip',
-  'hrsh7th/vim-vsnip',
 
   -- Statusline
   { 'nvim-lualine/lualine.nvim', dependencies = { 'kyazdani42/nvim-web-devicons', lazy = true } },
@@ -125,7 +117,6 @@ require('lazy').setup({
 
   -- Copilot
   { 'zbirenbaum/copilot.lua', cmd = 'Copilot', event = 'InsertEnter' },
-  { 'zbirenbaum/copilot-cmp', dependencies = { 'zbirenbaum/copilot.lua' } },
   { 'David-Kunz/gen.nvim' },
 
   -- Local plugins
