@@ -8,8 +8,6 @@ require('general/mappings')
 require('config.lazy')
 
 require('colorschemes/gruvbox')
-require('config/vifm')
-require('config/fzf')
 require('config/sneak')
 require('config/leap')
 require('config/kommentary')

@@ -18,17 +18,16 @@ require('lazy').setup({
   require('plugins.cmp'),
   require('plugins.lsp'),
   require('plugins.treesitter'),
+  require('plugins.vifm'),
+  require('plugins.fzf'),
 
   -- Color schemes
   'jacoborus/tender.vim',
   'ellisonleao/gruvbox.nvim',
 
   -- Navigation
-  'toan2406/vifm.vim',
   'justinmk/vim-sneak',
   'ggandor/leap.nvim',
-  { 'junegunn/fzf', build = function() vim.fn['fzf#install']() end },
-  'junegunn/fzf.vim',
   'kyazdani42/nvim-tree.lua',
   -- 'tpope/vim-projectionist',
 
@@ -40,7 +39,6 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   'junegunn/gv.vim',
-  'stsewd/fzf-checkout.vim',
   { 'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' } },
 
   -- Language support

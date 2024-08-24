@@ -13,5 +13,3 @@ api.nvim_set_keymap('v', '<leader>gv', ':GV<CR>', {noremap = true, silent = true
 api.nvim_set_keymap('n', '<leader>go', 'V:GBrowse<CR>', {noremap = true, silent = true})
 api.nvim_set_keymap('v', '<leader>go', ':GBrowse<CR>', {noremap = true, silent = true})
 
-api.nvim_set_keymap('n', '<leader>gc', ':GBranches<CR>', {noremap = true, silent = true})
-
