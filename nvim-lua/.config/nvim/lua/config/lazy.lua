@@ -17,6 +17,7 @@ require('lazy').setup({
   require('plugins.diffview'),
   require('plugins.cmp'),
   require('plugins.lsp'),
+  require('plugins.treesitter'),
 
   -- Color schemes
   'jacoborus/tender.vim',
@@ -43,9 +44,6 @@ require('lazy').setup({
   { 'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' } },
 
   -- Language support
-  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate', event = 'BufRead' },
-  { 'nvim-treesitter/nvim-treesitter-refactor', event = 'BufRead' },
-  { 'nvim-treesitter/nvim-treesitter-textobjects', event = 'BufRead' },
   { 'reasonml-editor/vim-reason-plus', ft = { 're', 'rei' } },
   { 'rescript-lang/vim-rescript', ft = { 'res', 'resi' } },
   'tpope/vim-rails',
