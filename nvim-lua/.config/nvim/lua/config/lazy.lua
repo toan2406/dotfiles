@@ -14,6 +14,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
+  require('plugins.colorscheme'),
   require('plugins.diffview'),
   require('plugins.cmp'),
   require('plugins.lsp'),
@@ -23,10 +24,6 @@ require('lazy').setup({
   require('plugins.harpoon'),
   require('plugins.ui'),
   require('plugins.editor'),
-
-  -- Color schemes
-  'jacoborus/tender.vim',
-  'ellisonleao/gruvbox.nvim',
 
   -- Navigation
   'justinmk/vim-sneak',

@@ -7,7 +7,6 @@ require('general/mappings')
 
 require('config.lazy')
 
-require('colorschemes/gruvbox')
 require('config/sneak')
 require('config/leap')
 require('config/kommentary')
@@ -32,4 +31,3 @@ require('config/spider')
 -- require('config/symbols')
 
 print('Loaded in ' .. fn.printf('%.3f', fn.reltimefloat(fn.reltime(start_time))) .. ' seconds.')
-
