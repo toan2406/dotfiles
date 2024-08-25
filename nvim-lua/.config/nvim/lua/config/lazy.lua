@@ -21,6 +21,8 @@ require('lazy').setup({
   require('plugins.vifm'),
   require('plugins.fzf'),
   require('plugins.harpoon'),
+  require('plugins.ui'),
+  require('plugins.editor'),
 
   -- Color schemes
   'jacoborus/tender.vim',
@@ -31,10 +33,6 @@ require('lazy').setup({
   'ggandor/leap.nvim',
   'kyazdani42/nvim-tree.lua',
   -- 'tpope/vim-projectionist',
-
-
-  -- Statusline
-  { 'nvim-lualine/lualine.nvim', dependencies = { 'kyazdani42/nvim-web-devicons', lazy = true } },
 
   -- Git support
   'tpope/vim-fugitive',
@@ -64,35 +62,11 @@ require('lazy').setup({
   'windwp/nvim-autopairs',
   'tpope/vim-surround',
   'norcalli/nvim-colorizer.lua',
-  {
-    'lukas-reineke/indent-blankline.nvim',
-    main = 'ibl',
-    opts = {},
-    event = 'BufRead',
-    config = function()
-      require('ibl').setup({
-        enabled = false,
-        debounce = 200,
-        indent = {
-          highlight = { 'CursorColumn', 'Whitespace' },
-          char = '',
-        },
-        whitespace = {
-          highlight = { 'CursorColumn', 'Whitespace' },
-          remove_blankline_trail = false,
-        },
-        scope = {
-          enabled = false,
-        },
-      })
-    end
-  },
   'b3nj5m1n/kommentary',
   'numToStr/Navigator.nvim',
   'simrat39/symbols-outline.nvim',
   -- 'tversteeg/registers.nvim',
   'chentoast/marks.nvim',
-  { 'folke/which-key.nvim', event = 'VeryLazy' },
   { 'ellisonleao/glow.nvim', branch = 'main' },
   { 'chrisgrieser/nvim-spider', lazy = true },
   {

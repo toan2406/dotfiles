@@ -243,7 +243,10 @@ return {
         }
       },
 
-      on_attach = common_on_attach,
+      on_attach = function(client, bufnr)
+        common_on_attach(client, bufnr)
+        navic.attach(client, bufnr)
+      end,
       capabilities = capabilities,
       flags = { debounce_text_changes = 150 }
     })
