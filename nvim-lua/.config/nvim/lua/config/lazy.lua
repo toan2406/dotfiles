@@ -25,12 +25,6 @@ require('lazy').setup({
   require('plugins.ui'),
   require('plugins.editor'),
 
-  -- Navigation
-  'justinmk/vim-sneak',
-  'ggandor/leap.nvim',
-  'kyazdani42/nvim-tree.lua',
-  -- 'tpope/vim-projectionist',
-
   -- Git support
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',

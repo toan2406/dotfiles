@@ -82,5 +82,47 @@ return {
         { '<leader>d', group = 'debug' },
       })
     end,
-  }
+  },
+
+  {
+    'justinmk/vim-sneak',
+    event = 'VeryLazy',
+    config = function()
+      local g = vim.g
+      local api = vim.api
+
+      g['sneak#label'] = 1
+      g['sneak#use_ic_scs'] = 1
+
+      api.nvim_set_keymap('', 'f', '<Plug>Sneak_f', { noremap = false })
+      api.nvim_set_keymap('', 'F', '<Plug>Sneak_F', { noremap = false })
+      api.nvim_set_keymap('', 't', '<Plug>Sneak_t', { noremap = false })
+      api.nvim_set_keymap('', 'T', '<Plug>Sneak_T', { noremap = false })
+
+      vim.cmd [[autocmd ColorScheme * highlight Sneak      guifg=#282828 guibg=#fabd2f]]
+      vim.cmd [[autocmd ColorScheme * highlight SneakLabel guifg=#282828 guibg=#fabd2f]]
+    end,
+  },
+
+  {
+    'ggandor/leap.nvim',
+    keys = {
+      {
+        's',
+        function()
+          require('leap').leap({
+            target_windows = vim.tbl_filter(
+              function(win) return vim.api.nvim_win_get_config(win).focusable end,
+              vim.api.nvim_tabpage_list_wins(0)
+            )
+          })
+        end,
+      },
+    },
+    config = function()
+      require('leap').add_default_mappings()
+
+      vim.api.nvim_set_hl(0, 'LeapBackdrop', { link = 'Comment' })
+    end,
+  },
 }

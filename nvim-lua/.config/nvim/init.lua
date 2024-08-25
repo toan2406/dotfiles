@@ -1,4 +1,3 @@
-local g = vim.g
 local fn = vim.fn
 local start_time = fn.reltime()
 
@@ -7,8 +6,6 @@ require('general/mappings')
 
 require('config.lazy')
 
-require('config/sneak')
-require('config/leap')
 require('config/kommentary')
 require('config/copilot')
 require('config/llm')
@@ -27,7 +24,6 @@ require('config/spellcheck')
 require('config/zk')
 require('config/dadbod')
 require('config/spider')
--- require('config/tree')
 -- require('config/symbols')
 
 print('Loaded in ' .. fn.printf('%.3f', fn.reltimefloat(fn.reltime(start_time))) .. ' seconds.')
