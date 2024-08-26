@@ -47,7 +47,6 @@
   "orgmode": { "branch": "master", "commit": "c0584ec5fbe472ad7e7556bc97746b09aa7b8221" },
   "pathlib.nvim": { "branch": "main", "commit": "7a5a6facd29e306bc73a37719fa67c0d2226f852" },
   "plenary.nvim": { "branch": "master", "commit": "a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683" },
-  "symbols-outline.nvim": { "branch": "master", "commit": "564ee65dfc9024bdde73a6621820866987cbb256" },
   "tender.vim": { "branch": "master", "commit": "f361e9d907d2e5df703ee995f9032021ef674f2f" },
   "vifm.vim": { "branch": "master", "commit": "d3168abe2bf661f1dfae38d9a92455fd322c1bb7" },
   "vim-dadbod": { "branch": "master", "commit": "7888cb7164d69783d3dce4e0283decd26b82538b" },

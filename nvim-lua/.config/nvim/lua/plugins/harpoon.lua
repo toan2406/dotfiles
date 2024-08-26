@@ -74,19 +74,18 @@ return {
     },
   },
   keys = function()
-    local harpoon = require('harpoon')
-
     return {
       {
         '<leader>hm',
         function()
-          harpoon:list('marks'):add()
+          require('harpoon'):list('marks'):add()
         end,
         desc = 'Harpoon Mark',
       },
       {
         '<leader>hh',
         function()
+          local harpoon = require('harpoon')
           harpoon.ui:toggle_quick_menu(harpoon:list('marks'))
         end,
         desc = 'Harpoon Quick Menu',
@@ -94,7 +93,7 @@ return {
       {
         '<leader>hc',
         function()
-          harpoon:list('marks'):clear()
+          require('harpoon'):list('marks'):clear()
         end,
         desc = 'Harpoon Clear',
       },
