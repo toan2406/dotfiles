@@ -1,3 +1,15 @@
+local MARK_LEN = 10
+
+local function pad_right(str, len, char)
+  char = char or ' '
+
+  if str:len() >= len then
+    return str
+  end
+
+  return str .. string.rep(char, len - str:len())
+end
+
 return {
   'ThePrimeagen/harpoon',
   branch = 'harpoon2',
@@ -15,6 +27,10 @@ return {
           return nil
         end
 
+        if mark:len() > MARK_LEN then
+          mark = mark:sub(1, MARK_LEN)
+        end
+
         local current_buf = vim.api.nvim_get_current_buf()
         local full_path = vim.api.nvim_buf_get_name(current_buf)
         local relative_path = Path:new(full_path):make_relative(config.get_root_dir())
@@ -27,20 +43,23 @@ return {
 
         local pos = vim.api.nvim_win_get_cursor(0)
 
-        local name = vim.fn.join({
-          mark,
-          '\t\t',
+        local value = vim.fn.join({
+          pad_right(mark, MARK_LEN),
+          ' ',
           relative_path,
           ':',
           pos[1],
+          ':',
+          pos[2] + 1,
+          ':',
           current_line,
         }, '')
 
         return {
-          value = name,
+          value = value,
           context = {
             row = pos[1],
-            col = pos[2],
+            col = pos[2] + 1,
             path = relative_path,
           },
         }
@@ -109,7 +128,10 @@ return {
         harpoon_entries[item.value] = item
       end
 
+      local header = vim.fn.join({ pad_right('mark', MARK_LEN), 'file/text' })
+
       fzf_lua.fzf_exec(fzf_contents, {
+        header = header,
         prompt = 'Select a mark> ',
         actions = {
           ['default'] = function(selected, fzf_opts)
