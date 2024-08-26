@@ -84,11 +84,6 @@ return {
       },
       {
         '<leader>hh',
-        function()
-          local harpoon = require('harpoon')
-          harpoon.ui:toggle_quick_menu(harpoon:list('marks'))
-        end,
-        desc = 'Harpoon Quick Menu',
       },
       {
         '<leader>hc',
@@ -98,5 +93,39 @@ return {
         desc = 'Harpoon Clear',
       },
     }
+  end,
+  config = function(_, opts)
+    local harpoon = require('harpoon')
+    local fzf_lua = require('fzf-lua')
+
+    harpoon.setup(opts)
+
+    local function toggle_fzf()
+      local fzf_contents = {}
+      local harpoon_entries = {}
+
+      for _, item in ipairs(harpoon:list('marks').items) do
+        table.insert(fzf_contents, item.value)
+        harpoon_entries[item.value] = item
+      end
+
+      fzf_lua.fzf_exec(fzf_contents, {
+        prompt = 'Select a mark> ',
+        actions = {
+          ['default'] = function(selected, fzf_opts)
+            local harpoon_item = harpoon_entries[selected[1]]
+            local file = vim.fn.join({
+              harpoon_item.context.path,
+              harpoon_item.context.row,
+              harpoon_item.context.col
+            }, ':')
+
+            fzf_lua.actions.file_edit({ file }, fzf_opts)
+          end
+        },
+      })
+    end
+
+    vim.keymap.set('n', '<leader>hh', toggle_fzf, { desc = 'Harpoon Quick Menu' })
   end,
 }
