@@ -73,4 +73,34 @@ return {
       vim.api.nvim_set_keymap('n', '<leader>gc', ':GBranches<CR>', { noremap = true, silent = true })
     end,
   },
+
+  {
+    'ibhagwan/fzf-lua',
+    lazy = true,
+    config = function()
+      require('fzf-lua').setup({
+        defaults = {
+          file_icons = false,
+          git_icons = false,
+          color_icons = false,
+        },
+        winopts = {
+          backdrop = 100,
+          row = 1,
+          col = 0,
+          width = 1,
+          height = 0.5,
+          border = 'single',
+          preview = {
+            border = 'noborder',
+            horizontal = 'right:50%',
+          },
+        },
+        fzf_opts = {
+          ['--layout'] = 'default',
+          ['--ansi'] = false,
+        },
+      })
+    end,
+  },
 }
