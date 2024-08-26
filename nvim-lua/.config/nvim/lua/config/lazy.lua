@@ -50,14 +50,8 @@ require('lazy').setup({
   'numtostr/FTerm.nvim',
 
   -- Misc
-  'windwp/nvim-autopairs',
-  'tpope/vim-surround',
-  'norcalli/nvim-colorizer.lua',
-  'b3nj5m1n/kommentary',
   'numToStr/Navigator.nvim',
-  'simrat39/symbols-outline.nvim',
   -- 'tversteeg/registers.nvim',
-  'chentoast/marks.nvim',
   { 'ellisonleao/glow.nvim', branch = 'main' },
   { 'chrisgrieser/nvim-spider', lazy = true },
   {

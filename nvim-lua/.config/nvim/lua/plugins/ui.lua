@@ -78,4 +78,15 @@ return {
       },
     },
   },
+
+  {
+    'norcalli/nvim-colorizer.lua',
+    event = 'VeryLazy',
+    opts = {
+      'css',
+      'javascript',
+      'html',
+      'reason',
+    },
+  },
 }

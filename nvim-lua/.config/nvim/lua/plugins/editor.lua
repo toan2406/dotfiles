@@ -125,4 +125,54 @@ return {
       vim.api.nvim_set_hl(0, 'LeapBackdrop', { link = 'Comment' })
     end,
   },
+
+  {
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    config = function()
+      local npairs = require('nvim-autopairs')
+
+      npairs.setup()
+
+      npairs.get_rule("'")[1]:with_pair(function()
+        if vim.bo.filetype == 'reason' then
+          return false
+        end
+      end)
+
+      npairs.add_rules(require('nvim-autopairs.rules.endwise-ruby'))
+
+      -- Insert `(` after select function or method item
+      -- local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+      -- local cmp = require('cmp')
+      -- cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({map_char = {tex = ''}}))
+    end,
+  },
+
+  {
+    'tpope/vim-surround',
+    event = 'VeryLazy',
+  },
+
+  {
+    'b3nj5m1n/kommentary',
+    event = 'VeryLazy',
+    config = function()
+      vim.g.kommentary_create_default_mappings = false
+
+      vim.api.nvim_set_keymap('n', '<leader>cc', '<Plug>kommentary_line_default', {})
+      vim.api.nvim_set_keymap('n', '<leader>c', '<Plug>kommentary_motion_default', {})
+      vim.api.nvim_set_keymap('v', '<leader>c', '<Plug>kommentary_visual_default<Esc>', {})
+
+      require('kommentary.config').configure_language('default', {
+        prefer_single_line_comments = true,
+      })
+    end,
+  },
+
+  {
+    'chentoast/marks.nvim',
+    event = 'VeryLazy',
+    config = true,
+  },
 }
