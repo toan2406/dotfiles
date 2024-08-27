@@ -25,6 +25,7 @@ require('lazy').setup({
   require('plugins.ui'),
   require('plugins.editor'),
   require('plugins.git'),
+  require('plugins.copilot'),
 
   -- Language support
   { 'reasonml-editor/vim-reason-plus', ft = { 're', 'rei' } },
@@ -60,10 +61,6 @@ require('lazy').setup({
   -- Org mode
   { 'nvim-neorg/neorg', ft = 'norg', dependencies = { 'nvim-lua/plenary.nvim' } },
   { 'nvim-orgmode/orgmode', ft = 'org' },
-
-  -- Copilot
-  { 'zbirenbaum/copilot.lua', cmd = 'Copilot', event = 'InsertEnter' },
-  { 'David-Kunz/gen.nvim' },
 
   -- Local plugins
   { dir = '~/.dotfiles/nvim-plugins/list-toggle.nvim', config = function() require('list-toggle') end },

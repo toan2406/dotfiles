@@ -6,8 +6,6 @@ require('general/mappings')
 
 require('config.lazy')
 
-require('config/copilot')
-require('config/llm')
 require('config/navigator')
 require('config/spotify')
 -- require('config/neorg')
