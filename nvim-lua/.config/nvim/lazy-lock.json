@@ -14,7 +14,6 @@
   "fzf-checkout.vim": { "branch": "master", "commit": "db0289a6c8e77b08a0150627733722fd07d5fa62" },
   "fzf-lua": { "branch": "main", "commit": "1ac27d5734ccd057ef2b46a8644022913f37b89e" },
   "fzf.vim": { "branch": "master", "commit": "279e1ec068f526e985ee7e3f62a71f083bbe0196" },
-  "gen.nvim": { "branch": "main", "commit": "b1230ce2993b2be38a1e22606750d05a94307380" },
   "gitsigns.nvim": { "branch": "main", "commit": "f4928ba14eb6c667786ac7d69927f6aee6719f1e" },
   "glow.nvim": { "branch": "main", "commit": "238070a686c1da3bccccf1079700eb4b5e19aea4" },
   "gruvbox.nvim": { "branch": "main", "commit": "7a1b23e4edf73a39642e77508ee6b9cbb8c60f9e" },
