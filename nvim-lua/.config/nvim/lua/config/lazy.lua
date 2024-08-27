@@ -24,12 +24,7 @@ require('lazy').setup({
   require('plugins.harpoon'),
   require('plugins.ui'),
   require('plugins.editor'),
-
-  -- Git support
-  'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
-  'junegunn/gv.vim',
-  { 'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' } },
+  require('plugins.git'),
 
   -- Language support
   { 'reasonml-editor/vim-reason-plus', ft = { 're', 'rei' } },
