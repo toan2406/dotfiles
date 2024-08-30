@@ -31,7 +31,7 @@ require('lazy').setup({
 
   -- Debug
   'mfussenegger/nvim-dap',
-  { 'rcarriga/nvim-dap-ui', dependencies = { 'mfussenegger/nvim-dap' } },
+  { 'rcarriga/nvim-dap-ui', dependencies = { 'mfussenegger/nvim-dap', 'nvim-neotest/nvim-nio' } },
 
   -- Terminal
   'numtostr/FTerm.nvim',
@@ -39,19 +39,7 @@ require('lazy').setup({
   -- Misc
   'numToStr/Navigator.nvim',
   -- 'tversteeg/registers.nvim',
-  { 'ellisonleao/glow.nvim', branch = 'main' },
   { 'chrisgrieser/nvim-spider', lazy = true },
-  {
-    'tamton-aquib/duck.nvim',
-    config = function()
-      vim.keymap.set('n', '<leader>dd', function() require('duck').hatch() end, {})
-      vim.keymap.set('n', '<leader>dk', function() require('duck').cook() end, {})
-    end
-  },
-
-  -- Org mode
-  { 'nvim-neorg/neorg', ft = 'norg', dependencies = { 'nvim-lua/plenary.nvim' } },
-  { 'nvim-orgmode/orgmode', ft = 'org' },
 
   -- Local plugins
   { dir = '~/.dotfiles/nvim-plugins/list-toggle.nvim', config = function() require('list-toggle') end },

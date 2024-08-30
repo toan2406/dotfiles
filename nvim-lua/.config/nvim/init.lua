@@ -8,8 +8,6 @@ require('config.lazy')
 
 require('config/navigator')
 require('config/spotify')
--- require('config/neorg')
--- require('config/orgmode')
 -- require('config/obsidian')
 require('config/dap')
 require('config/spellcheck')
