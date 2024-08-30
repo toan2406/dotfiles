@@ -27,13 +27,7 @@ require('lazy').setup({
   require('plugins.git'),
   require('plugins.copilot'),
   require('plugins.dadbod'),
-
-  -- Language support
-  { 'reasonml-editor/vim-reason-plus', ft = { 're', 'rei' } },
-  { 'rescript-lang/vim-rescript', ft = { 'res', 'resi' } },
-  'tpope/vim-rails',
-  { 'elixir-editors/vim-elixir', ft = { 'ex', 'exs' } },
-  'mickael-menu/zk-nvim',
+  require('plugins.lang'),
 
   -- Debug
   'mfussenegger/nvim-dap',

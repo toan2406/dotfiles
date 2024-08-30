@@ -13,7 +13,6 @@ require('config/spotify')
 -- require('config/obsidian')
 require('config/dap')
 require('config/spellcheck')
-require('config/zk')
 require('config/spider')
 
 print('Loaded in ' .. fn.printf('%.3f', fn.reltimefloat(fn.reltime(start_time))) .. ' seconds.')

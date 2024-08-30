@@ -1,6 +1,7 @@
 if require('zk.util').notebook_root(vim.fn.expand('%:p')) ~= nil then
   local function map(...) vim.api.nvim_buf_set_keymap(0, ...) end
-  local opts = {noremap = true, silent = false}
+
+  local opts = { noremap = true, silent = false }
 
   map('n', '<CR>', ":lua vim.lsp.buf.definition()<CR>", opts)
   map('n', 'K', ":lua vim.lsp.buf.hover()<CR>", opts)
@@ -10,4 +11,3 @@ if require('zk.util').notebook_root(vim.fn.expand('%:p')) ~= nil then
   map('n', '<leader>zi', ":ZkInsertLink<CR>", opts)
   map('v', '<leader>zi', ":'<,'>ZkLinkSelection<CR>", opts)
 end
-
