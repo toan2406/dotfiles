@@ -6,11 +6,7 @@ require('general/mappings')
 
 require('config.lazy')
 
-require('config/navigator')
-require('config/spotify')
--- require('config/obsidian')
 require('config/dap')
 require('config/spellcheck')
-require('config/spider')
 
 print('Loaded in ' .. fn.printf('%.3f', fn.reltimefloat(fn.reltime(start_time))) .. ' seconds.')

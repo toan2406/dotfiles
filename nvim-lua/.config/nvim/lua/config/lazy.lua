@@ -28,18 +28,11 @@ require('lazy').setup({
   require('plugins.copilot'),
   require('plugins.dadbod'),
   require('plugins.lang'),
+  require('plugins.extra'),
 
   -- Debug
   'mfussenegger/nvim-dap',
   { 'rcarriga/nvim-dap-ui', dependencies = { 'mfussenegger/nvim-dap', 'nvim-neotest/nvim-nio' } },
-
-  -- Terminal
-  'numtostr/FTerm.nvim',
-
-  -- Misc
-  'numToStr/Navigator.nvim',
-  -- 'tversteeg/registers.nvim',
-  { 'chrisgrieser/nvim-spider', lazy = true },
 
   -- Local plugins
   { dir = '~/.dotfiles/nvim-plugins/list-toggle.nvim', config = function() require('list-toggle') end },
