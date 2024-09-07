@@ -29,14 +29,10 @@ require('lazy').setup({
   require('plugins.dadbod'),
   require('plugins.lang'),
   require('plugins.extra'),
-
-  -- Debug
-  'mfussenegger/nvim-dap',
-  { 'rcarriga/nvim-dap-ui', dependencies = { 'mfussenegger/nvim-dap', 'nvim-neotest/nvim-nio' } },
+  require('plugins.dap'),
 
   -- Local plugins
   { dir = '~/.dotfiles/nvim-plugins/list-toggle.nvim', config = function() require('list-toggle') end },
-  { dir = '~/.dotfiles/nvim-plugins/debug-helper.nvim' },
   { dir = '~/.dotfiles/nvim-plugins/obsidian.nvim' },
 }, {
   defaults = {
