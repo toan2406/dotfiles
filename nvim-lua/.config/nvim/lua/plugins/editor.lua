@@ -192,4 +192,9 @@ return {
       vim.keymap.set({ 'n', 'o', 'x' }, 'ge', "<CMD>lua require('spider').motion('ge')<CR>", { desc = 'Spider-ge' })
     end,
   },
+
+  {
+    dir = '~/.dotfiles/nvim-plugins/list-toggle.nvim',
+    event = 'VeryLazy',
+  },
 }

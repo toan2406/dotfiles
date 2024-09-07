@@ -14,28 +14,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  require('plugins.colorscheme'),
-  require('plugins.diffview'),
-  require('plugins.cmp'),
-  require('plugins.lsp'),
-  require('plugins.treesitter'),
-  require('plugins.vifm'),
-  require('plugins.fzf'),
-  require('plugins.harpoon'),
-  require('plugins.ui'),
-  require('plugins.editor'),
-  require('plugins.git'),
-  require('plugins.copilot'),
-  require('plugins.dadbod'),
-  require('plugins.lang'),
-  require('plugins.extra'),
-  require('plugins.dap'),
-
-  -- Local plugins
-  { dir = '~/.dotfiles/nvim-plugins/list-toggle.nvim', config = function() require('list-toggle') end },
-  { dir = '~/.dotfiles/nvim-plugins/obsidian.nvim' },
-}, {
   defaults = {
     lazy = false,
+  },
+  spec = {
+    { import = 'plugins' },
+  },
+  install = {
+    colorscheme = { 'gruvbox' },
   },
 })
