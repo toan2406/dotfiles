@@ -58,7 +58,7 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home
 
 
 # Improve CLI
-alias cat='bat'
+# alias cat='bat'
 alias help='tldr'
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias vim='nvim'

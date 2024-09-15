@@ -89,7 +89,7 @@ return {
         }
       )(...)
 
-      if vim.lsp.buf.server_ready() and vim.api.nvim_get_mode().mode ~= 'i' then
+      if vim.api.nvim_get_mode().mode ~= 'i' then
         -- If the current win is a loclist, get its associated win
         -- Ref: https://neovim.io/doc/user/builtin.html#getloclist()
         local filewinid = vim.fn.getloclist(0, { filewinid = 0 })['filewinid']
@@ -126,7 +126,7 @@ return {
 
       local opts = { noremap = true, silent = true }
 
-      buf_set_keymap('n', '<leader>lf', '<CMD>lua vim.lsp.buf.format({async = true})<CR>', opts)
+      buf_set_keymap('n', '<leader>lf', '<CMD>lua vim.lsp.buf.format({ async = true })<CR>', opts)
       buf_set_keymap('n', '<leader>ld', '<CMD>lua vim.lsp.buf.definition()<CR>', opts)
       buf_set_keymap('n', '<leader>lv', '<CMD>vsplit | lua vim.lsp.buf.definition()<CR>', opts)
       buf_set_keymap('n', '<leader>lr', '<CMD>lua vim.lsp.buf.references()<CR>', opts)
@@ -144,7 +144,17 @@ return {
     capabilities = vim.tbl_extend('keep', capabilities, lsp_status.capabilities)
 
     -- npm install -g typescript typescript-language-server
-    lspconfig.tsserver.setup({
+    -- lspconfig.tsserver.setup({
+    --   on_attach = function(client, bufnr)
+    --     common_on_attach(client, bufnr)
+    --     navic.attach(client, bufnr)
+    --     client.server_capabilities.documentFormattingProvider = false
+    --   end,
+    --   capabilities = capabilities,
+    --   flags = { debounce_text_changes = 150 },
+    -- })
+
+    lspconfig.ts_ls.setup({
       on_attach = function(client, bufnr)
         common_on_attach(client, bufnr)
         navic.attach(client, bufnr)

@@ -1,7 +1,7 @@
 return {
   'hrsh7th/nvim-cmp',
   -- Issue: https://github.com/hrsh7th/nvim-cmp/issues/1606
-  commit = '950d0e3a93ba61c13b031c086d11eacf4bd48d24',
+  -- commit = '950d0e3a93ba61c13b031c086d11eacf4bd48d24',
   dependencies = {
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
