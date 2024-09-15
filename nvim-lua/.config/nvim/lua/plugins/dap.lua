@@ -3,6 +3,7 @@ return {
     'mfussenegger/nvim-dap',
     dependencies = {
       'debug-helper',
+      'jbyuki/one-small-step-for-vimkind',
     },
     lazy = true,
     config = function()
@@ -122,6 +123,22 @@ return {
         },
       }
 
+      dap.adapters.nlua = function(callback, config)
+        callback({
+          type = 'server',
+          host = config.host or '127.0.0.1',
+          port = config.port or 8086,
+        })
+      end
+
+      dap.configurations.lua = {
+        {
+          type = 'nlua',
+          request = 'attach',
+          name = 'Attach to running Neovim instance',
+        }
+      }
+
       vim.fn.sign_define('DapBreakpoint', { text = '●', texthl = 'GruvboxRed', linehl = '', numhl = '' })
 
       api.nvim_set_keymap('n', '<leader>dt', ":lua require('dap').toggle_breakpoint()<CR>", { noremap = true })
@@ -132,6 +149,12 @@ return {
       api.nvim_set_keymap('n', 'J', ":lua require('debug-helper').step_over({ fallback = 'J' })<CR>", { noremap = true })
       api.nvim_set_keymap('n', 'L', ":lua require('debug-helper').step_into({ fallback = 'L' })<CR>", { noremap = true })
       api.nvim_set_keymap('n', 'K', ":lua require('debug-helper').step_out({ fallback = 'K' })<CR>", { noremap = true })
+
+      api.nvim_create_user_command('DebugNeovimLua', function()
+        if vim.bo.filetype == 'lua' then
+          pcall(require('osv').run_this)
+        end
+      end, {})
     end,
   },
 

@@ -38,6 +38,7 @@
   "nvim-treesitter": { "branch": "master", "commit": "4770d9a1a77b0cc2b723c646c3dbe43a9133e5db" },
   "nvim-treesitter-refactor": { "branch": "master", "commit": "65ad2eca822dfaec2a3603119ec3cc8826a7859e" },
   "nvim-treesitter-textobjects": { "branch": "master", "commit": "bf8d2ad35d1d1a687eae6c065c3d524f7ab61b23" },
+  "one-small-step-for-vimkind": { "branch": "main", "commit": "0f0d5bc67786c36edc2cb6fb5faa5c09dd1a6e10" },
   "plenary.nvim": { "branch": "master", "commit": "ec289423a1693aeae6cd0d503bac2856af74edaa" },
   "tender.vim": { "branch": "master", "commit": "f361e9d907d2e5df703ee995f9032021ef674f2f" },
   "vifm.vim": { "branch": "master", "commit": "d3168abe2bf661f1dfae38d9a92455fd322c1bb7" },
