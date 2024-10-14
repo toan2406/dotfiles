@@ -6,6 +6,7 @@
 [core]
   excludesfile = /Users/toannguyen/.gitignore_global
   ignorecase = false
+  pager = delta
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
@@ -15,6 +16,17 @@
   template = ~/.gitmessage
 [pull]
   rebase = false
+
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true
+  side-by-side = true
+  line-numbers = true
+[merge]
+  conflictstyle = diff3
+[diff]
+  colorMoved = default
 
 [alias]
   # List files which have changed since REVIEW_BASE

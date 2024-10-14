@@ -34,6 +34,9 @@ nvm() {
 }
 
 
+export NODE_OPTIONS="--max_old_space_size=8192"
+
+
 # Lazyload rbenv
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 rbenv() {
