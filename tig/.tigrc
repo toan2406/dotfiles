@@ -7,7 +7,7 @@ bind status - status-update
 bind stage X status-revert
 bind stage - status-update
 bind generic + !git commit --amend
-bind generic 9 !@sh -c "echo %(commit) | pbcopy"
+bind generic Y !@sh -c "echo %(commit) | pbcopy"
 bind main ! !git revert %(commit)
 bind stash D !?git stash drop %(stash)
 bind stash A !?git stash apply %(stash)
