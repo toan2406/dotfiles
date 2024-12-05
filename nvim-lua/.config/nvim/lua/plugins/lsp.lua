@@ -14,6 +14,8 @@ return {
     local saga = require('lspsaga')
     local navic = require('nvim-navic')
 
+    vim.lsp.set_log_level('off')
+
     lsp_status.register_progress()
     lsp_status.config({
       indicator_errors = 'E',
