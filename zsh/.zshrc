@@ -220,6 +220,12 @@ timezsh() {
 }
 
 
+# Execute tmux on start Kitty
+if [ -z "$TMUX" ] && [ "$TERM" = "xterm-kitty" ]; then
+  tmux attach || tmux new-session -s main && exit;
+fi
+
+
 # Config Anaconda
 export CONDA_AUTO_ACTIVATE_BASE=false
 
