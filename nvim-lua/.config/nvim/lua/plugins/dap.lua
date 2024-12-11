@@ -155,6 +155,10 @@ return {
           pcall(require('osv').run_this)
         end
       end, {})
+
+      api.nvim_create_user_command('DebugLaunchLuaServer', function()
+        require('osv').launch({ port = 8086 })
+      end, {})
     end,
   },
 
