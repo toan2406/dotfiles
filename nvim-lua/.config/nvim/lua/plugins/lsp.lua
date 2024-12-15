@@ -309,7 +309,7 @@ return {
     })
 
     local prettier = {
-      formatCommand = 'prettier --stdin-filepath "${INPUT}"',
+      formatCommand = 'npx prettier --stdin-filepath "${INPUT}"',
       formatStdin = true,
     }
 
