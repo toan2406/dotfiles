@@ -8,10 +8,13 @@ return {
     cmp.setup({
       keymap = {
         preset = 'enter',
-        ['<Tab>'] = { 'select_next', 'fallback' },
-        ['<S-Tab>'] = { 'select_prev', 'fallback' },
+        ['<Tab>'] = { 'select_next', 'snippet_forward', 'fallback' },
+        ['<S-Tab>'] = { 'select_prev', 'snippet_backward', 'fallback' },
       },
       completion = {
+        trigger = {
+          show_on_insert_on_trigger_character = false,
+        },
         list = {
           selection = 'auto_insert',
         },
@@ -20,9 +23,12 @@ return {
         },
         menu = {
           draw = {
-            columns = { { 'label', 'label_description', gap = 1 }, { 'kind' } },
+            columns = { { 'label', 'label_description', gap = 1 }, { 'kind', 'source_name' } },
           },
         },
+      },
+      sources = {
+        default = { 'lsp', 'path', 'snippets', 'buffer' },
       },
     })
   end,
