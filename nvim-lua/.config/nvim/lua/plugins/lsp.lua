@@ -6,6 +6,7 @@ return {
     'glepnir/lspsaga.nvim',
     'SmiteshP/nvim-navic',
     'hrsh7th/cmp-nvim-lsp',
+    'saghen/blink.cmp',
   },
   event = 'BufRead',
   config = function()
@@ -143,6 +144,7 @@ return {
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+    capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
     capabilities = vim.tbl_extend('keep', capabilities, lsp_status.capabilities)
 
     -- npm install -g typescript typescript-language-server
