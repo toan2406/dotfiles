@@ -5,7 +5,7 @@ return {
     'nvim-lua/lsp_extensions.nvim',
     'glepnir/lspsaga.nvim',
     'SmiteshP/nvim-navic',
-    -- 'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-nvim-lsp',
     'saghen/blink.cmp',
   },
   event = 'BufRead',
@@ -143,7 +143,7 @@ return {
     end
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
-    -- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+    capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
     capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
     capabilities = vim.tbl_extend('keep', capabilities, lsp_status.capabilities)
 
