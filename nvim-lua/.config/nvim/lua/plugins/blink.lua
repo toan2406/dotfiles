@@ -34,7 +34,7 @@ return {
           },
           menu = {
             draw = {
-              columns = { { 'label', 'label_description', gap = 1 }, { 'kind', 'source_name' } },
+              columns = { { 'label', 'label_description', gap = 1 }, { 'kind', 'source_name', gap = 1 } },
             },
           },
         },
@@ -50,6 +50,9 @@ return {
               score_offset = -3,
             },
           },
+        },
+        appearance = {
+          use_nvim_cmp_as_default = true,
         },
       })
     end,
