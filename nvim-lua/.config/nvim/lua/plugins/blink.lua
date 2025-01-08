@@ -8,8 +8,7 @@ return {
 
   {
     'saghen/blink.cmp',
-    lazy = false,
-    version = 'v0.*',
+    version = '*',
     dependencies = {
       'hrsh7th/cmp-nvim-lsp',
     },
@@ -27,7 +26,10 @@ return {
             show_on_insert_on_trigger_character = false,
           },
           list = {
-            selection = 'auto_insert',
+            selection = {
+              preselect = false,
+              auto_insert = true,
+            },
           },
           documentation = {
             auto_show = true,
@@ -40,10 +42,10 @@ return {
         },
         sources = {
           default = { 'lsp', 'path', 'snippets', 'buffer' },
-          completion = {
-            enabled_providers = { 'lsp', 'path', 'snippets', 'buffer', 'nvim_lsp' },
-          },
           providers = {
+            lsp = {
+              fallbacks = {},
+            },
             nvim_lsp = {
               name = 'nvim_lsp',
               module = 'blink.compat.source',
