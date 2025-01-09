@@ -210,11 +210,21 @@ return {
     })
 
     -- gem install solargraph
-    lspconfig.solargraph.setup({
+    -- lspconfig.solargraph.setup({
+    --   on_attach = function(client, bufnr)
+    --     common_on_attach(client, bufnr)
+    --     client.server_capabilities.documentFormattingProvider = false
+    --     client.server_capabilities.definitionProvider = false
+    --   end,
+    --   capabilities = capabilities,
+    --   flags = { debounce_text_changes = 150 }
+    -- })
+
+    -- gem install ruby-lsp
+    lspconfig.ruby_lsp.setup({
       on_attach = function(client, bufnr)
         common_on_attach(client, bufnr)
         client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.definitionProvider = false
       end,
       capabilities = capabilities,
       flags = { debounce_text_changes = 150 }
