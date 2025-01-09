@@ -35,7 +35,8 @@ return {
             },
           },
           lualine_x = {
-            'require("lsp-status").status()',
+            -- https://github.com/nvim-lualine/lualine.nvim/issues/1201#issuecomment-2206974843
+            'require("lsp-status").status():gsub("%%", "")',
             {
               'diagnostics',
               sources = { 'nvim_diagnostic' },
