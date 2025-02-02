@@ -4,3 +4,9 @@ font-size = 14
 font-thicken = true
 
 theme = GruvboxDark
+
+cursor-style = block
+cursor-invert-fg-bg = false
+shell-integration-features = no-cursor
+
+command = "/bin/zsh -l -c 'tmux attach || tmux new-session -s main'"
