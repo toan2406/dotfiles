@@ -151,6 +151,17 @@ return {
     capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
     capabilities = vim.tbl_extend('keep', capabilities, lsp_status.capabilities)
 
+    -- https://github.com/Saghen/blink.cmp/issues/223
+    local ts_capabilities = vim.tbl_deep_extend('force', capabilities, {
+      textDocument = {
+        completion = {
+          completionItem = {
+            snippetSupport = false,
+          },
+        },
+      },
+    })
+
     -- npm install -g typescript typescript-language-server
     -- lspconfig.tsserver.setup({
     --   on_attach = function(client, bufnr)
@@ -168,7 +179,7 @@ return {
         navic.attach(client, bufnr)
         client.server_capabilities.documentFormattingProvider = false
       end,
-      capabilities = capabilities,
+      capabilities = ts_capabilities,
       flags = { debounce_text_changes = 150 },
     })
 

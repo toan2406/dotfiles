@@ -37,6 +37,9 @@ nvm() {
 export PATH="$(pyenv root)/shims:${PATH}"
 
 
+export PATH="$HOME/.local/bin:$PATH"
+
+
 export NODE_OPTIONS="--max_old_space_size=8192"
 
 

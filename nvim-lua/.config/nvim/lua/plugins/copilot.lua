@@ -5,15 +5,15 @@ return {
     event = 'InsertEnter',
     opts = {
       suggestion = {
-        enabled = false,
+        enabled = true,
         auto_trigger = true,
         debounce = 75,
         keymap = {
-          accept = '¬',
           accept_word = false,
           accept_line = false,
-          next = '∆',
-          prev = '˚',
+          accept = '¬', -- <M-l>
+          next = '∆', -- <M-j>
+          prev = '˚', -- <M-k>
           dismiss = '<C-]>',
         },
       },
@@ -21,6 +21,9 @@ return {
         enabled = false,
       },
       filetypes = {
+        javascript = true,
+        typescript = true,
+        typescriptreact = true,
         ['*'] = false,
       },
       copilot_node_command = vim.fn.expand('$HOME') .. '/.nvm/versions/node/v20.10.0/bin/node',
@@ -29,6 +32,7 @@ return {
 
   {
     'zbirenbaum/copilot-cmp',
+    enabled = false,
     lazy = true,
     config = true,
   },
