@@ -29,6 +29,7 @@ return {
         'markdown_inline',
         'zig',
         'python',
+        'yaml',
       },
       highlight = {
         enable = true,

@@ -80,6 +80,11 @@ return {
         { '<leader>zn', desc = 'New Note' },
 
         { '<leader>d', group = 'debug' },
+
+        { '<leader>a', group = 'AI' },
+        { '<leader>ac', desc = 'Toggle Chat' },
+        { '<leader>ac', desc = 'Open Action Palette' },
+        { '<leader>ae', desc = 'Code Expert', mode = 'v' },
       })
     end,
   },
