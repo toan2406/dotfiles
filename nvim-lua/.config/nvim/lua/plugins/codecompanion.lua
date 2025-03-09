@@ -5,6 +5,23 @@ return {
     'nvim-treesitter/nvim-treesitter',
   },
   config = function()
+    local function generate_slash_commands()
+      local commands = {}
+
+      for _, command in ipairs({ 'file' }) do
+        commands[command] = {
+          callback = 'strategies.chat.slash_commands.' .. command,
+          description = 'Select a ' .. command .. ' using fzf',
+          opts = {
+            provider = 'fzf_lua',
+            contains_code = true,
+          },
+        }
+      end
+
+      return commands
+    end
+
     require('codecompanion').setup({
       adapters = {
         copilot = function()
@@ -21,16 +38,7 @@ return {
       strategies = {
         chat = {
           adapter = 'copilot',
-          slash_commands = {
-            ['file'] = {
-              callback = 'strategies.chat.slash_commands.file',
-              description = 'Select a file using fzf',
-              opts = {
-                provider = 'fzf_lua',
-                contains_code = true,
-              },
-            },
-          },
+          slash_commands = generate_slash_commands(),
         },
         inline = {
           adapter = 'copilot',
