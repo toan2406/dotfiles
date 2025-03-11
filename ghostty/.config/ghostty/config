@@ -2,6 +2,7 @@ font-family = "Iosevka"
 font-style = "Regular"
 font-size = 14
 font-thicken = true
+font-feature = -calt, -liga, -dlig
 
 theme = GruvboxDark
 

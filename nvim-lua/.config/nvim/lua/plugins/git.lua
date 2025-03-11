@@ -24,12 +24,30 @@ return {
     'junegunn/gv.vim',
     dependencies = {
       'tpope/vim-fugitive',
+      'tpope/vim-rhubarb',
     },
     event = 'BufRead',
     config = function()
       vim.api.nvim_set_keymap('n', '<leader>gl', ':GV?<CR>', { noremap = true, silent = true })
       vim.api.nvim_set_keymap('n', '<leader>gv', ':GV!<CR>', { noremap = true, silent = true })
       vim.api.nvim_set_keymap('v', '<leader>gv', ':GV<CR>', { noremap = true, silent = true })
+
+      vim.api.nvim_create_user_command('GPulls', function()
+        local root = vim.call('rhubarb#HomepageForUrl', vim.fn.FugitiveRemoteUrl())
+        local sha = vim.call('gv#sha')
+        local url = root .. '/pulls?q=is%3Apr+hash%3A' .. sha
+
+        vim.cmd('GBrowse ' .. url)
+      end, {})
+
+      local group = vim.api.nvim_create_augroup('GVGroup', { clear = true })
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = 'GV',
+        group = group,
+        callback = function()
+          vim.api.nvim_buf_set_keymap(0, 'n', 'gp', ':GPulls<CR>', { noremap = true, silent = true })
+        end,
+      })
     end,
   },
 
