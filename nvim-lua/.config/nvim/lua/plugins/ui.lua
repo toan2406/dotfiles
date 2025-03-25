@@ -4,6 +4,10 @@ return {
     dependencies = {
       'nvim-lua/lsp-status.nvim',
       'SmiteshP/nvim-navic',
+      {
+        dir = '~/.dotfiles/nvim-plugins/codecompanion-lualine.nvim',
+        name = 'codecompanion-lualine',
+      },
     },
     event = 'VeryLazy',
     opts = function()
@@ -37,6 +41,7 @@ return {
           lualine_x = {
             -- https://github.com/nvim-lualine/lualine.nvim/issues/1201#issuecomment-2206974843
             'require("lsp-status").status():gsub("%%", "")',
+            'codecompanion',
             {
               'diagnostics',
               sources = { 'nvim_diagnostic' },

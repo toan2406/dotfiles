@@ -56,6 +56,7 @@ return {
       },
       display = {
         chat = {
+          show_header_separator = true,
           show_settings = true,
         },
         action_palette = {
@@ -90,8 +91,9 @@ return {
               role = 'user',
               content = function(context)
                 local text = require('codecompanion.helpers.actions').get_code(context.start_line, context.end_line)
+                local filetype = context.filetype:gsub('react', '')
 
-                return 'I have the following code:\n\n``` ' .. context.filetype .. '\n' .. text .. '\n```\n\n'
+                return 'I have the following code:\n\n``` ' .. filetype .. '\n' .. text .. '\n```\n\n'
               end,
               opts = {
                 contains_code = true,

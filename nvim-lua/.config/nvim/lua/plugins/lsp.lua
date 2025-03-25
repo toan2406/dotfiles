@@ -179,7 +179,7 @@ return {
         navic.attach(client, bufnr)
         client.server_capabilities.documentFormattingProvider = false
       end,
-      capabilities = ts_capabilities,
+      capabilities = capabilities,
       flags = { debounce_text_changes = 150 },
     })
 

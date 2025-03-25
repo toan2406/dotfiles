@@ -22,4 +22,27 @@ return {
     'numtostr/FTerm.nvim',
     lazy = true,
   },
+
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+    },
+    ft = {
+      'markdown',
+      'codecompanion',
+    },
+    opts = {
+      enabled = true,
+      file_types = {
+        'codecompanion',
+      },
+      heading = {
+        enabled = false,
+      },
+      bullet = {
+        enabled = false,
+      },
+    },
+  },
 }
