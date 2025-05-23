@@ -8,7 +8,7 @@ return {
     local function generate_slash_commands()
       local commands = {}
 
-      for _, command in ipairs({ 'file' }) do
+      for _, command in ipairs({ 'file', 'buffer' }) do
         commands[command] = {
           callback = 'strategies.chat.slash_commands.' .. command,
           description = 'Select a ' .. command .. ' using fzf',

@@ -11,6 +11,7 @@ return {
     version = '*',
     dependencies = {
       'hrsh7th/cmp-nvim-lsp',
+      'giuxtaposition/blink-cmp-copilot',
     },
     config = function()
       local cmp = require('blink.cmp')
@@ -39,9 +40,12 @@ return {
               columns = { { 'label', 'label_description', gap = 1 }, { 'kind', 'source_name', gap = 1 } },
             },
           },
+          accept = {
+            dot_repeat = true,
+          },
         },
         sources = {
-          default = { 'lsp', 'path', 'snippets', 'buffer' },
+          default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
           providers = {
             lsp = {
               fallbacks = {},
@@ -50,6 +54,12 @@ return {
               name = 'nvim_lsp',
               module = 'blink.compat.source',
               score_offset = -3,
+            },
+            copilot = {
+              name = 'copilot',
+              module = 'blink-cmp-copilot',
+              score_offset = 100,
+              async = true,
             },
           },
         },

@@ -30,6 +30,7 @@ return {
         'zig',
         'python',
         'yaml',
+        'rescript',
       },
       highlight = {
         enable = true,

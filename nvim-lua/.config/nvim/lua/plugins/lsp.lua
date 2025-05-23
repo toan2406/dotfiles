@@ -212,13 +212,8 @@ return {
       flags = { debounce_text_changes = 150 }
     })
 
+    -- npm install -g @rescript/language-server
     lspconfig.rescriptls.setup({
-      cmd = {
-        'node',
-        '/Users/toannguyen/.local/share/nvim/lazy/vim-rescript/server/out/server.js',
-        '--stdio'
-      },
-
       on_attach = common_on_attach,
       capabilities = capabilities,
       flags = { debounce_text_changes = 150 }
@@ -331,6 +326,16 @@ return {
 
     lspconfig.zls.setup({
       on_attach = common_on_attach,
+      capabilities = capabilities,
+      flags = { debounce_text_changes = 150 }
+    })
+
+    -- npm install -g pyright
+    lspconfig.pyright.setup({
+      on_attach = function(client, bufnr)
+        common_on_attach(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = false
+      end,
       capabilities = capabilities,
       flags = { debounce_text_changes = 150 }
     })
