@@ -98,6 +98,7 @@ return {
             border = 'border',
             horizontal = 'right:50%',
           },
+          treesitter = false,
         },
         fzf_opts = {
           ['--layout'] = 'default',

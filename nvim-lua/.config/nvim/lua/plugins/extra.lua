@@ -45,4 +45,8 @@ return {
       },
     },
   },
+
+  {
+    'stevearc/profile.nvim',
+  },
 }
