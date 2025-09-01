@@ -1,4 +1,4 @@
-local MARK_LEN = 10
+local MARK_LEN = 24
 
 local function pad_right(str, len, char)
   char = char or ' '

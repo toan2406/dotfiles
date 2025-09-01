@@ -31,6 +31,7 @@ return {
         'python',
         'yaml',
         'rescript',
+        'prisma',
       },
       highlight = {
         enable = true,
