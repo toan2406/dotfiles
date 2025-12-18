@@ -29,7 +29,7 @@ return {
             schema = {
               model = {
                 -- default = 'claude-3.7-sonnet-thought',
-                default = 'gpt-4o',
+                default = 'gpt-4.1',
               },
             },
           })
@@ -58,6 +58,9 @@ return {
         chat = {
           show_header_separator = true,
           show_settings = true,
+          window = {
+            layout = 'vertical',
+          },
         },
         action_palette = {
           provider = 'default',
@@ -105,6 +108,7 @@ return {
     })
 
     vim.keymap.set({ 'n', 'v' }, '<leader>ac', '<CMD>CodeCompanionChat Toggle<CR>', { noremap = true, silent = true })
+    vim.keymap.set({ 'v' }, '<leader>ad', '<CMD>CodeCompanionChat Add<CR>', { noremap = true, silent = true })
     vim.keymap.set({ 'n', 'v' }, '<leader>aa', '<CMD>CodeCompanionActions<CR>', { noremap = true, silent = true })
     vim.keymap.set({ 'v' }, '<leader>ae', '<CMD>CodeCompanion /expert<CR>', { noremap = true, silent = true })
 

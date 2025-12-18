@@ -256,3 +256,6 @@ unset __conda_setup
   conda "$@"
 }
 
+export HISTSIZE=100000
+export SAVEHIST=$HISTSIZE
+

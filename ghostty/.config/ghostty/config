@@ -4,7 +4,7 @@ font-size = 14
 font-thicken = true
 font-feature = -calt, -liga, -dlig
 
-theme = GruvboxDark
+theme = Gruvbox Dark
 
 cursor-style = block
 cursor-invert-fg-bg = false

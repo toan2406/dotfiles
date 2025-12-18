@@ -1,0 +1,53 @@
+{
+  "general": {
+    "preferredEditor": "neovim",
+    "vimMode": true
+  },
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
+  "mcpServers": {
+    "github": {
+      "httpUrl": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer $GITHUB_MCP_PAT"
+      },
+      "timeout": 5000
+    },
+    "atlassian": {
+      "url": "https://mcp.atlassian.com/v1/sse"
+    },
+    "chrome-devtools": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "chrome-devtools-mcp@latest"
+      ]
+    }
+  },
+  "ui": {
+    "customThemes": {
+      "Gruvbox": {
+        "name": "Gruvbox",
+        "type": "custom",
+        "Background": "#282828",
+        "Foreground": "#ebdbb2",
+        "LightBlue": "#83a598",
+        "AccentBlue": "#458588",
+        "AccentPurple": "#b16286",
+        "AccentCyan": "#689d6a",
+        "AccentGreen": "#98971a",
+        "AccentYellow": "#d79921",
+        "AccentRed": "#cc241d",
+        "Comment": "#928374",
+        "Gray": "#a89984",
+        "DiffAdded": "#79740e",
+        "DiffRemoved": "#9d0006",
+        "DiffModified": "#b57614"
+      }
+    },
+    "theme": "Gruvbox"
+  }
+}

@@ -55,6 +55,7 @@ return {
     vim.keymap.set('n', '<leader>dh', ':DiffviewFileHistory % --no-merges<CR>', { desc = 'Diffview file history' })
     vim.keymap.set('v', '<leader>gh', ':DiffviewFileHistory<CR>')
     vim.keymap.set('v', '<leader>dh', ':DiffviewFileHistory<CR>', { desc = 'Diffview file history' })
+    vim.keymap.set('n', '<leader>dc', ':DiffviewClose<CR>')
     vim.keymap.set('n', '<leader>dd', diff_commit_range, { desc = 'Diffview commit range' })
   end,
 }
