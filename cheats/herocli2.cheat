@@ -1,4 +1,4 @@
-% herocli2 0.0.41 production
+% herocli2 0.0.70 production
 
 # List all production apps
 herocli --server <server> app list --namespace <namespace>
@@ -24,8 +24,14 @@ herocli --server <server> console approve --id <pending_request_id> --descriptio
 # Reject an access request
 herocli --server <server> console reject --id <pending_request_id> --description "<rejection_description>"
 
-# Access a production app
+# Access a production console
 herocli --server <server> app run-tty <approved_request_args>
+
+# List all console sessions
+herocli --server <server> console list-tty <app_name>
+
+# Reconnect to a running session
+herocli --server <server> console reconnect <app_name> -p <tty_pod_name>
 
 $ server: echo 'hero2.ehrocks.com:443'
 $ namespace: echo 'application'
@@ -57,12 +63,16 @@ $ approved_request_args: <request_list> | \
                          sort -t ',' -k3,3r | \
                          column -s ',' -t --- --fzf-overrides '--no-select-1' --map "awk -F '  +' '{print $2 \" --id \" $1}'"
 
+$ session_list: echo 'herocli --server <server> console list-tty <app_name>'
+$ tty_pod_name: <session_list> | awk -F '<_column_separator>' 'BEGIN {OFS = ","} /Running/ {print $2, $4, $6}' | \
+                column -s ',' -t --- --fzf-overrides '--no-select-1' --map "awk -F '  +' '{print $1}'"
+
 $ _column_separator: echo ' *\\| *'
 
 
 
 % herocli2 staging
-@ herocli2 0.0.41 production
+@ herocli2 0.0.70 production
 
 # List all staging apps
 herocli --server <server> app list --namespace <namespace>
@@ -73,7 +83,7 @@ herocli --server <server> app status <app_name>
 # Deployment status of a staging app
 herocli --server <server> app deployment-status <app_name>
 
-# Access a staging app
+# Access a staging console
 herocli --server <server> app run-tty <app_name>
 
 # Restart a staging app
@@ -85,7 +95,7 @@ $ namespace: echo -e 'staging\nsandbox'
 
 
 % herocli2 integration
-@ herocli2 0.0.41 production
+@ herocli2 0.0.70 production
 
 # List all integration apps
 herocli --server <server> app list --namespace <namespace>
