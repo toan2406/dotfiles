@@ -257,6 +257,9 @@ unset __conda_setup
   conda "$@"
 }
 
+setopt append_history
+setopt inc_append_history
+setopt share_history
 export HISTSIZE=100000
 export SAVEHIST=$HISTSIZE
 
