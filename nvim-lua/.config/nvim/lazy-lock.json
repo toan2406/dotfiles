@@ -4,6 +4,7 @@
   "blink-cmp-copilot": { "branch": "main", "commit": "439cff78780c033aa23cf061d7315314b347e3c1" },
   "blink.cmp": { "branch": "main", "commit": "bae4bae0eedd1fa55f34b685862e94a222d5c6f8" },
   "blink.compat": { "branch": "main", "commit": "2ed6d9a28b07fa6f3bface818470605f8896408c" },
+  "claudecode.nvim": { "branch": "main", "commit": "aa9a5cebebdbfa449c1c5ff229ba5d98e66bafed" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "a8912b88ce488f411177fc8aed358b04dc246d7b" },
   "codecompanion.nvim": { "branch": "main", "commit": "92b4884f62d251ad8432c6f6ccee0786f42bb68a" },
   "copilot-cmp": { "branch": "master", "commit": "b6e5286b3d74b04256d0a7e3bd2908eabec34b44" },
