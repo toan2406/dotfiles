@@ -13,4 +13,4 @@ if [[ ! -x "$HOME/.local/bin/claude" ]]; then
 fi
 
 # tmux split-window -h -p 40 "source ~/.zshrc && claude --ide"
-tmux split-window -h -p 40 "export PATH=$HOME/.local/bin:$PATH && claude --ide"
+tmux split-window -h -p 40 -c "#{pane_current_path}" "export PATH=$HOME/.local/bin:$PATH && claude --ide"

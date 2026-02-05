@@ -6,6 +6,11 @@ return {
       terminal = {
         provider = 'none',
       },
+      diff_opts = {
+        auto_close_on_accept = true,
+        vertical_split = true,
+        open_in_current_tab = false,
+      },
     })
 
     vim.keymap.set('n', '<leader>aa', '<CMD>ClaudeCodeAdd %<CR>', { desc = 'Add To Claude' })
