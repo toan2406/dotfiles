@@ -5,6 +5,7 @@ return {
     require('claudecode').setup({
       terminal = {
         provider = 'native',
+        split_width_percentage = 0.40,
       },
       diff_opts = {
         auto_close_on_accept = true,
@@ -18,8 +19,6 @@ return {
     vim.keymap.set('v', '<leader>as', '<CMD>ClaudeCodeSend<CR>', { desc = 'Send To Claude' })
     vim.keymap.set('n', '<leader>aa', '<CMD>ClaudeCodeDiffAccept<CR>', { desc = 'Accept Diff' })
     vim.keymap.set('n', '<leader>ad', '<CMD>ClaudeCodeDiffDeny<CR>', { desc = 'Deny Diff' })
-
-    vim.keymap.set('t', '<C-w>h', '<C-\\><C-n><C-w>h')
 
     -- vim.keymap.set('n', 'gf', function()
     --   -- https://github.com/nvim-lualine/lualine.nvim/blob/master/lua/lualine/components/filename.lua
@@ -42,6 +41,9 @@ return {
           vim.cmd('wincmd h')
           vim.cmd('edit ' .. vim.fn.fnameescape(file))
         end, { buffer = true })
+
+        vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { buffer = true })
+        vim.keymap.set('t', '<C-w>h', '<C-\\><C-n><C-w>h', { buffer = true })
       end,
     })
   end,
