@@ -1,7 +1,6 @@
 return {
   'neovim/nvim-lspconfig',
   dependencies = {
-    'nvim-lua/lsp-status.nvim',
     'nvim-lua/lsp_extensions.nvim',
     'glepnir/lspsaga.nvim',
     'SmiteshP/nvim-navic',
@@ -11,20 +10,10 @@ return {
   event = 'BufRead',
   config = function()
     local lspconfig = require('lspconfig')
-    local lsp_status = require('lsp-status')
     local saga = require('lspsaga')
     local navic = require('nvim-navic')
 
-    vim.lsp.set_log_level('off')
-
-    lsp_status.register_progress()
-    lsp_status.config({
-      indicator_errors = 'E',
-      indicator_warnings = 'W',
-      indicator_info = 'i',
-      indicator_hint = '?',
-      indicator_ok = 'Ok',
-    })
+    vim.lsp.log.set_level(vim.log.levels.OFF)
 
     saga.setup({
       lightbulb = {
@@ -84,17 +73,12 @@ return {
 
     vim.diagnostic.config({
       virtual_text = false,
+      underline = true,
+      update_in_insert = false,
     })
 
     vim.lsp.handlers['textDocument/publishDiagnostics'] = function(...)
-      vim.lsp.with(
-        vim.lsp.diagnostic.on_publish_diagnostics,
-        {
-          virtual_text = false,
-          underline = true,
-          update_in_insert = false,
-        }
-      )(...)
+      vim.lsp.diagnostic.on_publish_diagnostics(...)
 
       if vim.api.nvim_get_mode().mode ~= 'i' then
         -- If the current win is a loclist, get its associated win
@@ -123,8 +107,6 @@ return {
     end
 
     local common_on_attach = function(client, bufnr)
-      lsp_status.on_attach(client)
-
       local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
       local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -149,7 +131,6 @@ return {
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
     capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
-    capabilities = vim.tbl_extend('keep', capabilities, lsp_status.capabilities)
 
     -- https://github.com/Saghen/blink.cmp/issues/223
     local ts_capabilities = vim.tbl_deep_extend('force', capabilities, {

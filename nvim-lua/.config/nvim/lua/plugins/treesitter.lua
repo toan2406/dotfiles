@@ -1,20 +1,18 @@
 return {
-  'nvim-treesitter/nvim-treesitter',
-  dependencies = {
-    'nvim-treesitter/nvim-treesitter-refactor',
-    'nvim-treesitter/nvim-treesitter-textobjects',
-  },
-  build = ':TSUpdate',
-  event = 'VeryLazy',
-  cmd = {
-    'TSUpdateSync',
-    'TSUpdate',
-    'TSInstall',
-    'TSUninstall',
-  },
-  config = function()
-    require('nvim-treesitter.configs').setup({
-      ensure_installed = {
+  {
+    'nvim-treesitter/nvim-treesitter',
+    branch = 'main',
+    dependencies = {},
+    build = ':TSUpdate',
+    event = 'VeryLazy',
+    cmd = {
+      'TSUpdateSync',
+      'TSUpdate',
+      'TSInstall',
+      'TSUninstall',
+    },
+    config = function()
+      require('nvim-treesitter').install({
         'javascript',
         'ruby',
         'lua',
@@ -32,52 +30,44 @@ return {
         'yaml',
         'rescript',
         'prisma',
-      },
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = { 'markdown' },
-      },
-      incremental_selection = {
-        enable = false,
-        keymaps = {
-          init_selection = 'gnn',
-          node_incremental = 'grn',
-          scope_incremental = 'grc',
-          node_decremental = 'grm',
-        },
-      },
-      refactor = {
-        smart_rename = {
-          enable = false,
-          keymaps = {
-            smart_rename = 'grr',
-          },
-        },
-        navigation = {
-          enable = false,
-          keymaps = {
-            goto_definition = 'gnd',
-            list_definitions = 'gnD',
-            list_definitions_toc = 'gO',
-          },
-        },
-      },
-      textobjects = {
-        select = {
-          enable = true,
-          lookahead = true,
-          keymaps = {
-            ['af'] = '@function.outer',
-            ['if'] = '@function.inner',
-            ['ac'] = '@class.outer',
-            ['ic'] = '@class.inner',
-          },
-        },
-      },
-    })
+      })
 
-    vim.o.foldenable = false
-    vim.o.foldmethod = 'expr'
-    vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
-  end,
+      vim.o.foldenable = false
+      vim.o.foldmethod = 'expr'
+      vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
+    end,
+  },
+
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    branch = 'main',
+    init = function()
+      vim.g.no_plugin_maps = true
+
+      -- Or, disable per filetype
+      -- vim.g.no_python_maps = true
+      -- vim.g.no_ruby_maps = true
+      -- vim.g.no_rust_maps = true
+      -- vim.g.no_go_maps = true
+    end,
+    config = function()
+      require('nvim-treesitter-textobjects').setup({
+        select = {
+          lookahead = true,
+          selection_modes = {
+            ['@function.outer'] = 'v',
+            ['@function.inner'] = 'v',
+          },
+          include_surrounding_whitespace = false,
+        },
+      })
+
+      vim.keymap.set({ 'x', 'o' }, 'af', function()
+        require('nvim-treesitter-textobjects.select').select_textobject('@function.outer', 'textobjects')
+      end)
+      vim.keymap.set({ 'x', 'o' }, 'if', function()
+        require('nvim-treesitter-textobjects.select').select_textobject('@function.inner', 'textobjects')
+      end)
+    end,
+  },
 }

@@ -2,7 +2,6 @@ return {
   {
     'nvim-lualine/lualine.nvim',
     dependencies = {
-      'nvim-lua/lsp-status.nvim',
       'SmiteshP/nvim-navic',
       {
         dir = '~/.dotfiles/nvim-plugins/codecompanion-lualine.nvim',
@@ -39,8 +38,7 @@ return {
             },
           },
           lualine_x = {
-            -- https://github.com/nvim-lualine/lualine.nvim/issues/1201#issuecomment-2206974843
-            'require("lsp-status").status():gsub("%%", "")',
+            'lsp_status',
             'codecompanion',
             {
               'diagnostics',
