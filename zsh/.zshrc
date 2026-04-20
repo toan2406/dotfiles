@@ -167,7 +167,7 @@ function nrt() {
 
 # Cheatsheet tool
 export NAVI_PATH="$HOME/.dotfiles/cheats"
-export NAVI_FZF_OVERRIDES='--tac --no-sort'
+export NAVI_FZF_OVERRIDES='--no-exact'
 navi() {
   [[ $# -eq 0 ]] && local query=' ' || local query="$*"
   local result_cmd="$(command navi --print --query $query)"

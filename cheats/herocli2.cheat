@@ -16,7 +16,7 @@ herocli --server <server> app list-hpa <app_name>
 herocli --server <server> console list-request
 
 # Create an access request
-herocli --server <server> console request <app_name> <writable> --duration <duration> --description "<request_description>"
+herocli --server <server> console request <app_name> <writable> --duration <duration> --description "<request_description>" -a "<approver>"
 
 # Approve an access request
 herocli --server <server> console approve --id <pending_request_id> --description "<approval_description>"
@@ -41,6 +41,7 @@ $ app_name: <app_list> | awk -F '<_column_separator>' '/<namespace>/ {print $3}'
 $ writable: echo -e 'false\ntrue' --- --map "grep -q t && echo --rw || echo ''"
 $ duration: echo -e '3hr\n6hr\n12hr\n24hr' --- --map "sed -E 's/hr$//'"
 $ request_description: echo 'No ticket' --- --fzf-overrides '--no-select-1'
+$ approver: echo -e '\nminh.hue.nguyen@employmenthero.com'
 $ approval_description: echo 'Approve to fulfill the task' --- --fzf-overrides '--no-select-1'
 $ rejection_description: echo 'Reject because it is no longer needed' --- --fzf-overrides '--no-select-1'
 $ request_list: echo 'herocli --server <server> console list-request'
