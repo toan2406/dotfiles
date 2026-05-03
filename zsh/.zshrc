@@ -5,6 +5,7 @@
 export ZSH=/Users/toannguyen/.oh-my-zsh
 
 ZSH_THEME="refined"
+DISABLE_MAGIC_FUNCTIONS=true
 
 plugins=(
   git
@@ -34,7 +35,7 @@ nvm() {
 }
 
 
-export PATH="$(pyenv root)/shims:${PATH}"
+export PATH="$HOME/.pyenv/shims:${PATH}"
 
 
 export PATH="$HOME/.local/bin:$PATH"
@@ -196,7 +197,7 @@ export REVIEW_BASE=master
 
 
 # opam configuration
-test -r $HOME/.opam/opam-init/init.zsh && . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+# test -r $HOME/.opam/opam-init/init.zsh && . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 
 # Find brew curl first
