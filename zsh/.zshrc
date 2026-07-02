@@ -70,7 +70,7 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
 # Improve CLI
 # alias cat='bat'
 alias help='tldr'
-alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+alias du="ncdu --color dark -rr -x --exclude .git"
 alias vim='nvim'
 alias vi='nvim'
 alias bim='nvim'
@@ -100,6 +100,12 @@ function gaob() {
   else
     open "https://github.com/Thinkei/$(basename $(pwd))/actions?query=$(urlencode branch:$1)"
   fi
+}
+
+
+unalias gco
+function gco() {
+  git checkout "$1" 2> /dev/null || git checkout -b "$1"
 }
 
 
@@ -187,9 +193,9 @@ alias mp="tree $HOME/Workspace -d -L 2"
 alias npmg="npm list -g --depth 0"
 alias herostag='hero $@ --context solomon.ehrocks.com'
 alias heroprod='hero $@ --context david.ehrocks.com'
-alias heroclistag='HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_STG herocli --server hero2.staging.ehrocks.com:443'
-alias herocliprod='HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_PROD herocli --server hero2.ehrocks.com:443'
-alias herocliint='HERO_ACCESS_TOKEN=$HERO_ACCESS_TOKEN_INT herocli --server hero2.integration.ehrocks.com:443'
+alias heroclistag='herocli --server hero2.staging.ehrocks.com:443'
+alias herocliprod='herocli --server hero2.ehrocks.com:443'
+alias herocliint='herocli --server hero2.integration.ehrocks.com:443'
 
 export EDITOR=nvim
 export REACT_EDITOR=nvim
