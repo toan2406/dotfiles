@@ -118,7 +118,8 @@ return {
       })
 
       vim.keymap.set('n', '<leader>ff', fzf_lua.files, { desc = 'Fzf Files' })
-      vim.keymap.set('n', '<leader>fg', function() fzf_lua.grep({ search = '' }) end, { desc = 'Fzf Grep' })
+      vim.keymap.set('n', '<leader>fg', fzf_lua.live_grep, { desc = 'Fzf Live Grep' })
+      vim.keymap.set('n', '<leader>fG', fzf_lua.grep, { desc = 'Fzf Grep' })
       vim.keymap.set('n', '<leader>fw', fzf_lua.grep_cword, { desc = 'Fzf Word' })
       vim.keymap.set('n', '<leader>fb', fzf_lua.buffers, { desc = 'Fzf Buffers' })
     end,

@@ -4,8 +4,9 @@ return {
   config = function()
     require('claudecode').setup({
       terminal = {
-        provider = 'snacks',
+        provider = 'native', -- or snacks
         split_width_percentage = 0.40,
+        auto_insert = false,
         snacks_win_opts = {
           wo = {
             winhighlight = 'Normal:Normal',
@@ -39,6 +40,21 @@ return {
         vertical_split = true,
         open_in_current_tab = false,
       },
+    })
+
+    vim.api.nvim_create_autocmd('TermOpen', {
+      pattern = 'claude',
+      callback = function(_)
+        vim.keymap.set('n', 'gf', function()
+          local file = vim.fn.expand('<cfile>')
+
+          vim.cmd('wincmd h')
+          vim.cmd('edit ' .. vim.fn.fnameescape(file))
+        end, { buffer = true })
+
+        vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { buffer = true })
+        vim.keymap.set('t', '<C-w>h', '<C-\\><C-n><C-w>h', { buffer = true })
+      end,
     })
 
     vim.keymap.set('n', '<leader>ac', '<CMD>ClaudeCode<CR>', { desc = 'Toggle Claude' })
