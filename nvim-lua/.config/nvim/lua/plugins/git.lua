@@ -1,9 +1,33 @@
 return {
   {
+    'NeogitOrg/neogit',
+    event = 'VeryLazy',
+    dependencies = {
+      'sindrets/diffview.nvim',
+      'ibhagwan/fzf-lua',
+    },
+    cmd = 'Neogit',
+    config = function()
+      local neogit = require('neogit')
+
+      neogit.setup({
+        mappings = {
+          status = {
+            ['<cr>'] = 'Toggle',
+            ['e'] = 'GoToFile',
+          },
+        },
+      })
+
+      vim.keymap.set('n', '<leader>gg', function() neogit.open({ kind = 'split' }) end, { desc = 'Open Neogit UI' })
+    end
+  },
+
+  {
     'tpope/vim-fugitive',
     event = 'VeryLazy',
     config = function()
-      vim.api.nvim_set_keymap('n', '<leader>gg', ':Git<CR>', { noremap = true, silent = true })
+      -- vim.api.nvim_set_keymap('n', '<leader>gg', ':Git<CR>', { noremap = true, silent = true })
       vim.api.nvim_set_keymap('n', '<leader>gb', ':Git blame<CR>', { noremap = true, silent = true })
       vim.api.nvim_set_keymap('n', '<leader>ge', ':Gedit<CR>', { noremap = true, silent = true })
       vim.api.nvim_set_keymap('n', '<leader>gd', ':Gdiffsplit<CR>', { noremap = true, silent = true })
